@@ -85,3 +85,10 @@
 - 2026-11-04 23:54:34 | STAGE | stage:7:start | Поддержка решения: start
 - 2026-11-04 23:54:34 | STAGE | stage:7:done | Поддержка решения: done
 - 2026-11-04 23:54:58 | CORRECTION | plan:horizon | горизонт планирования был 2026 при текущей дате 2026-11-04; исправлено на 2027 во всех планах и решениях; поймано revisit --stale
+- 2026-11-04 23:55:37 | STAGE | stage:8:start | Пересмотр по новым данным: start
+- 2026-11-04 23:55:38 | START | collect:fetch:kod-ru-gosduma-besplatno-zashita-ot-moshennikov-3be588 | https://kod.ru/gosduma-besplatno-zashita-ot-moshennikov
+- 2026-11-04 23:55:38 | DONE | collect:fetch:kod-ru-gosduma-besplatno-zashita-ot-moshennikov-3be588 | сохранено web-kod-ru-gosduma-besplatno-zashita-ot-moshennikov-3be588-2026-11-04.md
+- 2026-11-04 23:55:39 | START | collect:fetch:3dnews-ru-1120278-v-rossii-prinyat-zakon-o-zashchite-gragdan-d3db7b | https://3dnews.ru/1120278/v-rossii-prinyat-zakon-o-zashchite-gragdan-ot-kibermoshennikov
+- 2026-11-04 23:55:39 | DONE | collect:fetch:3dnews-ru-1120278-v-rossii-prinyat-zakon-o-zashchite-gragdan-d3db7b | сохранено web-3dnews-ru-1120278-v-rossii-prinyat-zakon-o-zashchite-gragdan-d3db7b-2026-11-04.md
+- 2026-11-04 23:56:04 | CORRECTION | evidence:revoke:E35 | заменена более надёжным источником E39 (3DNews, B) вместо поисковой выдачи (C)
+- 2026-11-04 23:56:28 | STAGE | stage:8:done | Пересмотр по новым данным: done
