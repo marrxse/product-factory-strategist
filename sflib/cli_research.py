@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import analyze, config, cost, fetch, graph, journal, paths, sample, scan, sync, validate
+from . import analyze, config, cost, fetch, graph, journal, kb, memory, paths, sample, scan, sync, validate
 from . import evidence as ev
 
 EXIT_FAILED_CHECK = 1
@@ -205,6 +205,42 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------- kb / memory ----------
+
+def cmd_kb(args: argparse.Namespace) -> int:
+    docs = kb.load_docs()
+    if args.check:
+        broken = kb.broken_links(docs)
+        print("\n".join(broken) if broken else f"База знаний: {len(docs)} тем, связи в порядке.")
+        return EXIT_FAILED_CHECK if broken else 0
+    hits = kb.search(" ".join(args.query), docs, kb.synonym_groups(), args.limit)
+    if not hits:
+        print("Ничего не найдено. Карта тем: knowledge/INDEX.md")
+    for hit in hits:
+        print(f"{hit.doc.file} — {hit.doc.title} [{hit.via}, {hit.score:.1f}]\n    {hit.snippet}")
+    return 0
+
+
+def cmd_memory(args: argparse.Namespace) -> int:
+    if args.action == "add":
+        entry = memory.add(" ".join(args.text), args.basis or "", args.author, args.kind)
+        print(memory.describe(entry))
+    elif args.action == "correct":
+        entry = memory.correct(args.text[0], " ".join(args.text[1:]), args.reason or "", args.author)
+        print(f"Исправлено: {args.text[0]} → {entry.id}\n{memory.describe(entry)}")
+    elif args.action == "revoke":
+        print(memory.describe(memory.revoke(args.text[0], args.reason or "")))
+    elif args.action == "search":
+        found = memory.search(" ".join(args.text), include_inactive=args.all)
+        print("\n".join(memory.describe(e) for e in found) if found else "В памяти ничего не найдено.")
+        if found:
+            print("\nЭто наблюдения прошлых сессий, не факты: для выводов подтверди их источником в evidence.csv.")
+    else:
+        entries = [e for e in memory.load() if args.all or e.status == memory.ACTIVE]
+        print("\n".join(memory.describe(e) for e in entries) if entries else "Память пуста.")
+    return 0
+
+
 # ---------- регистрация ----------
 
 def register(sub: argparse._SubParsersAction) -> None:
@@ -268,6 +304,22 @@ def register(sub: argparse._SubParsersAction) -> None:
     p = sub.add_parser("sync", help="обновить .claude/ из skills/, agents/, hooks/settings.json")
     p.add_argument("--check", action="store_true", help="только проверить расхождения")
     p.set_defaults(func=cmd_sync)
+
+    p = sub.add_parser("kb", help="поиск по базе знаний (слова, смысл, связи)")
+    p.add_argument("query", nargs="*")
+    p.add_argument("--limit", type=int, default=5)
+    p.add_argument("--check", action="store_true", help="проверить связи между темами")
+    p.set_defaults(func=cmd_kb)
+
+    p = sub.add_parser("memory", help="память между проектами: add, search, correct, revoke, list")
+    p.add_argument("action", choices=("add", "search", "correct", "revoke", "list"))
+    p.add_argument("text", nargs="*", help="текст / запрос / для correct и revoke: id и новый текст")
+    p.add_argument("--basis", help="основание: проект и ID (обязательно для записей агента)")
+    p.add_argument("--author", default="agent", choices=memory.AUTHORS)
+    p.add_argument("--kind", default="наблюдение агента", choices=memory.KINDS)
+    p.add_argument("--reason")
+    p.add_argument("--all", action="store_true", help="включая исправленные и отозванные")
+    p.set_defaults(func=cmd_memory)
 
     p = sub.add_parser("analyze", help="профиль таблицы CSV: пропуски, дубли, единицы, периоды")
     p.add_argument("table", help="путь к CSV (относительно папки проекта или абсолютный)")
