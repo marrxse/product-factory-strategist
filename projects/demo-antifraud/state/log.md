@@ -92,3 +92,19 @@
 - 2026-11-04 23:55:39 | DONE | collect:fetch:3dnews-ru-1120278-v-rossii-prinyat-zakon-o-zashchite-gragdan-d3db7b | сохранено web-3dnews-ru-1120278-v-rossii-prinyat-zakon-o-zashchite-gragdan-d3db7b-2026-11-04.md
 - 2026-11-04 23:56:04 | CORRECTION | evidence:revoke:E35 | заменена более надёжным источником E39 (3DNews, B) вместо поисковой выдачи (C)
 - 2026-11-04 23:56:28 | STAGE | stage:8:done | Пересмотр по новым данным: done
+- 2026-11-04 23:57:37 | GATE | gate:8 | ok правки пересмотра подтверждены; решения Р1–Р3 в силе
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:cbr-ru-analytics-ib-operations_survey-2024 | заменено фрагментами через WebFetch (sources/web-cbr-operations-survey-2024-manual.md, E8–E10)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:cbr-ru-analytics-ib-operations_survey-2025 | заменено фрагментами через WebFetch (sources/web-cbr-operations-survey-2024-manual.md, E8–E10)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:techora-ru-news-76-abonentov-schitayut-tsifrovuyu-zashchitu-besplatnoy | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:www-sostav-ru-publication-48-rossiyan-otmetili-uluchshenie-situatsii-s | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:kontur-ru-compass-spravka-compass-80735-obyazatelnaya_markirovka_zvonk | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:www-anti-malware-ru-analytics-market_analysis-android-ios-anti-spam-ap | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:mobile-review-com-all | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:techora-76 | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:sostav-48 | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:kontur-law | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:antimalware-apps | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:www-rbc-ru-rbcfreenews-698498d19a7947ebe684f67b-bb097e | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:mobile-review-com-all-press_releases-mts-predupredit-o-moshe-a9d09a | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:eanews-ru-ekaterinburg-20241001150333-kak-spasti-pozhilyh-ro-0741a7 | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
+- 2026-11-04 23:57:45 | SKIP | collect:fetch:www-kp-ru-daily-27728-5117615-289d9a | сайт недоступен для автоматической загрузки; пробел отражён в research.md «Чего мы не знаем» или заменён выдачей (качество C)
