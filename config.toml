@@ -1,0 +1,26 @@
+# Настройки агента. Секретов здесь нет и быть не должно.
+
+[models]
+# Роль → модель (Claude Code). Обоснование — docs/ARCHITECTURE.md, раздел «Маршрутизация».
+orchestrator = "claude-sonnet-5-5"   # ведёт процесс, пишет результаты
+researcher   = "claude-haiku-5-5"    # массовое извлечение из источников — дёшево
+critic       = "claude-opus-5-5"     # сильнейшие возражения — нужна глубина
+verifier     = "claude-sonnet-5-5"   # сверка утверждений с цитатами
+respondent   = "claude-haiku-5-5"    # синтетические респонденты
+# Эскалация: если verifier или validate нашли ошибки на шаге — повторить шаг моделью уровнем выше.
+escalation = ["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"]
+
+[budget]
+confirm_usd = 2.0              # шаг дороже — спросить человека
+project_soft_limit_usd = 15.0  # предупредить при превышении по проекту
+
+[limits]
+max_steps_per_stage = 25
+max_rework_cycles = 2
+max_questions_per_turn = 3
+
+[quality]
+rubric_min = 10                # из 14 (7 критериев × 0–2)
+verified_share_min = 0.9       # доля подтверждённых утверждений в выборке
+sample_size = 10
+seed = 42

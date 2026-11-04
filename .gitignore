@@ -1,0 +1,23 @@
+# Секреты
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# ОС и редакторы
+.DS_Store
+.idea/
+.vscode/
+
+# Локальные настройки Claude Code (не общие)
+.claude/settings.local.json
+
+# Указатель активного проекта — локальный для каждой машины
+projects/.active
+
+# Экспорт
+exports/
