@@ -37,3 +37,6 @@ S3,active,synthetic,sources/synthetic-irina.md,ответ 7,2026-11-04,"Боль
 S4,active,synthetic,sources/synthetic-viktor.md,ответ 5,2026-11-04,"я не просил эту услугу и не понимаю, что она делает сверх того, что уже есть в телефоне.",C,,agent,
 S5,active,synthetic,sources/synthetic-viktor.md,ответ 6,2026-11-04,"не против, чтобы он знал, что я могу попасть в неприятность, и чтобы он мог помочь, когда я попрошу. Но постоянного контроля не хочу.",C,,agent,
 S6,active,synthetic,sources/synthetic-viktor.md,ответ 7,2026-11-04,"непонятно, что она делает, и каждый раз что-то включают без спроса.",C,,agent,
+E33,active,calc,state/analysis/price_ratio.py,вывод скрипта,2026-11-04,kaspersky_month = 89–117 ₽; operator/kaspersky = 1.3–2.8x (оператор 149–249 ₽/мес [E23; E17] против Kaspersky 1 071–1 399 ₽/год [E21; E27]),A,,agent,
+E34,active,doc,sources/web-t-j-ru-list-no-spam-89aca4-2026-11-04.md,"t-j.ru, 05.06.26, Truecaller",2026-11-04,"Сколько стоит: 74,99 $ (5 600 ₽) в год; есть пробная подписка на три дня и бесплатная версия с ограничениями",B,,agent,
+E35,active,doc,sources/search-snippets-2026-11-04.md,Q-law-dates,2026-11-04,"Большинство источников: закон № 41-ФЗ от 01.04.2025, маркировка звонков организаций — с 1 сентября 2025 (п. 9.1 ст. 46 126-ФЗ «О связи»).",C,сверить с pravo.gov.ru,agent,
