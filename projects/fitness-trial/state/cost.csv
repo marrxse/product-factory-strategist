@@ -1,2 +1,8 @@
 ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds,method,note
 2026-11-04 23:59:33,0,human,человек,-,0,0,0,0,0.0,60,время,ворота 0 + делегирование
+2026-11-05 00:03:32,5,transcript,orchestrator,claude-opus-5-5,35,25504,11944133,36968,3.194791,0,факт,18 ответов модели; API-эквивалент
+2026-11-05 00:03:32,5,transcript,subagent,claude-opus-5-5,2,641,0,19589,0.110773,0,факт,1 ответов модели; API-эквивалент
+2026-11-05 00:03:32,5,transcript,subagent,claude-sonnet-5-5,12,3120,133251,46132,0.173204,0,факт,5 ответов модели; API-эквивалент
+2026-11-05 00:03:48,5,transcript,subagent,claude-sonnet-5-5,2,5064,46132,295,0.060608,0,факт,1 ответов модели; API-эквивалент
+2026-11-05 00:03:54,5,transcript,orchestrator,claude-opus-5-5,4,224,684478,3469,0.169144,0,факт,1 ответов модели; API-эквивалент
+2026-11-05 00:04:35,5,transcript,subagent,claude-opus-5-5,2,10585,19589,10147,0.266361,0,факт,1 ответов модели; API-эквивалент
