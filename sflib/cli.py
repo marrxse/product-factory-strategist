@@ -5,7 +5,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from . import cli_research, journal, paths, project
+from . import cli_research, journal, paths, project, validate
 from . import stages as st
 from . import state as stmod
 
@@ -49,6 +49,13 @@ def cmd_stage(args: argparse.Namespace) -> int:
     if args.action == "start":
         rows = stmod.update_row(rows, stage.num, status=st.IN_PROGRESS)
     else:
+        errors = [i for i in validate.run(proj) if i.level == validate.ERROR]
+        if errors and not args.force:
+            print(f"Этап {stage.num} не закрыт: validate нашёл ошибок {len(errors)} (первая: {errors[0]}). "
+                  "Исправьте или закройте осознанно: --force \"причина\".")
+            return 1
+        if errors:
+            journal.append(proj / "state" / "log.md", "NOTE", f"stage:{stage.num}:force", f"закрыт с ошибками: {args.force}")
         new_status = st.AWAITING if stage.has_gate else st.DONE
         new_gate = st.GATE_PENDING if stage.has_gate else st.NO_GATE
         rows = stmod.update_row(rows, stage.num, status=new_status, gate=new_gate)
@@ -140,6 +147,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("stage", help="отметить начало/конец этапа")
     p.add_argument("num", type=int)
     p.add_argument("action", choices=("start", "done"))
+    p.add_argument("--force", help="закрыть этап, несмотря на ошибки validate (причина пишется в журнал)")
     p.set_defaults(func=cmd_stage)
 
     p = sub.add_parser("gate", help="решение человека на воротах")

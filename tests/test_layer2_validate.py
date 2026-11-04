@@ -128,6 +128,19 @@ class ValidateTest(unittest.TestCase):
             (root / "notes.md").write_text("key: " + "sk-ant-" + "a1" * 20 + "\n", encoding="utf-8")
             self.assert_fails_with(root, "похоже на секрет")
 
+    def test_stage_cannot_be_closed_with_validate_errors(self):
+        # процессная ошибка, найденная на втором примере: этап закрыли в одной команде с красным validate
+        with TempRepo() as root:
+            p = make_good_project(root)
+            rewrite(p, "research.md", "Отток в первый месяц 35% [E2].", "Отток в первый месяц 35%.")
+            run("stage", "3", "start")
+            code, out = run("stage", "3", "done")
+            self.assertEqual(code, 1)
+            self.assertIn("не закрыт", out)
+            code, _ = run("stage", "3", "done", "--force", "человек принял как есть")
+            self.assertEqual(code, 0)
+            self.assertIn("закрыт с ошибками", (p / "state/log.md").read_text(encoding="utf-8"))
+
     def test_combined_label_that_hides_synthetic_fails(self):
         # найдено на демо: [ГИП; СИНТ S1] не разбиралось, синтетика рядом с «готова платить» проходила незамеченной
         with TempRepo() as root:

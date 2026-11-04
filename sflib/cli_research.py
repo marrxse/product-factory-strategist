@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import analyze, config, cost, fetch, graph, journal, kb, memory, paths, sample, scan, sync, validate
+from . import analyze, config, cost, fetch, graph, journal, kb, memory, paths, portable, sample, scan, sync, validate
 from . import evidence as ev
 
 EXIT_FAILED_CHECK = 1
@@ -241,6 +241,26 @@ def cmd_memory(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------- перенос ----------
+
+def cmd_export(args: argparse.Namespace) -> int:
+    slug = args.slug or paths.get_active()
+    if not slug:
+        raise paths.SfError("Укажите проект: sf.py export <имя>")
+    archive = portable.export(slug, paths.repo_root() / "exports")
+    print(f"Архив: {archive.relative_to(paths.repo_root())}\nВ другой среде: python3 sf.py import {archive.name} → «продолжи»")
+    return 0
+
+
+def cmd_import(args: argparse.Namespace) -> int:
+    archive = Path(args.archive)
+    if not archive.is_absolute() and not archive.exists():
+        archive = paths.repo_root() / "exports" / archive
+    slug = portable.import_archive(archive)
+    print(f"Проект «{slug}» импортирован и сделан активным. Скажите агенту «продолжи».")
+    return 0
+
+
 # ---------- регистрация ----------
 
 def register(sub: argparse._SubParsersAction) -> None:
@@ -304,6 +324,14 @@ def register(sub: argparse._SubParsersAction) -> None:
     p = sub.add_parser("sync", help="обновить .claude/ из skills/, agents/, hooks/settings.json")
     p.add_argument("--check", action="store_true", help="только проверить расхождения")
     p.set_defaults(func=cmd_sync)
+
+    p = sub.add_parser("export", help="упаковать проект для переноса в другую среду")
+    p.add_argument("slug", nargs="?")
+    p.set_defaults(func=cmd_export)
+
+    p = sub.add_parser("import", help="развернуть проект из архива export")
+    p.add_argument("archive")
+    p.set_defaults(func=cmd_import)
 
     p = sub.add_parser("kb", help="поиск по базе знаний (слова, смысл, связи)")
     p.add_argument("query", nargs="*")
