@@ -100,6 +100,7 @@ def _references(project: Path, files: dict[str, list[Line]]) -> list[Issue]:
 
 def _untagged_numbers(files: dict[str, list[Line]]) -> list[Issue]:
     skip = set(config.get("validate", "skip_number_check", []))
+    skip_sections = tuple(s.lower() for s in config.get("validate", "skip_number_sections", []))
     issues = []
     for name, lines in files.items():
         if name in skip:
@@ -107,6 +108,8 @@ def _untagged_numbers(files: dict[str, list[Line]]) -> list[Issue]:
         for line in lines:
             text = line.text.strip()
             if not text or text.startswith(("#", "|---", "|--", ">")) or SKIP_MARK in text:
+                continue
+            if line.heading.lower().startswith(skip_sections):
                 continue
             if NUMBER_RE.search(text) and not line.is_tagged:
                 issues.append(Issue(ERROR, f"{name}:{line.num}", f"число без метки источника: «{text[:90]}» — добавьте [E…], [ПРОГНОЗ …] или [ГИП]"))

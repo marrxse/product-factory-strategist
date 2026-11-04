@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/hooks/session_start.py\"", "timeout": 20 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/hooks/post_write_validate.py\"", "timeout": 30 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/hooks/stop_cost.py\"", "timeout": 30 }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/hooks/stop_cost.py\"", "timeout": 30 }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python3 sf.py:*)"
+    ]
+  }
+}

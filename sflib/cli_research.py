@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import config, cost, fetch, graph, journal, paths, sample, scan, validate
+from . import analyze, config, cost, fetch, graph, journal, paths, sample, scan, sync, validate
 from . import evidence as ev
 
 EXIT_FAILED_CHECK = 1
@@ -178,6 +178,33 @@ def _latest_transcripts() -> list[Path]:
     return [latest, *sorted((folder / latest.stem).rglob("*.jsonl"))]
 
 
+# ---------- sync / analyze ----------
+
+def cmd_sync(args: argparse.Namespace) -> int:
+    root = paths.repo_root()
+    if args.check:
+        problems = sync.check(root)
+        print("\n".join(problems) if problems else ".claude/ совпадает с skills/, agents/, hooks/settings.json")
+        return EXIT_FAILED_CHECK if problems else 0
+    count = sync.apply(root)
+    print(f"Синхронизировано файлов в .claude/: {count}. Перезапустите сессию Claude Code, чтобы подхватить хуки.")
+    return 0
+
+
+def cmd_analyze(args: argparse.Namespace) -> int:
+    proj = _project(args)
+    source = Path(args.table)
+    table = source if source.is_absolute() else proj / source
+    report = analyze.profile(table)
+    out_dir = proj / "state" / "analysis"
+    out_dir.mkdir(exist_ok=True)
+    target = out_dir / f"{table.stem}-profile.md"
+    target.write_text(report + "\n", encoding="utf-8")
+    print(report)
+    print(f"\nОтчёт сохранён: {target.relative_to(paths.repo_root())}")
+    return 0
+
+
 # ---------- регистрация ----------
 
 def register(sub: argparse._SubParsersAction) -> None:
@@ -237,3 +264,11 @@ def register(sub: argparse._SubParsersAction) -> None:
     p.add_argument("--minutes", type=float, default=0)
     p.add_argument("--note")
     p.set_defaults(func=cmd_cost)
+
+    p = sub.add_parser("sync", help="обновить .claude/ из skills/, agents/, hooks/settings.json")
+    p.add_argument("--check", action="store_true", help="только проверить расхождения")
+    p.set_defaults(func=cmd_sync)
+
+    p = sub.add_parser("analyze", help="профиль таблицы CSV: пропуски, дубли, единицы, периоды")
+    p.add_argument("table", help="путь к CSV (относительно папки проекта или абсолютный)")
+    p.set_defaults(func=cmd_analyze)
