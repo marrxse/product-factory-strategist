@@ -55,6 +55,7 @@ def run(project: Path, final: bool = False, repo_root: Path | None = None) -> li
     issues += _evidence_format(project)
     issues += _references(project, files)
     issues += _untagged_numbers(files)
+    issues += _malformed_tags(files)
     issues += _synthetic_misuse(files)
     issues += _required_files(project, files, final)
     issues += _required_sections(files)
@@ -115,6 +116,23 @@ def _untagged_numbers(files: dict[str, list[Line]]) -> list[Issue]:
                 continue
             if NUMBER_RE.search(text) and not line.is_tagged:
                 issues.append(Issue(ERROR, f"{name}:{line.num}", f"число без метки источника: «{text[:90]}» — добавьте [E…], [ПРОГНОЗ …] или [ГИП]"))
+    return issues
+
+
+LABEL_IN_BRACKETS_RE = re.compile(r"\[[^\]\n]*\b(ФАКТ|ГИП|ПРОГНОЗ|СИНТ)\b[^\]\n]*\]")
+
+
+def _malformed_tags(files: dict[str, list[Line]]) -> list[Issue]:
+    """Метка, которую нельзя разобрать (например [ГИП; СИНТ S1]), прячет ссылки от проверок."""
+    issues = []
+    for name, lines in files.items():
+        for line in lines:
+            parsed = {tag.label for tag in line.tags}
+            for match in LABEL_IN_BRACKETS_RE.finditer(line.text):
+                if match.group(1) not in parsed or match.group(0).count("[") > 1:
+                    issues.append(Issue(ERROR, f"{name}:{line.num}", f"непонятная метка «{match.group(0)}» — "
+                                        "по одной метке в скобках: [ГИП] [СИНТ S1], пояснение через двоеточие: [ГИП: …]"))
+                    break
     return issues
 
 

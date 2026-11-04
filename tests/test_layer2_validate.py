@@ -128,6 +128,14 @@ class ValidateTest(unittest.TestCase):
             (root / "notes.md").write_text("key: " + "sk-ant-" + "a1" * 20 + "\n", encoding="utf-8")
             self.assert_fails_with(root, "похоже на секрет")
 
+    def test_combined_label_that_hides_synthetic_fails(self):
+        # найдено на демо: [ГИП; СИНТ S1] не разбиралось, синтетика рядом с «готова платить» проходила незамеченной
+        with TempRepo() as root:
+            p = make_good_project(root)
+            run("evidence", "add", "--kind", "synthetic", "--source", "synthetic:persona-1", "--quote", "x", "--quality", "C")
+            rewrite(p, "research.md", "## Чего мы не знаем", "Люди хотят знать о звонках [ГИП; СИНТ S1].\n\n## Чего мы не знаем")
+            self.assert_fails_with(root, "непонятная метка")
+
     def test_tag_with_comment_counts_as_tag(self):
         with TempRepo() as root:
             p = make_good_project(root)
