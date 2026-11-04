@@ -36,3 +36,4 @@ ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds
 2026-11-04 23:48:52,5,transcript,subagent,claude-sonnet-5-5,10,7353,165705,10950,0.134066,0,факт,4 ответов модели; API-эквивалент
 2026-11-04 23:48:58,5,transcript,orchestrator,claude-opus-5-5,4,273,587856,3361,0.149935,0,факт,1 ответов модели; API-эквивалент
 2026-11-04 23:49:46,5,transcript,subagent,claude-opus-5-5,2,11812,19753,23527,0.357834,0,факт,1 ответов модели; API-эквивалент
+2026-11-04 23:52:56,5,human,человек,-,0,0,0,0,0.0,180,время,ворота 5: 3 решения
