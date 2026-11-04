@@ -117,6 +117,17 @@ class CostTest(unittest.TestCase):
             self.assertEqual(row.usd, 0.0)
             self.assertIn("нет цены", row.note)
 
+    def test_repeated_stage_start_keeps_first_start(self):
+        # ошибка, найденная на демо: повторный start при доработке затирал время первого захода
+        with TempRepo() as root:
+            run("new", "p1")
+            log = root / "projects/p1/state/log.md"
+            with log.open("a", encoding="utf-8") as h:
+                h.write("- 2026-01-01 10:00:00 | STAGE | stage:4:start | a\n")
+                h.write("- 2026-01-01 10:30:00 | STAGE | stage:4:start | доработка\n")
+                h.write("- 2026-01-01 11:00:00 | STAGE | stage:4:done | b\n")
+            self.assertEqual(cost.stage_durations(root / "projects/p1")["4"], 3600)
+
     def test_calibrate(self):
         self.assertEqual(cost.calibrate(26000, 10000), 2.6)
 

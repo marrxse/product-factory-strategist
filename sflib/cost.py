@@ -217,7 +217,7 @@ def stage_durations(project: Path) -> dict[str, int]:
         _, num, action = parts
         moment = datetime.strptime(entry.ts, "%Y-%m-%d %H:%M:%S")
         if action == "start":
-            starts[num] = moment
+            starts.setdefault(num, moment)  # повторный start без done (доработка) не затирает начало
         elif action == "done" and num in starts:
             totals[num] = totals.get(num, 0) + int((moment - starts.pop(num)).total_seconds())
     return totals
