@@ -76,3 +76,5 @@
 - 2026-11-04 23:45:53 | STAGE | stage:5:start | Стратегии: start
 - 2026-11-04 23:45:53 | START | strategy:rework-1 | доработка по critic 7/14 и verifier 11/19
 - 2026-11-04 23:45:53 | CORRECTION | evidence:revoke:E33 | расчёт на входе качества C (1 071 ₽ из поисковой выдачи) завышен до A; сравнение только с Kaspersky
+- 2026-11-04 23:50:31 | DONE | strategy:rework-1 | 2 цикла: critic 7→7/14, verifier 11/19→13/22; лимит исчерпан; E38 добавлена
+- 2026-11-04 23:50:31 | STAGE | stage:5:done | Стратегии: done
