@@ -5,7 +5,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from . import journal, paths, project
+from . import cli_research, journal, paths, project
 from . import stages as st
 from . import state as stmod
 
@@ -154,6 +154,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("text", nargs="?", default="")
     p.add_argument("--repeat", help="причина осознанного повтора выполненного шага")
     p.set_defaults(func=cmd_log)
+
+    cli_research.register(sub)
     return parser
 
 
