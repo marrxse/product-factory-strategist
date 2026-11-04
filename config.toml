@@ -24,7 +24,7 @@ max_age_days = 180             # старше — «основание уста�
 
 [validate]
 # Файлы, где числа без меток допустимы (планы и отчёты о самой работе, а не выводы о мире)
-skip_number_check = ["research-plan.md", "quality-report.md"]
+skip_number_check = ["research-plan.md", "quality-report.md", "interview-guide.md"]
 # Разделы о самой работе агента (затраты, бюджет), а не о мире
 skip_number_sections = ["стоимость этой работы", "бюджет и сроки"]
 

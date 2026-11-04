@@ -1,0 +1,65 @@
+# Журнал действий: Платная защита от мошеннических звонков
+
+> Пишется только командой `python3 sf.py log ...` (и `stage`/`gate`). Формат: время | тип | ключ шага | описание.
+> Типы: START, DONE, FAIL, SKIP, REPEAT, NOTE, STAGE, GATE, CORRECTION, INJECTION, ROUTE.
+
+- 2026-11-04 23:13:52 | NOTE | project:create | Проект создан из demo
+- 2026-11-04 23:13:53 | STAGE | stage:0:start | Постановка задачи: start
+- 2026-11-04 23:14:15 | STAGE | stage:0:done | Постановка задачи: done
+- 2026-11-04 23:18:59 | GATE | gate:0 | ok подтверждено; фокус — защищающие близких; можно менять продукт и цену
+- 2026-11-04 23:18:59 | STAGE | stage:1:start | Сбор материалов: start
+- 2026-11-04 23:19:25 | CORRECTION | cost:stage-fix | время ворот 0 ошибочно записано на этап 1, исправлено на 0
+- 2026-11-04 23:19:25 | START | collect:fetch:wciom-ru-analytical-reviews-analiticheskii-obzor-telefonnoe-moshennich | https://wciom.ru/analytical-reviews/analiticheskii-obzor/telefonnoe-moshennichestvo-monitoring
+- 2026-11-04 23:19:27 | DONE | collect:fetch:wciom-ru-analytical-reviews-analiticheskii-obzor-telefonnoe-moshennich | сохранено web-wciom-ru-analytical-reviews-analiticheskii-obzor-telefonnoe-moshennich-2026-11-04.md
+- 2026-11-04 23:19:28 | START | collect:fetch:cbr-ru-analytics-ib-operations_survey-2024 | https://cbr.ru/analytics/ib/operations_survey/2024/
+- 2026-11-04 23:19:28 | FAIL | collect:fetch:cbr-ru-analytics-ib-operations_survey-2024 | Сайт ответил ошибкой 403: https://cbr.ru/analytics/ib/operations_survey/2024/
+- 2026-11-04 23:19:29 | START | collect:fetch:cbr-ru-analytics-ib-operations_survey-2025 | https://cbr.ru/analytics/ib/operations_survey/2025/
+- 2026-11-04 23:19:29 | FAIL | collect:fetch:cbr-ru-analytics-ib-operations_survey-2025 | Сайт ответил ошибкой 403: https://cbr.ru/analytics/ib/operations_survey/2025/
+- 2026-11-04 23:19:29 | START | collect:fetch:www-comnews-ru-content-246361-2026-07-16-2026-w29-1180-servisy-bezopas | https://www.comnews.ru/content/246361/2026-07-16/2026-w29/1180/servisy-bezopasnosti-mobilnykh-prilozheniyakh-operatorov
+- 2026-11-04 23:19:32 | DONE | collect:fetch:www-comnews-ru-content-246361-2026-07-16-2026-w29-1180-servisy-bezopas | сохранено web-www-comnews-ru-content-246361-2026-07-16-2026-w29-1180-servisy-bezopas-2026-11-04.md
+- 2026-11-04 23:19:32 | START | collect:fetch:hi-tech-mail-ru-news-130308-operatorov-svyazi-v-rossii-obyazhut-sdelat | https://hi-tech.mail.ru/news/130308-operatorov-svyazi-v-rossii-obyazhut-sdelat-antispam-filtry-besplatnymi/
+- 2026-11-04 23:19:33 | DONE | collect:fetch:hi-tech-mail-ru-news-130308-operatorov-svyazi-v-rossii-obyazhut-sdelat | сохранено web-hi-tech-mail-ru-news-130308-operatorov-svyazi-v-rossii-obyazhut-sdelat-2026-11-04.md
+- 2026-11-04 23:19:33 | START | collect:fetch:techora-ru-news-76-abonentov-schitayut-tsifrovuyu-zashchitu-besplatnoy | https://techora.ru/news/76-abonentov-schitayut-tsifrovuyu-zashchitu-besplatnoy-2026-08-05
+- 2026-11-04 23:19:34 | FAIL | collect:fetch:techora-ru-news-76-abonentov-schitayut-tsifrovuyu-zashchitu-besplatnoy | На странице почти нет текста (возможно, она собирается скриптами). Сохраните текст вручную в sources/.
+- 2026-11-04 23:19:35 | START | collect:fetch:www-sostav-ru-publication-48-rossiyan-otmetili-uluchshenie-situatsii-s | https://www.sostav.ru/publication/48-rossiyan-otmetili-uluchshenie-situatsii-s-nezhelatelnymi-zvonkami-81752.html
+- 2026-11-04 23:19:45 | FAIL | collect:fetch:www-sostav-ru-publication-48-rossiyan-otmetili-uluchshenie-situatsii-s | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://www.sostav.ru/publication/48-rossiyan-otmetili-uluchshenie-situatsii-s-nezhelatelnymi-zvonkami-81752.html
+- 2026-11-04 23:19:45 | START | collect:fetch:kontur-ru-compass-spravka-compass-80735-obyazatelnaya_markirovka_zvonk | https://kontur.ru/compass/spravka-compass/80735-obyazatelnaya_markirovka_zvonkov
+- 2026-11-04 23:19:56 | FAIL | collect:fetch:kontur-ru-compass-spravka-compass-80735-obyazatelnaya_markirovka_zvonk | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://kontur.ru/compass/spravka-compass/80735-obyazatelnaya_markirovka_zvonkov
+- 2026-11-04 23:19:56 | START | collect:fetch:www-anti-malware-ru-analytics-market_analysis-android-ios-anti-spam-ap | https://www.anti-malware.ru/analytics/Market_Analysis/Android-iOS-anti-spam-apps-2025
+- 2026-11-04 23:20:01 | FAIL | collect:fetch:www-anti-malware-ru-analytics-market_analysis-android-ios-anti-spam-ap | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://www.anti-malware.ru/analytics/Market_Analysis/Android-iOS-anti-spam-apps-2025
+- 2026-11-04 23:20:02 | START | collect:fetch:mobile-review-com-all | https://mobile-review.com/all/?p=197932
+- 2026-11-04 23:20:12 | FAIL | collect:fetch:mobile-review-com-all | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://mobile-review.com/all/?p=197932
+- 2026-11-04 23:20:12 | START | collect:fetch:hi-tech-mail-ru-news-142721-vciom-nezhelatelnye-zvonki-za-polgoda-polu | https://hi-tech.mail.ru/news/142721-vciom-nezhelatelnye-zvonki-za-polgoda-poluchali-98-rossiyan/
+- 2026-11-04 23:20:13 | DONE | collect:fetch:hi-tech-mail-ru-news-142721-vciom-nezhelatelnye-zvonki-za-polgoda-polu | сохранено web-hi-tech-mail-ru-news-142721-vciom-nezhelatelnye-zvonki-za-polgoda-polu-2026-11-04.md
+- 2026-11-04 23:20:30 | START | collect:fetch:wciom-ru-analytical-reviews-analiticheskii-obzor-telefonnoe--93c698 | https://wciom.ru/analytical-reviews/analiticheskii-obzor/telefonnoe-moshennichestvo-masshtaby-i-poteri
+- 2026-11-04 23:20:32 | DONE | collect:fetch:wciom-ru-analytical-reviews-analiticheskii-obzor-telefonnoe--93c698 | сохранено web-wciom-ru-analytical-reviews-analiticheskii-obzor-telefonnoe--93c698-2026-11-04.md
+- 2026-11-04 23:20:32 | NOTE | collect:fetch-bug | ошибка fetch: склейка имён длинных URL; исправлено (отпечаток адреса), добавлен тест
+- 2026-11-04 23:21:58 | FAIL | collect:techora-76 | проверка браузера блокирует чтение; цифра 76% не используется
+- 2026-11-04 23:21:58 | FAIL | collect:sostav-48 | обрыв соединения ×2
+- 2026-11-04 23:21:58 | FAIL | collect:kontur-law | обрыв соединения ×2
+- 2026-11-04 23:21:58 | FAIL | collect:antimalware-apps | обрыв соединения ×2
+- 2026-11-04 23:21:59 | DONE | collect:cbr-2024 | фрагменты через WebFetch (fetch: 403)
+- 2026-11-04 23:21:59 | DONE | collect:kommersant | фрагменты через WebFetch
+- 2026-11-04 23:22:39 | START | collect:fetch:www-rbc-ru-rbcfreenews-698498d19a7947ebe684f67b-bb097e | https://www.rbc.ru/rbcfreenews/698498d19a7947ebe684f67b
+- 2026-11-04 23:22:39 | FAIL | collect:fetch:www-rbc-ru-rbcfreenews-698498d19a7947ebe684f67b-bb097e | Сайт ответил ошибкой 401: https://www.rbc.ru/rbcfreenews/698498d19a7947ebe684f67b
+- 2026-11-04 23:22:40 | START | collect:fetch:mobile-review-com-all-press_releases-mts-predupredit-o-moshe-a9d09a | https://mobile-review.com/all/press_releases/mts-predupredit-o-moshennicheskih-zvonkah-chlenam-semi/
+- 2026-11-04 23:22:50 | FAIL | collect:fetch:mobile-review-com-all-press_releases-mts-predupredit-o-moshe-a9d09a | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://mobile-review.com/all/press_releases/mts-predupredit-o-moshennicheskih-zvonkah-chlenam-semi/
+- 2026-11-04 23:22:50 | START | collect:fetch:www-iphones-ru-inotes-mts-predstavila-podpisku-zashchitnik-8ba80d | https://www.iphones.ru/iNotes/mts-predstavila-podpisku-zashchitnik
+- 2026-11-04 23:22:52 | DONE | collect:fetch:www-iphones-ru-inotes-mts-predstavila-podpisku-zashchitnik-8ba80d | сохранено web-www-iphones-ru-inotes-mts-predstavila-podpisku-zashchitnik-8ba80d-2026-11-04.md
+- 2026-11-04 23:22:52 | START | collect:fetch:eanews-ru-ekaterinburg-20241001150333-kak-spasti-pozhilyh-ro-0741a7 | https://eanews.ru/ekaterinburg/20241001150333/kak-spasti-pozhilyh-rodstvennikov-ot-moshennikov
+- 2026-11-04 23:23:03 | FAIL | collect:fetch:eanews-ru-ekaterinburg-20241001150333-kak-spasti-pozhilyh-ro-0741a7 | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://eanews.ru/ekaterinburg/20241001150333/kak-spasti-pozhilyh-rodstvennikov-ot-moshennikov
+- 2026-11-04 23:23:03 | START | collect:fetch:www-kp-ru-daily-27728-5117615-289d9a | https://www.kp.ru/daily/27728/5117615/
+- 2026-11-04 23:23:14 | FAIL | collect:fetch:www-kp-ru-daily-27728-5117615-289d9a | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://www.kp.ru/daily/27728/5117615/
+- 2026-11-04 23:23:14 | START | collect:fetch:3dnews-ru-1039682-telefonniy-blokpost-obzor-prilogeniy-dlya--f6064d | https://3dnews.ru/1039682/telefonniy-blokpost-obzor-prilogeniy-dlya-zashchiti-ot-moshennicheskih-i-spamzvonkov/print
+- 2026-11-04 23:23:15 | DONE | collect:fetch:3dnews-ru-1039682-telefonniy-blokpost-obzor-prilogeniy-dlya--f6064d | сохранено web-3dnews-ru-1039682-telefonniy-blokpost-obzor-prilogeniy-dlya--f6064d-2026-11-04.md
+- 2026-11-04 23:23:15 | START | collect:fetch:t-j-ru-list-no-spam-89aca4 | https://t-j.ru/list/no-spam/
+- 2026-11-04 23:23:16 | DONE | collect:fetch:t-j-ru-list-no-spam-89aca4 | сохранено web-t-j-ru-list-no-spam-89aca4-2026-11-04.md
+- 2026-11-04 23:26:37 | DONE | collect:researcher | researcher (haiku): +8 записей E23–E30; выборочная сверка 5 цитат
+- 2026-11-04 23:26:58 | STAGE | stage:1:done | Сбор материалов: done
+- 2026-11-04 23:26:58 | STAGE | stage:2:start | План исследования: start
+- 2026-11-04 23:26:58 | STAGE | stage:2:done | План исследования: done
+- 2026-11-04 23:28:40 | GATE | gate:2 | ok план подтверждён, бюджет до 5 $
+- 2026-11-04 23:28:40 | STAGE | stage:3:start | Исследование: start
+- 2026-11-04 23:28:48 | NOTE | validate:false-positive | хук: числа набора респондентов в interview-guide — ложное срабатывание; файл добавлен в skip_number_check
+- 2026-11-04 23:30:52 | NOTE | validate:false-positive | «без спроса» распознавалось как спрос; правило исправлено, тест добавлен
+- 2026-11-04 23:31:22 | STAGE | stage:3:done | Исследование: done

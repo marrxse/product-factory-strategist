@@ -87,6 +87,16 @@ class ValidateTest(unittest.TestCase):
                     "Большинство пользователей хотят простоты [СИНТ S1].\n\n## Чего мы не знаем")
             self.assert_fails_with(root, "доказательство спроса")
 
+    def test_phrase_bez_sprosa_is_not_demand_claim(self):
+        # ложное срабатывание, найденное на демо: «без спроса» = «не спросив»
+        with TempRepo() as root:
+            p = make_good_project(root)
+            run("evidence", "add", "--kind", "synthetic", "--source", "synthetic:persona-1", "--quote", "включают без спроса", "--quality", "C")
+            rewrite(p, "research.md", "## Чего мы не знаем",
+                    "Подключение без спроса раздражает [СИНТ S1].\n\n## Чего мы не знаем")
+            code, out = run("validate")
+            self.assertEqual(code, 0, out)
+
     def test_synthetic_without_label_fails(self):
         with TempRepo() as root:
             p = make_good_project(root)
@@ -117,6 +127,14 @@ class ValidateTest(unittest.TestCase):
             make_good_project(root)
             (root / "notes.md").write_text("key: " + "sk-ant-" + "a1" * 20 + "\n", encoding="utf-8")
             self.assert_fails_with(root, "похоже на секрет")
+
+    def test_tag_with_comment_counts_as_tag(self):
+        with TempRepo() as root:
+            p = make_good_project(root)
+            rewrite(p, "research.md", "## Чего мы не знаем",
+                    "Может вырасти до 40% [ГИП: проверим интервью].\nРост 5% [ПРОГНОЗ C1: при той же цене].\n\n## Чего мы не знаем")
+            code, out = run("validate")
+            self.assertEqual(code, 0, out)
 
     def test_cyrillic_lookalike_reference_is_understood(self):
         with TempRepo() as root:

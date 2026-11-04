@@ -129,6 +129,12 @@ class FetchAndSampleTest(unittest.TestCase):
         self.assertNotIn("evil", text)
         self.assertNotIn("меню", text)
 
+    def test_long_urls_with_same_prefix_get_different_names(self):
+        # ошибка, найденная на демо-прогоне: две страницы ВЦИОМ склеились после обрезки имени
+        base = "https://wciom.ru/analytical-reviews/analiticheskii-obzor/telefonnoe-moshennichestvo-"
+        self.assertNotEqual(fetch.slug_for(base + "monitoring"), fetch.slug_for(base + "masshtaby-i-poteri"))
+        self.assertEqual(fetch.slug_for(base + "monitoring"), fetch.slug_for(base + "monitoring"))
+
     def test_fetch_rejects_non_http(self):
         with TempRepo():
             run("new", "p1")

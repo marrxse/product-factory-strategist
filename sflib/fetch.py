@@ -1,6 +1,7 @@
 """Запасной сбор веб-страниц без MCP: снимок текста в sources/ с URL и датой, проверка на инъекции."""
 from __future__ import annotations
 
+import hashlib
 import re
 import urllib.error
 import urllib.request
@@ -57,9 +58,11 @@ def html_to_text(html: str) -> tuple[str, str]:
 
 
 def slug_for(url: str) -> str:
+    """Читаемое имя + отпечаток полного адреса: разные URL с общим началом не склеиваются после обрезки."""
     parsed = urlparse(url)
     base = unquote(parsed.netloc + parsed.path).lower()
-    return re.sub(r"[^\w]+", "-", base).strip("-_")[:70] or "page"
+    readable = re.sub(r"[^\w]+", "-", base).strip("-_")[:60] or "page"
+    return f"{readable}-{hashlib.sha1(url.encode('utf-8')).hexdigest()[:6]}"
 
 
 def download(url: str) -> tuple[str, str]:

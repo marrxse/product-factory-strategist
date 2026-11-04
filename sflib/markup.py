@@ -12,7 +12,9 @@ from pathlib import Path
 
 LOOKALIKE = str.maketrans({"Е": "E", "С": "C", "е": "E", "с": "C"})
 REF = r"[EЕSCС]\d+"
-TAG_RE = re.compile(rf"\[(?P<label>ФАКТ|ГИП|ПРОГНОЗ|СИНТ)?\s*(?P<refs>{REF}(?:\s*[;,]\s*{REF})*)?\s*\](?!\()")
+# После метки допускается пояснение через двоеточие: [ГИП: проверить интервью], [ПРОГНОЗ C4: при цене 199 ₽]
+TAG_RE = re.compile(rf"\[(?P<label>ФАКТ|ГИП|ПРОГНОЗ|СИНТ)?\s*(?P<refs>{REF}(?:\s*[;,]\s*{REF})*)?"
+                    rf"(?P<comment>\s*:[^\]\n]*)?\s*\](?!\()")
 CONCLUSION_RE = re.compile(r"\*\*([CС]\d+)\.\*\*")
 CAPABILITY_RE = re.compile(r"\*\*П(\d+)\.\*\*")
 PROMISE_RE = re.compile(r"\*\*[ОO](\d+)\.\*\*")
