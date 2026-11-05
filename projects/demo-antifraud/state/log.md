@@ -134,3 +134,13 @@
 - 2026-11-05 04:20:12 | CORRECTION | evidence:revoke:E20 | заменена прочитанным первоисточником E43 (РИАМО, качество B) вместо поисковой выдачи (C)
 - 2026-11-05 04:20:41 | STAGE | stage:8:done | Пересмотр по новым данным: done
 - 2026-11-05 04:21:31 | GATE | gate:8 | ok подтверждено: пересмотр 2 — открытые данные МегаФона, отличие B только П3
+- 2026-11-05 04:25:56 | STAGE | stage:8:start | Пересмотр по новым данным: start
+- 2026-11-05 04:25:56 | START | revisit:sources-upgrade | замена источников качества C официальными страницами
+- 2026-11-05 04:25:57 | START | collect:fetch:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | https://moskva.mts.ru/personal/mobilnaya-svyaz/uslugi/zashchitnik
+- 2026-11-05 04:26:00 | DONE | collect:fetch:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | сохранено web-moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52-2026-11-05.md
+- 2026-11-05 04:26:00 | START | collect:fetch:mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-plus-3fde8f | https://mts.ru/personal/mobilnaya-svyaz/uslugi/zashchitnik-plus
+- 2026-11-05 04:26:03 | DONE | collect:fetch:mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-plus-3fde8f | сохранено web-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-plus-3fde8f-2026-11-05.md
+- 2026-11-05 04:26:04 | START | collect:fetch:www-kaspersky-ru-who-calls-2159b0 | https://www.kaspersky.ru/who-calls
+- 2026-11-05 04:26:04 | FAIL | collect:fetch:www-kaspersky-ru-who-calls-2159b0 | Сайт ответил ошибкой 404: https://www.kaspersky.ru/who-calls
+- 2026-11-05 04:26:05 | START | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | https://yandex.ru/support/id/ru/opredelitel
+- 2026-11-05 04:26:06 | FAIL | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | Сайт ответил ошибкой 404: https://yandex.ru/support/id/ru/opredelitel
