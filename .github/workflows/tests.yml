@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.11", "3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Тесты (только стандартная библиотека)
+        env:
+          PYTHONUTF8: "1"
+        run: python -m unittest discover -s tests -t . -v
+      - name: Проверка демо-проектов и секретов
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python sf.py doctor
+          python sf.py -p demo-antifraud validate --final
+          python sf.py -p fitness-trial validate --final
+          python sf.py scan secrets
+          python sf.py kb --check

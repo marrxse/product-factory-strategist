@@ -144,3 +144,4 @@
 - 2026-11-05 04:26:04 | FAIL | collect:fetch:www-kaspersky-ru-who-calls-2159b0 | Сайт ответил ошибкой 404: https://www.kaspersky.ru/who-calls
 - 2026-11-05 04:26:05 | START | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | https://yandex.ru/support/id/ru/opredelitel
 - 2026-11-05 04:26:06 | FAIL | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | Сайт ответил ошибкой 404: https://yandex.ru/support/id/ru/opredelitel
+- 2026-11-05 04:30:50 | CORRECTION | evidence:revoke:E47 | модель не учитывала стоимость привлечения и каннибализацию; заменена E48
