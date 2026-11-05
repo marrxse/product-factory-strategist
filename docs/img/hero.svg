@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 330" width="1150" height="330" role="img" aria-label="Стратег Фабрики продуктов: девять этапов от постановки задачи до пересмотра решения, на шести из них решает человек">
+<style>
+.bg{fill:#fbfaf7}.fg{fill:#1d1d1f}.mut{fill:#62656d}.acc{fill:#2f5d8a}
+.card{fill:#ffffff;stroke:#e3e1db}.gate{fill:#eaf1f9;stroke:#2f5d8a;stroke-width:1.6}
+.ln{stroke:#c9c6bd;fill:none}.chipC{fill:#e7efff}.chipCt{fill:#24467a}.chipE{fill:#e6f5ea}.chipEt{fill:#1d6b37}
+.warn{fill:#fff1d6}.warnt{fill:#7a4b00}
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+@media (prefers-color-scheme:dark){
+.bg{fill:#0d1117}.fg{fill:#e6edf3}.mut{fill:#9aa4b2}.acc{fill:#8bb6e6}
+.card{fill:#161b22;stroke:#30363d}.gate{fill:#14263b;stroke:#8bb6e6}
+.ln{stroke:#3d444d}.chipC{fill:#1a2a44}.chipCt{fill:#9cc0f5}.chipE{fill:#173523}.chipEt{fill:#8fdaa5}
+.warn{fill:#3d2f12}.warnt{fill:#f1c46b}}
+</style>
+<rect class="bg" width="1150" height="330" rx="14"/>
+<text class="fg" x="36" y="62" font-size="32" font-weight="700">Стратег Фабрики продуктов</text>
+<text class="mut" x="36" y="94" font-size="17">ИИ-агент для руководителя цифрового продукта: от размытого вопроса — к решению,</text>
+<text class="mut" x="36" y="117" font-size="17">под каждой цифрой которого стоит цитата из источника</text>
+<rect class="gate" x="36" y="152" width="114" height="62" rx="10"/>
+<text class="acc" x="48" y="176" font-size="13" font-weight="600">Этап 0  ✋</text>
+<text class="fg" x="48" y="198" font-size="14" font-weight="600">Постановка</text>
+<rect class="card" x="157" y="152" width="114" height="62" rx="10"/>
+<text class="mut" x="169" y="176" font-size="13" font-weight="600">Этап 1</text>
+<text class="fg" x="169" y="198" font-size="14" font-weight="600">Сбор</text>
+<rect class="gate" x="278" y="152" width="114" height="62" rx="10"/>
+<text class="acc" x="290" y="176" font-size="13" font-weight="600">Этап 2  ✋</text>
+<text class="fg" x="290" y="198" font-size="14" font-weight="600">План</text>
+<rect class="card" x="399" y="152" width="114" height="62" rx="10"/>
+<text class="mut" x="411" y="176" font-size="13" font-weight="600">Этап 3</text>
+<text class="fg" x="411" y="198" font-size="13" font-weight="600">Исследование</text>
+<rect class="gate" x="520" y="152" width="114" height="62" rx="10"/>
+<text class="acc" x="532" y="176" font-size="13" font-weight="600">Этап 4  ✋</text>
+<text class="fg" x="532" y="198" font-size="14" font-weight="600">Варианты</text>
+<rect class="gate" x="641" y="152" width="114" height="62" rx="10"/>
+<text class="acc" x="653" y="176" font-size="13" font-weight="600">Этап 5  ✋</text>
+<text class="fg" x="653" y="198" font-size="14" font-weight="600">Стратегии</text>
+<rect class="gate" x="762" y="152" width="114" height="62" rx="10"/>
+<text class="acc" x="774" y="176" font-size="13" font-weight="600">Этап 6  ✋</text>
+<text class="fg" x="774" y="198" font-size="13" font-weight="600">План проверки</text>
+<rect class="card" x="883" y="152" width="114" height="62" rx="10"/>
+<text class="mut" x="895" y="176" font-size="13" font-weight="600">Этап 7</text>
+<text class="fg" x="895" y="198" font-size="14" font-weight="600">Решение</text>
+<rect class="gate" x="1004" y="152" width="114" height="62" rx="10"/>
+<text class="acc" x="1016" y="176" font-size="13" font-weight="600">Этап 8  ✋</text>
+<text class="fg" x="1016" y="198" font-size="14" font-weight="600">Пересмотр</text>
+<text class="mut" x="36" y="240" font-size="13">✋ ворота: агент останавливается, решает человек · после решения агент следит за его основаниями и сам предлагает пересмотр</text>
+<text class="acc" x="36" y="288" font-size="26" font-weight="700">93%</text>
+<text class="mut" x="36" y="310" font-size="13">утверждений подтвердила независимая проверка</text>
+<text class="acc" x="396" y="288" font-size="26" font-weight="700">0</text>
+<text class="mut" x="396" y="310" font-size="13">выдуманных цитат и чисел во всех проверках</text>
+<text class="acc" x="756" y="288" font-size="26" font-weight="700">12 из 14</text>
+<text class="mut" x="756" y="310" font-size="13">по слепой рубрике — у обычного ИИ-чата 6</text>
+</svg>
