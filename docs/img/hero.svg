@@ -1,52 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 330" width="1150" height="330" role="img" aria-label="Стратег Фабрики продуктов: девять этапов от постановки задачи до пересмотра решения, на шести из них решает человек">
-<style>
-.bg{fill:#fbfaf7}.fg{fill:#1d1d1f}.mut{fill:#62656d}.acc{fill:#2f5d8a}
-.card{fill:#ffffff;stroke:#e3e1db}.gate{fill:#eaf1f9;stroke:#2f5d8a;stroke-width:1.6}
-.ln{stroke:#c9c6bd;fill:none}.chipC{fill:#e7efff}.chipCt{fill:#24467a}.chipE{fill:#e6f5ea}.chipEt{fill:#1d6b37}
-.warn{fill:#fff1d6}.warnt{fill:#7a4b00}
-text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
-@media (prefers-color-scheme:dark){
-.bg{fill:#0d1117}.fg{fill:#e6edf3}.mut{fill:#9aa4b2}.acc{fill:#8bb6e6}
-.card{fill:#161b22;stroke:#30363d}.gate{fill:#14263b;stroke:#8bb6e6}
-.ln{stroke:#3d444d}.chipC{fill:#1a2a44}.chipCt{fill:#9cc0f5}.chipE{fill:#173523}.chipEt{fill:#8fdaa5}
-.warn{fill:#3d2f12}.warnt{fill:#f1c46b}}
-</style>
-<rect class="bg" width="1150" height="330" rx="14"/>
-<text class="fg" x="36" y="62" font-size="32" font-weight="700">Стратег Фабрики продуктов</text>
-<text class="mut" x="36" y="94" font-size="17">ИИ-агент для руководителя цифрового продукта: от размытого вопроса — к решению,</text>
-<text class="mut" x="36" y="117" font-size="17">под каждой цифрой которого стоит цитата из источника</text>
-<rect class="gate" x="36" y="152" width="114" height="62" rx="10"/>
-<text class="acc" x="48" y="176" font-size="13" font-weight="600">Этап 0  ✋</text>
-<text class="fg" x="48" y="198" font-size="14" font-weight="600">Постановка</text>
-<rect class="card" x="157" y="152" width="114" height="62" rx="10"/>
-<text class="mut" x="169" y="176" font-size="13" font-weight="600">Этап 1</text>
-<text class="fg" x="169" y="198" font-size="14" font-weight="600">Сбор</text>
-<rect class="gate" x="278" y="152" width="114" height="62" rx="10"/>
-<text class="acc" x="290" y="176" font-size="13" font-weight="600">Этап 2  ✋</text>
-<text class="fg" x="290" y="198" font-size="14" font-weight="600">План</text>
-<rect class="card" x="399" y="152" width="114" height="62" rx="10"/>
-<text class="mut" x="411" y="176" font-size="13" font-weight="600">Этап 3</text>
-<text class="fg" x="411" y="198" font-size="13" font-weight="600">Исследование</text>
-<rect class="gate" x="520" y="152" width="114" height="62" rx="10"/>
-<text class="acc" x="532" y="176" font-size="13" font-weight="600">Этап 4  ✋</text>
-<text class="fg" x="532" y="198" font-size="14" font-weight="600">Варианты</text>
-<rect class="gate" x="641" y="152" width="114" height="62" rx="10"/>
-<text class="acc" x="653" y="176" font-size="13" font-weight="600">Этап 5  ✋</text>
-<text class="fg" x="653" y="198" font-size="14" font-weight="600">Стратегии</text>
-<rect class="gate" x="762" y="152" width="114" height="62" rx="10"/>
-<text class="acc" x="774" y="176" font-size="13" font-weight="600">Этап 6  ✋</text>
-<text class="fg" x="774" y="198" font-size="13" font-weight="600">План проверки</text>
-<rect class="card" x="883" y="152" width="114" height="62" rx="10"/>
-<text class="mut" x="895" y="176" font-size="13" font-weight="600">Этап 7</text>
-<text class="fg" x="895" y="198" font-size="14" font-weight="600">Решение</text>
-<rect class="gate" x="1004" y="152" width="114" height="62" rx="10"/>
-<text class="acc" x="1016" y="176" font-size="13" font-weight="600">Этап 8  ✋</text>
-<text class="fg" x="1016" y="198" font-size="14" font-weight="600">Пересмотр</text>
-<text class="mut" x="36" y="240" font-size="13">✋ ворота: агент останавливается, решает человек · после решения агент следит за его основаниями и сам предлагает пересмотр</text>
-<text class="acc" x="36" y="288" font-size="26" font-weight="700">93%</text>
-<text class="mut" x="36" y="310" font-size="13">утверждений подтвердила независимая проверка</text>
-<text class="acc" x="396" y="288" font-size="26" font-weight="700">0</text>
-<text class="mut" x="396" y="310" font-size="13">выдуманных цитат и чисел во всех проверках</text>
-<text class="acc" x="756" y="288" font-size="26" font-weight="700">12 из 14</text>
-<text class="mut" x="756" y="310" font-size="13">по слепой рубрике — у обычного ИИ-чата 6</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Стратег Фабрики продуктов — решение, под каждой цифрой которого цитата. 93% утверждений подтвердила проверка, 0 выдуманных цитат, 12 из 14 по слепой рубрике против 6 у обычного чата">
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style>
+<defs>
+<radialGradient id="g1" cx="0.92" cy="-0.05" r="0.55"><stop offset="0" stop-color="#00B956" stop-opacity="0.32"/><stop offset="1" stop-color="#00B956" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="0.02" cy="1.08" r="0.6"><stop offset="0" stop-color="#731982" stop-opacity="0.45"/><stop offset="1" stop-color="#731982" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="600" rx="28" fill="#000000"/>
+<rect width="1200" height="600" rx="28" fill="url(#g1)"/><rect width="1200" height="600" rx="28" fill="url(#g2)"/>
+<text x="80" y="108" font-size="20" font-weight="600" fill="#00B956" letter-spacing="0.2" text-anchor="start">ИИ-агент · Стратег Фабрики продуктов</text>
+<text x="80" y="188" font-size="64" font-weight="700" fill="#f5f5f7" letter-spacing="-1.8" text-anchor="start">Решение, под каждой цифрой</text>
+<text x="80" y="262" font-size="64" font-weight="700" fill="#f5f5f7" letter-spacing="-1.8" text-anchor="start">которого — <tspan fill="#00B956">цитата.</tspan></text>
+<text x="80" y="320" font-size="22" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">От размытого вопроса — к исследованию, вариантам, стратегии и плану проверки.</text>
+<text x="80" y="350" font-size="22" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">А после решения — честный пересмотр, когда меняются данные.</text>
+<rect x="80" y="400" width="1040" height="1" fill="#2c2c2e"/>
+<text x="80" y="482" font-size="58" font-weight="700" fill="#f5f5f7" letter-spacing="-1.6" text-anchor="start">93%</text>
+<text x="80" y="518" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">утверждений подтвердила</text>
+<text x="80" y="542" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">независимая проверка</text>
+<text x="440" y="482" font-size="58" font-weight="700" fill="#f5f5f7" letter-spacing="-1.6" text-anchor="start">0</text>
+<text x="440" y="518" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">выдуманных цитат</text>
+<text x="440" y="542" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">и чисел во всех проверках</text>
+<text x="800" y="482" font-size="58" font-weight="700" fill="#f5f5f7" letter-spacing="-1.6" text-anchor="start">12 из 14</text>
+<text x="800" y="518" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">по слепой рубрике —</text>
+<text x="800" y="542" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">у обычного ИИ-чата 6</text>
 </svg>

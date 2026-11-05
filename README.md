@@ -4,9 +4,9 @@
 
 <p align="center">
   <a href="https://github.com/marrxse/product-factory-strategist/actions/workflows/tests.yml"><img src="https://github.com/marrxse/product-factory-strategist/actions/workflows/tests.yml/badge.svg" alt="тесты"></a>
-  <img src="https://img.shields.io/badge/python-3.11%2B-3776AB" alt="Python 3.11+">
-  <img src="https://img.shields.io/badge/dependencies-none-2ea44f" alt="без внешних зависимостей">
-  <img src="https://img.shields.io/badge/Claude%20Code%20%C2%B7%20Cursor-ready-2f5d8a" alt="Claude Code и Cursor">
+  <img src="https://img.shields.io/badge/python-3.11%2B-731982" alt="Python 3.11+">
+  <img src="https://img.shields.io/badge/dependencies-none-00B956" alt="без внешних зависимостей">
+  <img src="https://img.shields.io/badge/Claude%20Code%20%C2%B7%20Cursor-ready-00B956" alt="Claude Code и Cursor">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="лицензия MIT"></a>
 </p>
 
@@ -85,6 +85,10 @@ python3 sf.py doctor
 | `отчёт` · `стоимость` | HTML для руководителя · затраты и время |
 
 ## Как это устроено
+<p align="center">
+  <img src="docs/img/process.svg" alt="Девять этапов: постановка, сбор, план, исследование, варианты, стратегии, план проверки, решение, пересмотр; на шести из них решает человек" width="100%">
+</p>
+
 ```mermaid
 flowchart LR
     H([Руководитель]) <-->|фразы и решения на воротах| A[Агент в Claude Code или Cursor]

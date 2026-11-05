@@ -1,61 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 710" width="1040" height="710" role="img" aria-label="Цепочка оснований вывода C11 до дословных цитат источников">
-<style>
-.bg{fill:#fbfaf7}.fg{fill:#1d1d1f}.mut{fill:#62656d}.acc{fill:#2f5d8a}
-.card{fill:#ffffff;stroke:#e3e1db}.gate{fill:#eaf1f9;stroke:#2f5d8a;stroke-width:1.6}
-.ln{stroke:#c9c6bd;fill:none}.chipC{fill:#e7efff}.chipCt{fill:#24467a}.chipE{fill:#e6f5ea}.chipEt{fill:#1d6b37}
-.warn{fill:#fff1d6}.warnt{fill:#7a4b00}
-text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
-@media (prefers-color-scheme:dark){
-.bg{fill:#0d1117}.fg{fill:#e6edf3}.mut{fill:#9aa4b2}.acc{fill:#8bb6e6}
-.card{fill:#161b22;stroke:#30363d}.gate{fill:#14263b;stroke:#8bb6e6}
-.ln{stroke:#3d444d}.chipC{fill:#1a2a44}.chipCt{fill:#9cc0f5}.chipE{fill:#173523}.chipEt{fill:#8fdaa5}
-.warn{fill:#3d2f12}.warnt{fill:#f1c46b}}
-</style>
-<rect class="bg" width="1040" height="710" rx="14"/>
-<text class="fg" x="36" y="46" font-size="22" font-weight="700">«основания C11» — откуда взялся вывод</text>
-<text class="mut" x="36" y="72" font-size="14">Реальный вывод демо-проекта: каждый шаг цепочки доходит до дословной цитаты с местом и датой</text>
-<path class="ln" stroke-width="1.6" d="M58 154 V199.0 H80"/>
-<path class="ln" stroke-width="1.6" d="M102 228 V273.0 H124"/>
-<path class="ln" stroke-width="1.6" d="M58 154 V347.0 H80"/>
-<path class="ln" stroke-width="1.6" d="M102 376 V421.0 H124"/>
-<path class="ln" stroke-width="1.6" d="M146 450 V495.0 H168"/>
-<path class="ln" stroke-width="1.6" d="M102 376 V569.0 H124"/>
-<rect class="card" x="36" y="96" width="968" height="58" rx="9"/>
-<rect class="chipC" x="46" y="112" width="118" height="26" rx="6"/>
-<text class="chipCt" x="56" y="130" font-size="13" font-weight="700">C11 · вывод</text>
-<text class="fg" x="178" y="121" font-size="14" font-weight="600">Проверить «семейную защиту» (вариант B) в I квартале 2027 года</text>
-<text class="mut" x="178" y="141" font-size="12.5">options.md · решение принято человеком на воротах 4</text>
-<rect class="card" x="80" y="170" width="924" height="58" rx="9"/>
-<rect class="chipC" x="90" y="186" width="118" height="26" rx="6"/>
-<text class="chipCt" x="100" y="204" font-size="13" font-weight="700">C10 · вывод</text>
-<text class="fg" x="222" y="195" font-size="14" font-weight="600">Переводить базовую блокировку в бесплатную нечего — она уже бесплатна</text>
-<text class="mut" x="222" y="215" font-size="12.5">options.md</text>
-<rect class="card" x="124" y="244" width="880" height="58" rx="9"/>
-<rect class="chipE" x="134" y="260" width="118" height="26" rx="6"/>
-<text class="chipEt" x="144" y="278" font-size="13" font-weight="700">E36 · факт · A</text>
-<text class="fg" x="266" y="269" font-size="14" font-style="italic">«Базовая блокировка спама и мошеннических звонков у нашего оператора уже бесплатна…»</text>
-<text class="mut" x="266" y="289" font-size="12.5">brief.md · уточнение руководителя на воротах 4 · 04.11.2026</text>
-<rect class="card" x="80" y="318" width="924" height="58" rx="9"/>
-<rect class="chipC" x="90" y="334" width="118" height="26" rx="6"/>
-<text class="chipCt" x="100" y="352" font-size="13" font-weight="700">C3 · вывод</text>
-<text class="fg" x="222" y="343" font-size="14" font-weight="600">Платная линейка МТС строится на надстройках над бесплатной базой</text>
-<text class="mut" x="222" y="363" font-size="12.5">research.md</text>
-<rect class="card" x="124" y="392" width="880" height="58" rx="9"/>
-<rect class="chipC" x="134" y="408" width="118" height="26" rx="6"/>
-<text class="chipCt" x="144" y="426" font-size="13" font-weight="700">C1 · вывод</text>
-<text class="fg" x="266" y="417" font-size="14" font-weight="600">Базовая защита от спама и мошенников бесплатна у всех четырёх крупных операторов</text>
-<text class="mut" x="266" y="437" font-size="12.5">research.md</text>
-<rect class="card" x="168" y="466" width="836" height="58" rx="9"/>
-<rect class="chipE" x="178" y="482" width="118" height="26" rx="6"/>
-<text class="chipEt" x="188" y="500" font-size="13" font-weight="700">E11 · факт</text>
-<text class="fg" x="310" y="491" font-size="14" font-style="italic">«Все операторы предлагают бесплатную защиту абонентов от спама и мошеннических звонков…»</text>
-<text class="mut" x="310" y="511" font-size="12.5">ComNews Research, 16.07.2026, раздел А · снимок страницы в sources/</text>
-<rect class="card" x="124" y="540" width="880" height="58" rx="9"/>
-<rect class="chipE" x="134" y="556" width="118" height="26" rx="6"/>
-<text class="chipEt" x="144" y="574" font-size="13" font-weight="700">E46 · факт</text>
-<text class="fg" x="266" y="565" font-size="14" font-style="italic">«…блокировка спам-звонков, ИИ-защита в звонке, страхование от мошенничества до 1,5 млн рублей»</text>
-<text class="mut" x="266" y="585" font-size="12.5">официальный каталог услуг МТС · снимок 05.11.2026, строка 96</text>
-<rect class="warn" x="36" y="628" width="968" height="58" rx="9"/>
-<text class="warnt" x="54" y="653" font-size="14" font-weight="700">Если источник E11 отзовут, команда revisit E11 сама найдёт 4 зависимых вывода (C1, C3, C9, C11)</text>
-<text class="warnt" x="54" y="673" font-size="13">и 20 мест в 5 документах, которые нужно пересмотреть. Так агент дважды пересматривал свои выводы в демо.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1002" width="1200" height="1002" role="img" aria-label="Цепочка оснований вывода C11 до дословных цитат источников; отзыв источника E11 затрагивает 4 вывода и 20 мест в 5 документах">
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style>
+
+<rect width="1200" height="1002" rx="28" fill="#000000"/>
+<text x="80" y="98" font-size="20" font-weight="600" fill="#00B956" letter-spacing="0.2" text-anchor="start">Доказательность</text>
+<text x="80" y="160" font-size="48" font-weight="700" fill="#f5f5f7" letter-spacing="-1.3" text-anchor="start">Каждый вывод доходит до цитаты.</text>
+<text x="80" y="202" font-size="21" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">Настоящая цепочка из демо — так агент отвечает на «основания C11».</text>
+<path d="M110 276 V330 Q110 344 124 344 H122" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M162 362 V416 Q162 430 176 430 H174" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M110 276 V502 Q110 516 124 516 H122" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M162 534 V588 Q162 602 176 602 H174" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M214 620 V674 Q214 688 228 688 H226" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M162 534 V760 Q162 774 176 774 H174" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
+<rect x="80" y="242" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
+<text x="111" y="264" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C11</text>
+<text x="160" y="264" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Проверить «семейную защиту» в I квартале 2027 года</text>
+<text x="160" y="292" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Рекомендация · options.md · утверждена человеком на воротах 4</text>
+<rect x="132" y="328" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
+<text x="163" y="350" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C10</text>
+<text x="212" y="350" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Базовую блокировку не нужно делать бесплатной — она уже бесплатна</text>
+<text x="212" y="378" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Вывод · options.md</text>
+<rect x="184" y="414" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
+<text x="215" y="436" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E36</text>
+<text x="264" y="436" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«Базовая блокировка спама и мошеннических звонков у нашего оператора уже бесплатна…»</text>
+<text x="264" y="464" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Бриф, уточнение руководителя · 04.11.2026 · качество A</text>
+<rect x="132" y="500" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
+<text x="163" y="522" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C3</text>
+<text x="212" y="522" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Платная линейка МТС — надстройки над бесплатной базой</text>
+<text x="212" y="550" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Вывод · research.md</text>
+<rect x="184" y="586" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
+<text x="215" y="608" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C1</text>
+<text x="264" y="608" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Базовая защита бесплатна у всех четырёх крупных операторов</text>
+<text x="264" y="636" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Вывод · research.md</text>
+<rect x="236" y="672" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
+<text x="267" y="694" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E11</text>
+<text x="316" y="694" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«Все операторы предлагают бесплатную защиту абонентов от спама…»</text>
+<text x="316" y="722" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">ComNews Research · 16.07.2026 · снимок страницы в sources/</text>
+<rect x="184" y="758" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
+<text x="215" y="780" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E46</text>
+<text x="264" y="780" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«…ИИ-защита в звонке, страхование от мошенничества до 1,5 млн рублей»</text>
+<text x="264" y="808" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Официальный каталог услуг МТС · снимок 05.11.2026, строка 96</text>
+<rect x="80" y="862" width="1040" height="96" rx="20" fill="#161618" stroke="#2c2c2e"/>
+<circle cx="122" cy="910" r="16" fill="#00B956"/>
+<path d="M114 910 l6 6 l11 -12" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="904" font-size="21" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Отзовите один источник — агент сам найдёт, что пересмотреть.</text>
+<text x="160" y="932" font-size="16" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Для E11 это 4 зависимых вывода и 20 мест в 5 документах. В демо так прошли два пересмотра.</text>
 </svg>
