@@ -145,3 +145,6 @@
 - 2026-11-05 04:26:05 | START | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | https://yandex.ru/support/id/ru/opredelitel
 - 2026-11-05 04:26:06 | FAIL | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | Сайт ответил ошибкой 404: https://yandex.ru/support/id/ru/opredelitel
 - 2026-11-05 04:30:50 | CORRECTION | evidence:revoke:E47 | модель не учитывала стоимость привлечения и каннибализацию; заменена E48
+- 2026-11-05 04:39:24 | CORRECTION | evidence:revoke:E48 | качество завышено: все входы — допущения агента; переоформлено как E49 с качеством C
+- 2026-11-05 04:39:57 | DONE | revisit:sources-upgrade | итог: verifier 27/29, critic 10/14; E46–E49
+- 2026-11-05 04:39:57 | STAGE | stage:8:done | Пересмотр по новым данным: done
