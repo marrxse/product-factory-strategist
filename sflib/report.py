@@ -23,8 +23,10 @@ BADGE = {"ГИП": ("гипотеза", "hyp"), "ПРОГНОЗ": ("прогно
 CSS = """
 :root{--bg:#fbfaf7;--fg:#1d1d1f;--muted:#6b6b70;--line:#e3e1db;--card:#fff;--accent:#2f5d8a;
 --hyp:#fff1d6;--hyp-fg:#7a4b00;--fc:#e7efff;--fc-fg:#24467a;--syn:#f6e6ff;--syn-fg:#6a2a8a;--fact:#e6f5ea;--fact-fg:#1d6b37}
-@media (prefers-color-scheme:dark){:root{--bg:#161618;--fg:#ececec;--muted:#a0a0a6;--line:#2c2c30;--card:#1e1e21;--accent:#8bb6e6;
---hyp:#3d2f12;--hyp-fg:#f1c46b;--fc:#1a2a44;--fc-fg:#9cc0f5;--syn:#33203d;--syn-fg:#d8a6f2;--fact:#173523;--fact-fg:#8fdaa5}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161618;--fg:#ececec;--muted:#a0a0a6;--line:#2c2c30;--card:#1e1e21;--accent:#8bb6e6;
+--hyp:#3d2f12;--hyp-fg:#f1c46b;--fc:#1a2a44;--fc-fg:#9cc0f5;--syn:#33203d;--syn-fg:#d8a6f2;--fact:#173523;--fact-fg:#8fdaa5;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161618;--fg:#ececec;--muted:#a0a0a6;--line:#2c2c30;--card:#1e1e21;--accent:#8bb6e6;
+--hyp:#3d2f12;--hyp-fg:#f1c46b;--fc:#1a2a44;--fc-fg:#9cc0f5;--syn:#33203d;--syn-fg:#d8a6f2;--fact:#173523;--fact-fg:#8fdaa5;color-scheme:dark}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,Segoe UI,Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:24px 16px 80px}h1{font-size:28px;margin:8px 0 4px}h2{font-size:22px;margin:36px 0 8px;
 border-bottom:1px solid var(--line);padding-bottom:6px}h3{font-size:17px;margin:22px 0 6px}p,li{margin:6px 0}
