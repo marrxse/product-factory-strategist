@@ -43,7 +43,7 @@ description: Этап 6. План проверки рекомендации — 
 ```
 
 ## Шаги
-1. `sf.py stage 6 start` → оба файла → `sf.py validate --final` → `sf.py stage 6 done` → покажи decision-brief и спроси подтверждение.
+1. `sf.py stage 6 start` → оба файла → `sf.py validate --final` → `sf.py stage 6 done` → `sf.py report` → покажи человеку `outputs/report.html` (начинается с решения на одной странице) и спроси подтверждение.
 
 ## Чего не делать
 - Не ставь целевую метрику без способа её измерить.
