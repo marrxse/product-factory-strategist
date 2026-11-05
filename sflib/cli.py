@@ -15,7 +15,7 @@ EXIT_ALREADY_DONE = 3
 def cmd_new(args: argparse.Namespace) -> int:
     example = Path(args.source).resolve() if args.source else None
     target = project.create(args.slug, args.title or args.slug, example)
-    print(f"Создан проект {target.relative_to(paths.repo_root())} и сделан активным.")
+    print(f"Создан проект {target.relative_to(paths.repo_root()).as_posix()} и сделан активным.")
     print("Дальше: этап 0 — постановка задачи (skills/intake/SKILL.md).")
     return 0
 

@@ -60,7 +60,7 @@ def parse_doc(path: Path, root: Path) -> Doc:
                 key, value = line.split(":", 1)
                 meta[key.strip()] = value.strip()
     title = meta.get("title") or next((l.lstrip("# ").strip() for l in body.splitlines() if l.startswith("#")), path.stem)
-    return Doc(str(path.relative_to(root)), title, _list(meta.get("tags", "")), _list(meta.get("related", "")), body)
+    return Doc(path.relative_to(root).as_posix(), title, _list(meta.get("tags", "")), _list(meta.get("related", "")), body)
 
 
 def load_docs(root: Path | None = None) -> list[Doc]:

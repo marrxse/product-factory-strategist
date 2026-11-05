@@ -19,10 +19,10 @@ def export(slug: str, target_dir: Path) -> Path:
     archive = target_dir / f"{slug}-{datetime.now().strftime('%Y%m%d-%H%M%S')}.zip"
     files = sorted(p for p in project.rglob("*") if p.is_file())
     manifest = {"slug": slug, "exported": datetime.now().isoformat(timespec="seconds"),
-                "files": {str(p.relative_to(project)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
+                "files": {p.relative_to(project).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as zf:
         for path in files:
-            zf.write(path, f"{slug}/{path.relative_to(project)}")
+            zf.write(path, f"{slug}/{path.relative_to(project).as_posix()}")
         zf.writestr(f"{slug}/{MANIFEST}", json.dumps(manifest, ensure_ascii=False, indent=1))
     return archive
 

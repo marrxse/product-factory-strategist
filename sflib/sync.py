@@ -42,14 +42,14 @@ def check(root: Path) -> list[str]:
     plan = planned(root)
     for target, content in plan.items():
         if not target.exists():
-            problems.append(f"нет {target.relative_to(root)}")
+            problems.append(f"нет {target.relative_to(root).as_posix()}")
         elif target.read_text(encoding="utf-8") != content:
-            problems.append(f"устарел {target.relative_to(root)}")
+            problems.append(f"устарел {target.relative_to(root).as_posix()}")
     for folder in (root / ".claude" / "skills", root / ".claude" / "agents"):
         if folder.exists():
             for extra in folder.rglob("*.md"):
                 if extra not in plan:
-                    problems.append(f"лишний {extra.relative_to(root)} (нет источника)")
+                    problems.append(f"лишний {extra.relative_to(root).as_posix()} (нет источника)")
     return problems
 
 

@@ -51,7 +51,7 @@ def injections(folder: Path) -> list[tuple[str, int, str, str]]:
     for path in sorted(folder.rglob("*")):
         if path.is_file() and path.suffix.lower() in TEXT_SUFFIXES:
             text = path.read_text(encoding="utf-8", errors="replace")
-            result.extend((str(path.relative_to(folder)), n, name, quote) for n, name, quote in injections_in_text(text))
+            result.extend((path.relative_to(folder).as_posix(), n, name, quote) for n, name, quote in injections_in_text(text))
     return result
 
 
@@ -77,6 +77,6 @@ def secrets(root: Path) -> list[tuple[str, int, str]]:
         for num, line in enumerate(text.splitlines(), start=1):
             for regex, name in SECRET_RES:
                 if regex.search(line):
-                    found.append((str(path.relative_to(root)), num, name))
+                    found.append((path.relative_to(root).as_posix(), num, name))
                     break
     return found

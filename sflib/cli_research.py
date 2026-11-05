@@ -138,7 +138,7 @@ def cmd_sample(args: argparse.Namespace) -> int:
     text = sample.build(proj, size, seed)
     target = proj / "state" / "verify-sample.md"
     target.write_text(text + "\n", encoding="utf-8")
-    print(f"Выборка записана: {target.relative_to(paths.repo_root())}")
+    print(f"Выборка записана: {target.relative_to(paths.repo_root()).as_posix()}")
     return 0
 
 
@@ -201,7 +201,7 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     target = out_dir / f"{table.stem}-profile.md"
     target.write_text(report + "\n", encoding="utf-8")
     print(report)
-    print(f"\nОтчёт сохранён: {target.relative_to(paths.repo_root())}")
+    print(f"\nОтчёт сохранён: {target.relative_to(paths.repo_root()).as_posix()}")
     return 0
 
 
@@ -245,7 +245,7 @@ def cmd_memory(args: argparse.Namespace) -> int:
 
 def cmd_report(args: argparse.Namespace) -> int:
     target = report.build(_project(args))
-    print(f"Отчёт для руководителя: {target.relative_to(paths.repo_root())} (откройте в браузере)")
+    print(f"Отчёт для руководителя: {target.relative_to(paths.repo_root()).as_posix()} (откройте в браузере)")
     return 0
 
 
@@ -256,7 +256,7 @@ def cmd_export(args: argparse.Namespace) -> int:
     if not slug:
         raise paths.SfError("Укажите проект: sf.py export <имя>")
     archive = portable.export(slug, paths.repo_root() / "exports")
-    print(f"Архив: {archive.relative_to(paths.repo_root())}\nВ другой среде: python3 sf.py import {archive.name} → «продолжи»")
+    print(f"Архив: {archive.relative_to(paths.repo_root()).as_posix()}\nВ другой среде: python3 sf.py import {archive.name} → «продолжи»")
     return 0
 
 
