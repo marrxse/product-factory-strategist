@@ -34,7 +34,7 @@ b = [t(80, 108, "ИИ-агент · Стратег Фабрики продукт
      f'<rect x="80" y="400" width="1040" height="1" fill="{LINE}"/>']
 stats = [("93%", "утверждений подтвердила", "независимая проверка"),
          ("0", "выдуманных цитат", "и чисел во всех проверках"),
-         ("12 из 14", "по слепой рубрике —", "у обычного ИИ-чата 6")]
+         ("12 из 14", "оценка моделью по рубрике —", "у обычного ИИ-чата 6")]
 for i, (big, a, c) in enumerate(stats):
     x = 80 + i * 360
     b += [t(x, 482, big, 58, FG, 700, -1.6), t(x, 518, a, 18, MUT), t(x, 542, c, 18, MUT)]
@@ -101,3 +101,45 @@ for i, (name, gate) in enumerate(stages):
         b.append(t(x, y + 74, "решаете вы", 14, GREEN, 500, 0, "middle"))
 b.append(t(80, 440, "После решения агент следит за его основаниями и сам предлагает пересмотр, когда данные меняются.", 17, MUT))
 (OUT / "process.svg").write_text(svg(1200, 500, "Девять этапов работы агента; на шести из них решает человек", b, glows=False), encoding="utf-8")
+
+# ---------- check: анимация настоящих выводов sf.py ----------
+# Строки — дословный вывод команд на копии демо, куда добавлена строка без источника.
+MONO = "'SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
+RED, YELLOW = "#ff6961", "#ffd60a"
+lines = [  # (цвет, текст, пауза перед строкой в долях цикла)
+    (MUT, "# в research.md попала строка: «Рынок защиты от мошенников вырос на 37% за год.»", 0.04),
+    (FG, "$ python3 sf.py validate", 0.10),
+    (RED, "[ОШИБКА] research.md:67: число без метки источника", 0.16),
+    (RED, "         добавьте [E…], [ПРОГНОЗ …] или [ГИП]", 0.18),
+    (FG, "$ python3 sf.py stage 3 done", 0.28),
+    (RED, "Этап 3 не закрыт: validate нашёл ошибок 1.", 0.34),
+    (MUT, " ", 0.40),
+    (FG, "$ python3 sf.py revisit E11", 0.46),
+    (YELLOW, "Изменилось: E11", 0.52),
+    (YELLOW, "  Затронутые выводы (транзитивно): C1, C3, C9, C11", 0.55),
+    (MUT, "  - decision-brief.md:11: I квартал 2027 года — проверить «семейную защиту»…", 0.60),
+    (MUT, "  - product-strategy.md:41: Не продаём блокировку: она бесплатна у нас…", 0.63),
+    (MUT, "  # … и ещё 18 мест — всего 20 в 5 документах", 0.66),
+]
+CYCLE = 22
+css = [f"text{{font-family:{FONT}}}", f".m{{font-family:{MONO}}}"]
+for i, (_, _, start) in enumerate(lines):
+    # первый кадр — полный (его видят превью и браузеры без анимации), затем строки появляются по очереди
+    a = round(28 + start * 70, 1)
+    b2 = round(a + 1.2, 1)
+    css.append(f"@keyframes k{i}{{0%,20%{{opacity:1}}23%,{a}%{{opacity:0}}{b2}%,100%{{opacity:1}}}}"
+               f".l{i}{{animation:k{i} {CYCLE}s linear infinite}}")
+css.append("@media (prefers-reduced-motion:reduce){" + "".join(f".l{i}" + ("," if i < len(lines) - 1 else "") for i in range(len(lines))) + "{animation:none}}")
+H2, ty = 790, 300
+b = [t(80, 98, "Проверка кодом, а не просьбой", 20, GREEN, 600, 0.2),
+     t(80, 160, "Число без источника не пройдёт.", 48, FG, 700, -1.3),
+     t(80, 202, "Настоящий вывод команд агента: этап не закрыть, пока проверка красная.", 21, MUT, 400, -0.2),
+     f'<rect x="80" y="236" width="1040" height="{H2 - 236 - 60}" rx="16" fill="{CARD}" stroke="{LINE}"/>',
+     f'<rect x="80" y="236" width="1040" height="40" rx="16" fill="#202022"/><rect x="80" y="260" width="1040" height="16" fill="#202022"/>',
+     '<circle cx="106" cy="256" r="6.5" fill="#ff5f57"/><circle cx="128" cy="256" r="6.5" fill="#febc2e"/><circle cx="150" cy="256" r="6.5" fill="#28c840"/>',
+     t(600, 261, "demo-antifraud", 14, MUT, 500, 0, "middle")]
+for i, (color, text, _) in enumerate(lines):
+    b.append(f'<text class="m l{i}" x="108" y="{ty + 18 + i * 31}" font-size="16.5" fill="{color}" xml:space="preserve">{esc(text)}</text>')
+out = svg(1200, H2, "Анимация: агент дописал число без источника, validate выдал ошибку, этап не закрылся; revisit E11 нашёл 4 зависимых вывода и 20 мест в 5 документах", b, glows=False)
+out = out.replace(f"<style>text{{font-family:{FONT}}}</style>", "<style>" + "\n".join(css) + "</style>")
+(OUT / "check.svg").write_text(out, encoding="utf-8")
