@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .paths import SfError
 
-KINDS = ("web", "doc", "table", "calc", "interview", "synthetic")
+KINDS = ("web", "doc", "table", "calc", "interview", "synthetic", "image", "audio", "video")
 QUALITY = ("A", "B", "C")  # A — первичный/официальный, B — надёжный вторичный, C — слабый/пересказ
 ACTIVE, REVOKED = "active", "revoked"
 ID_RE = re.compile(r"^[ES]\d+$")
@@ -95,6 +95,26 @@ def revoke(project: Path, record_id: str, reason: str) -> Record:
     return updated
 
 
+def set_quality(project: Path, record_id: str, quality: str, reason: str) -> Record:
+    """Исправить оценку качества по решению проверки: старая оценка и причина остаются в заметке."""
+    quality = quality.strip().upper()
+    if quality not in QUALITY:
+        raise SfError(f"Качество «{quality}»: допустимо A, B, C.")
+    if not reason.strip():
+        raise SfError("Укажите причину изменения оценки.")
+    records = load(project)
+    index = by_id(records)
+    if record_id not in index:
+        raise SfError(f"Нет записи {record_id}.")
+    old = index[record_id]
+    if old.quality == quality:
+        raise SfError(f"У {record_id} уже качество {quality}.")
+    trail = f"качество {old.quality} → {quality}: {reason.strip()}"
+    updated = replace(old, quality=quality, note=f"{old.note}; {trail}" if old.note else trail)
+    save(project, [updated if r.id == record_id else r for r in records])
+    return updated
+
+
 def record_problems(record: Record, project: Path, check_id: bool = True) -> list[str]:
     problems = []
     if check_id and not ID_RE.match(record.id):
@@ -111,7 +131,7 @@ def record_problems(record: Record, project: Path, check_id: bool = True) -> lis
         problems.append("нет источника")
     if not record.quote:
         problems.append("нет цитаты или расчёта")
-    if record.kind in ("doc", "table", "interview") and record.source and not record.source.startswith("http"):
+    if record.kind in ("doc", "table", "interview", "image", "audio", "video") and record.source and not record.source.startswith("http"):
         if not (project / record.source).exists():
             problems.append(f"файл источника не найден: {record.source}")
     if record.kind == "web" and not record.source.startswith(("http://", "https://")):

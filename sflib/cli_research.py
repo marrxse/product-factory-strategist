@@ -30,6 +30,12 @@ def cmd_evidence(args: argparse.Namespace) -> int:
         record = ev.revoke(proj, args.ids[0], args.reason or "")
         journal.append(proj / "state" / "log.md", "CORRECTION", f"evidence:revoke:{record.id}", args.reason or "")
         print(f"{record.id} отозвана. Затронутое: python3 sf.py revisit {record.id}")
+    elif args.action == "quality":
+        if len(args.ids) != 2:
+            raise paths.SfError("Нужно: evidence quality <ID> <A|B|C> --reason \"почему\"")
+        record = ev.set_quality(proj, args.ids[0], args.ids[1], args.reason or "")
+        journal.append(proj / "state" / "log.md", "CORRECTION", f"evidence:quality:{record.id}", record.note.split("; ")[-1])
+        print(f"{record.id}: {record.note.split('; ')[-1]}. Затронутое: python3 sf.py revisit {record.id}")
     elif args.action == "list":
         for record in ev.load(proj):
             if args.all or record.status == ev.ACTIVE:
@@ -273,7 +279,7 @@ def cmd_import(args: argparse.Namespace) -> int:
 
 def register(sub: argparse._SubParsersAction) -> None:
     p = sub.add_parser("evidence", help="реестр доказательств")
-    p.add_argument("action", choices=("add", "show", "revoke", "list", "check"))
+    p.add_argument("action", choices=("add", "show", "revoke", "quality", "list", "check"))
     p.add_argument("ids", nargs="*")
     p.add_argument("--kind", choices=ev.KINDS)
     p.add_argument("--source")
@@ -283,7 +289,7 @@ def register(sub: argparse._SubParsersAction) -> None:
     p.add_argument("--note")
     p.add_argument("--by", default="agent", choices=("agent", "human"))
     p.add_argument("--accessed", help="дата доступа ГГГГ-ММ-ДД (по умолчанию сегодня)")
-    p.add_argument("--reason", help="причина отзыва")
+    p.add_argument("--reason", help="причина отзыва или изменения качества")
     p.add_argument("--all", action="store_true", help="показать и отозванные")
     p.set_defaults(func=cmd_evidence)
 

@@ -42,7 +42,7 @@
 | 0 | Постановка задачи | `intake` | `brief.md` | подтверждает формулировку |
 | 1 | Сбор материалов | `collect` | `sources/`, `evidence.csv` | — (показываешь список источников) |
 | 2 | План исследования | `research-plan` | `outputs/research-plan.md` | подтверждает план и бюджет |
-| 3 | Исследование | `research` (+ `data-analysis`, `interview-guide`, `synthetic-respondents` по необходимости) | `outputs/research.md` | — |
+| 3 | Исследование | `research` (+ `data-analysis`, `ux-review`, `interview-guide`, `synthetic-respondents` по необходимости) | `outputs/research.md` | — |
 | 4 | Варианты | `options` + субагент `critic` | `outputs/options.md`, `outputs/quality-report.md` | выбирает вариант |
 | 5 | Стратегии | `product-strategy`, `comms-strategy` | `outputs/product-strategy.md`, `outputs/comms-strategy.md`, `quality-report.md` | подтверждает |
 | 6 | План проверки | `validation-plan` | `outputs/validation-plan.md`, `outputs/decision-brief.md` | подтверждает |
@@ -97,6 +97,7 @@
 - Лимиты из `config.toml → limits`: не больше `max_steps_per_stage` шагов на этап, не больше `max_rework_cycles` циклов доработки, после этого покажи результат человеку как есть.
 
 ## 9. Субагенты и выбор модели
+Сомневаешься, какой процесс, модель и инструмент взять, — `sf.py route choose "<задача>" --key <ключ шага>`: правила в `config.toml [[routing.rules]]`, выбор пишется в журнал.
 Модели по ролям — `config.toml [models]`. Субагент вызывай, только когда изоляция или дешёвая модель дают пользу:
 | Субагент | Когда | Почему отдельно |
 |---|---|---|
@@ -104,7 +105,8 @@
 | `critic` | перед воротами 4 и 5 | не видел процесса, поэтому не защищает его; сильная модель |
 | `verifier` | quality-review | сверяет выборку утверждений с источниками |
 | `respondent` | synthetic-respondents | не знает наших гипотез, меньше подыгрывает |
-Эскалация: если verifier или validate нашли ошибки шага, выполненного дешёвой моделью, переделай шаг моделью выше по `config.toml escalation` и запиши `sf.py log route <ключ> "ошибочный выбор → исправление"`.
+| `classifier` | записей в реестре больше десяти; перед quality-review | узкая оценка качества A/B/C по признакам, дешёвая модель, не видит оценок агента (`sf.py route classify-input` → `route compare`) |
+Эскалация: если verifier, validate или `route compare` нашли ошибки шага, выполненного дешёвой моделью, переделай шаг моделью выше: `sf.py route escalate "<причина>" --key <ключ> --model <модель>` — команда назовёт следующую модель по `config.toml escalation` и запишет исправление в журнал.
 В Cursor субагентов нет: роль выполняй сам по файлу `agents/<роль>.md`, читая только перечисленные в нём входы.
 
 ## 10. Стоимость и прозрачность

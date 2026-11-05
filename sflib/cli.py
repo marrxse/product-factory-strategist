@@ -5,7 +5,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from . import cli_research, journal, paths, project, validate
+from . import cli_extra, cli_research, journal, media, paths, project, validate
 from . import stages as st
 from . import state as stmod
 
@@ -122,6 +122,8 @@ def cmd_doctor(_: argparse.Namespace) -> int:
         print("Найдены проблемы:\n" + "\n".join(f"  - {p}" for p in problems))
         return 1
     print(f"OK: Python {sys.version.split()[0]}, структура репозитория на месте. Активный проект: {paths.get_active() or 'нет'}")
+    optional = ", ".join(f"{name} {'есть' if ok else 'нет'}" for name, ok in media.tools().items())
+    print(f"Необязательные программы для медиа: {optional}")
     return 0
 
 
@@ -164,6 +166,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_log)
 
     cli_research.register(sub)
+    cli_extra.register(sub)
     return parser
 
 

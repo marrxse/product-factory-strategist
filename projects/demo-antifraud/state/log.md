@@ -149,3 +149,20 @@
 - 2026-11-05 04:39:57 | DONE | revisit:sources-upgrade | итог: verifier 27/29, critic 10/14; E46–E49
 - 2026-11-05 04:39:57 | STAGE | stage:8:done | Пересмотр по новым данным: done
 - 2026-11-05 04:41:31 | GATE | gate:8 | ok подтверждено: итоговые правки (правило 27.11, масштаб, E49, источники МТС)
+- 2026-11-05 05:13:38 | ROUTE | revisit:ux:route | выбор: collect / claude-haiku-5-5 / sf.py fetch · sf.py media text (страницы на скриптах) · субагент researcher при >5 источниках
+- 2026-11-05 05:13:38 | START | collect:shot:desktop:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | https://moskva.mts.ru/personal/mobilnaya-svyaz/uslugi/zashchitnik
+- 2026-11-05 05:14:25 | DONE | collect:shot:desktop:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | готово
+- 2026-11-05 05:14:25 | START | collect:shot:mobile:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | https://moskva.mts.ru/personal/mobilnaya-svyaz/uslugi/zashchitnik
+- 2026-11-05 05:16:25 | FAIL | collect:shot:mobile:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | Браузер не ответил вовремя — страница слишком тяжёлая или недоступна.
+- 2026-11-05 05:16:38 | ROUTE | revisit:ux:route | ошибочный выбор: collect / claude-haiku-5-5 (совпало одно слово «страниц») → исправление: ux-review / claude-sonnet-5-5; в правило интерфейсов добавлены «телефон», «мобильн», «композиц», «дизайн»
+- 2026-11-05 05:16:38 | ROUTE | revisit:ux:route | выбор: ux-review / claude-sonnet-5-5 / sf.py media shot (компьютер и телефон) · sf.py media inspect
+- 2026-11-05 05:16:39 | START | collect:shot:mobile:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | https://moskva.mts.ru/personal/mobilnaya-svyaz/uslugi/zashchitnik
+- 2026-11-05 05:17:26 | DONE | collect:shot:mobile:moskva-mts-ru-personal-mobilnaya-svyaz-uslugi-zashchitnik-1d4a52 | готово
+- 2026-11-05 05:18:07 | START | revisit:ux:mts-catalog | анализ интерфейса каталога услуг конкурента (новые данные: снимки экрана)
+- 2026-11-05 05:18:52 | DONE | revisit:ux:mts-catalog | ux-review.md: C12–C14, E50–E55; канал «страница подключения» добавлен в comms-strategy [C13]
+- 2026-11-05 05:18:52 | ROUTE | revisit:classify:route | выбор: collect / claude-haiku-5-5 / sf.py route classify-input → субагент classifier → sf.py route compare
+- 2026-11-05 05:20:05 | ROUTE | revisit:classify:route | claude-haiku-5-5 → claude-sonnet-5-5: классификатор разошёлся с реестром в 5 из 50 (E24, E26, E37, E44, E45) — нужна сверка по источникам
+- 2026-11-05 05:20:50 | CORRECTION | evidence:quality:E37 | качество B → C: verifier: расчёт не надёжнее самого слабого входа — нижняя граница из поисковой выдачи (E21, C)
+- 2026-11-05 05:20:50 | CORRECTION | evidence:quality:E44 | качество B → C: verifier: пересказ пресс-службы оператора без методики и первоисточника
+- 2026-11-05 05:20:51 | CORRECTION | evidence:quality:E45 | качество B → C: verifier: метрика оператора «примерно 10%» без методики и базы, тот же пресс-релиз
+- 2026-11-05 05:21:09 | NOTE | revisit:classify:route | verifier: классификатор прав в 3 из 5 (E37, E44, E45 → C), реестр — в 2 (E24, E26); исправлено, оговорки к E44 в 3 документах; state/routing/verifier-decisions.md

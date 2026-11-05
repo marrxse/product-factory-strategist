@@ -104,7 +104,8 @@ class SkillsConsistencyTest(unittest.TestCase):
 
     def test_skill_templates_contain_sections_validate_requires(self):
         owners = {"research.md": "research", "product-strategy.md": "product-strategy", "comms-strategy.md": "comms-strategy",
-                  "validation-plan.md": "validation-plan", "decision-brief.md": "validation-plan"}
+                  "validation-plan.md": "validation-plan", "decision-brief.md": "validation-plan",
+                  "ux-review.md": "ux-review"}
         for output, keys in validate.REQUIRED_SECTIONS.items():
             skill = (REPO / "skills" / owners[output] / "SKILL.md").read_text(encoding="utf-8")
             headings = [h.lower() for h in re.findall(r"^\s*#{2,3} (.+)$", skill, re.MULTILINE)]

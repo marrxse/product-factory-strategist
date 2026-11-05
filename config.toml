@@ -7,8 +7,83 @@ researcher   = "claude-haiku-5-5"    # массовое извлечение и�
 critic       = "claude-opus-5-5"     # сильнейшие возражения — нужна глубина
 verifier     = "claude-sonnet-5-5"   # сверка утверждений с цитатами
 respondent   = "claude-haiku-5-5"    # синтетические респонденты
+classifier   = "claude-haiku-5-5"    # качество источников A/B/C по признакам — узкая задача, дешёвая модель
 # Эскалация: если verifier или validate нашли ошибки на шаге — повторить шаг моделью уровнем выше.
 escalation = ["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"]
+
+[routing]
+# Выбор процесса, модели и инструмента под задачу: sf.py route "<задача>".
+# words — начала слов: «интерфейс» ловит «интерфейса», но не «интервью». При равенстве побеждает правило выше.
+[[routing.rules]]
+name = "оценка качества источников"
+words = ["качеств", "классиф", "достовер", "надёжн", "источник", "реестр"]
+skill = "collect"
+role = "classifier"
+tool = "sf.py route classify-input → субагент classifier → sf.py route compare"
+why = "узкая классификация по признакам из knowledge/source-quality.md; расхождения проверяет verifier"
+[[routing.rules]]
+name = "сбор фактов из многих источников"
+words = ["извле", "источник", "собра", "сбор", "собер", "страниц", "сайт", "реестр"]
+skill = "collect"
+role = "researcher"
+tool = "sf.py fetch · sf.py media text (страницы на скриптах) · субагент researcher при >5 источниках"
+why = "массовое извлечение цитат — дешёвая модель; выводы не делает"
+[[routing.rules]]
+name = "интерфейсы и пользовательский путь"
+words = ["интерфейс", "экран", "скрин", "ux", "пут", "лендинг", "приложени", "кнопк", "макет", "телефон", "мобильн", "композиц", "дизайн"]
+skill = "ux-review"
+role = "orchestrator"
+tool = "sf.py media shot (компьютер и телефон) · sf.py media inspect"
+why = "нужно зрение и привязка к видимому; дешёвая модель чаще додумывает невидимое"
+[[routing.rules]]
+name = "аудио и видео"
+words = ["аудио", "видео", "запис", "ролик", "подка"]
+skill = "ux-review"
+role = "orchestrator"
+tool = "sf.py media inspect · media frames (ffmpeg) · media transcribe (whisper)"
+why = "сначала перевести в кадры и текст, потом анализировать как изображения и интервью"
+[[routing.rules]]
+name = "таблицы и расчёты"
+words = ["таблиц", "csv", "расчёт", "расчет", "посчита", "когорт", "воронк", "конверс", "метрик"]
+skill = "data-analysis"
+role = "orchestrator"
+tool = "sf.py analyze · скрипт в state/analysis/ · evidence kind=calc"
+why = "числа считает код, а не модель; модель выбирает метод и проверяет единицы и периоды"
+[[routing.rules]]
+name = "интервью"
+words = ["интервью", "расшифр", "гайд", "собесед"]
+skill = "interview-guide"
+role = "orchestrator"
+tool = "—"
+why = "вопросы без подсказки ответа; персональные данные удаляются"
+[[routing.rules]]
+name = "синтетические респонденты"
+words = ["синтет", "персон", "респондент"]
+skill = "synthetic-respondents"
+role = "respondent"
+tool = "субагент respondent"
+why = "ролевая игра для гипотез — дешёвая модель, не знает наших гипотез"
+[[routing.rules]]
+name = "возражения и критика"
+words = ["возраж", "критик", "слаб", "рубрик", "контраргум"]
+skill = "quality-review"
+role = "critic"
+tool = "субагент critic"
+why = "самые сильные возражения требуют глубины — сильная модель без истории процесса"
+[[routing.rules]]
+name = "сверка утверждений с источниками"
+words = ["сверк", "свери", "цитат", "утвержден"]
+skill = "quality-review"
+role = "verifier"
+tool = "sf.py sample · субагент verifier"
+why = "сверка по цитатам — средняя модель"
+[[routing.rules]]
+name = "пересмотр при новых данных"
+words = ["пересм", "новые", "новых", "отозв", "устарел"]
+skill = "decision-support"
+role = "orchestrator"
+tool = "sf.py revisit · sf.py revisit --stale"
+why = "граф выводов находит затронутое кодом; модель предлагает правки «было → стало»"
 
 [budget]
 confirm_usd = 2.0              # шаг дороже — спросить человека
