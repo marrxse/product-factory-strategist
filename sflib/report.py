@@ -137,7 +137,8 @@ def build(project: Path) -> Path:
     names = [n for n in ORDER if (out_dir / n).exists()] + sorted(p.name for p in out_dir.glob("revisit-*.md"))
     for name in names:
         anchor = name.removesuffix(".md")
-        nav.append(f'<a href="#{anchor}">{TITLES.get(name, "Пересмотр")}</a>')
+        label = TITLES.get(name) or ("Пересмотр " + ".".join(reversed(anchor.removeprefix("revisit-").split("-")[1:])))
+        nav.append(f'<a href="#{anchor}">{label}</a>')
         body = _md((out_dir / name).read_text(encoding="utf-8"), records, used)
         sections.append(f'<section id="{anchor}"><div class="card">{body}</div></section>' if name == "decision-brief.md"
                         else f'<section id="{anchor}">{body}</section>')
