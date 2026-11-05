@@ -113,3 +113,23 @@
 - 2026-11-05 04:03:50 | DONE | revisit:scope-2027 | добавлены год 2027, юркарта подписки, вариант F; ось «кто платит» в навык options
 - 2026-11-05 04:03:50 | STAGE | stage:8:done | Пересмотр по новым данным: done
 - 2026-11-05 04:09:01 | GATE | gate:8 | ok подтверждено: год 2027 по кварталам, юркарта подписки, вариант F (B2B)
+- 2026-11-05 04:17:04 | STAGE | stage:8:start | Пересмотр по новым данным: start
+- 2026-11-05 04:17:05 | START | collect:fetch:www-sostav-ru-publication-mam-eto-ya-megafon-zapustil-ii-pro-f48bef | https://www.sostav.ru/publication/mam-eto-ya-megafon-zapustil-ii-proekt-o-novoj-epokhe-telefonnogo-moshennichestva-84401.html
+- 2026-11-05 04:17:15 | FAIL | collect:fetch:www-sostav-ru-publication-mam-eto-ya-megafon-zapustil-ii-pro-f48bef | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://www.sostav.ru/publication/mam-eto-ya-megafon-zapustil-ii-proekt-o-novoj-epokhe-telefonnogo-moshennichestva-84401.html
+- 2026-11-05 04:17:16 | START | collect:fetch:news-rambler-ru-tech-56562600-mam-eto-ya-megafon-zapustil-ii-c1cbdd | https://news.rambler.ru/tech/56562600-mam-eto-ya-megafon-zapustil-ii-proekt-o-novoy-epohe-telefonnogo-moshennichestva/
+- 2026-11-05 04:17:26 | FAIL | collect:fetch:news-rambler-ru-tech-56562600-mam-eto-ya-megafon-zapustil-ii-c1cbdd | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://news.rambler.ru/tech/56562600-mam-eto-ya-megafon-zapustil-ii-proekt-o-novoy-epohe-telefonnogo-moshennichestva/
+- 2026-11-05 04:17:26 | START | collect:fetch:www-ixbt-com-news-2026-04-15-megafon-zapustil-iiplatformu-dl-4f972d | https://www.ixbt.com/news/2026/04/15/megafon-zapustil-iiplatformu-dlja-podbora-personalnyh-predlozhenij-abonentam.html
+- 2026-11-05 04:17:28 | DONE | collect:fetch:www-ixbt-com-news-2026-04-15-megafon-zapustil-iiplatformu-dl-4f972d | сохранено web-www-ixbt-com-news-2026-04-15-megafon-zapustil-iiplatformu-dl-4f972d-2026-11-05.md
+- 2026-11-05 04:18:43 | START | collect:fetch:www1-ru-news-2026-04-02-ii-protiv-mosennikov-eva-lovit-dipfe-fe1bca | https://www1.ru/news/2026/04/02/ii-protiv-mosennikov-eva-lovit-dipfeiki-v-zvonkax.html
+- 2026-11-05 04:18:45 | DONE | collect:fetch:www1-ru-news-2026-04-02-ii-protiv-mosennikov-eva-lovit-dipfe-fe1bca | сохранено web-www1-ru-news-2026-04-02-ii-protiv-mosennikov-eva-lovit-dipfe-fe1bca-2026-11-05.md
+- 2026-11-05 04:18:45 | START | collect:fetch:riamo-ru-news-obschestvo-nazvany-pervye-itogi-raboty-funktsi-63bfe7 | https://riamo.ru/news/obschestvo/nazvany-pervye-itogi-raboty-funktsii-zaschita-blizkih-ot-golosovogo-pomoschnika-eva/
+- 2026-11-05 04:18:46 | DONE | collect:fetch:riamo-ru-news-obschestvo-nazvany-pervye-itogi-raboty-funktsi-63bfe7 | сохранено web-riamo-ru-news-obschestvo-nazvany-pervye-itogi-raboty-funktsi-63bfe7-2026-11-05.md
+- 2026-11-05 04:18:47 | START | collect:fetch:eanews-ru-rossiya-20261020180432-kak-zaschitit-telefon-ot-sp-236aeb | https://eanews.ru/rossiya/20261020180432/kak-zaschitit-telefon-ot-spama-i-moshennikov-rasskazal-it-ekspert
+- 2026-11-05 04:18:57 | FAIL | collect:fetch:eanews-ru-rossiya-20261020180432-kak-zaschitit-telefon-ot-sp-236aeb | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://eanews.ru/rossiya/20261020180432/kak-zaschitit-telefon-ot-spama-i-moshennikov-rasskazal-it-ekspert
+- 2026-11-05 04:18:57 | START | collect:fetch:www-iguides-ru-main-other-golosovoy_assistent_megafona_teper-93ffd2 | https://www.iguides.ru/main/other/golosovoy_assistent_megafona_teper_mozhet_zashchitit_ot_moshennikov_i_virusov/
+- 2026-11-05 04:19:08 | FAIL | collect:fetch:www-iguides-ru-main-other-golosovoy_assistent_megafona_teper-93ffd2 | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://www.iguides.ru/main/other/golosovoy_assistent_megafona_teper_mozhet_zashchitit_ot_moshennikov_i_virusov/
+- 2026-11-05 04:19:08 | START | collect:fetch:techora-ru-news-spros-na-ii-zashchitu-ot-moshennikov-2026-09-3dd461 | https://techora.ru/news/spros-na-ii-zashchitu-ot-moshennikov-2026-09-30
+- 2026-11-05 04:19:09 | FAIL | collect:fetch:techora-ru-news-spros-na-ii-zashchitu-ot-moshennikov-2026-09-3dd461 | На странице почти нет текста (возможно, она собирается скриптами). Сохраните текст вручную в sources/.
+- 2026-11-05 04:19:46 | DONE | collect:megafon-public | новые открытые источники МегаФона: E41–E45 (дипфейки, «Защита близких», аудитория 31–45)
+- 2026-11-05 04:20:12 | CORRECTION | evidence:revoke:E20 | заменена прочитанным первоисточником E43 (РИАМО, качество B) вместо поисковой выдачи (C)
+- 2026-11-05 04:20:41 | STAGE | stage:8:done | Пересмотр по новым данным: done
