@@ -13,9 +13,9 @@ from . import cost, evidence as ev
 from . import state as stmod
 from .markup import TAG_RE, REF
 
-ORDER = ("decision-brief.md", "research.md", "ux-review.md", "options.md", "product-strategy.md", "comms-strategy.md",
+ORDER = ("decision-brief.md", "research.md", "behavior.md", "ux-review.md", "options.md", "product-strategy.md", "comms-strategy.md",
          "validation-plan.md", "quality-report.md")
-TITLES = {"decision-brief.md": "Решение", "research.md": "Исследование", "ux-review.md": "Анализ интерфейса", "options.md": "Варианты",
+TITLES = {"decision-brief.md": "Решение", "research.md": "Исследование", "behavior.md": "Поведение клиентов", "ux-review.md": "Анализ интерфейса", "options.md": "Варианты",
           "product-strategy.md": "Продуктовая стратегия", "comms-strategy.md": "Коммуникационная стратегия",
           "validation-plan.md": "План проверки", "quality-report.md": "Отчёт о качестве"}
 BADGE = {"ГИП": ("гипотеза", "hyp"), "ПРОГНОЗ": ("прогноз", "fc"), "СИНТ": ("синтетика", "syn"), "ФАКТ": ("факт", "fact")}

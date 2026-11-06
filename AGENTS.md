@@ -42,7 +42,7 @@
 | 0 | Постановка задачи | `intake` | `brief.md` | подтверждает формулировку |
 | 1 | Сбор материалов | `collect` | `sources/`, `evidence.csv` | — (показываешь список источников) |
 | 2 | План исследования | `research-plan` | `outputs/research-plan.md` | подтверждает план и бюджет |
-| 3 | Исследование | `research` (+ `data-analysis`, `ux-review`, `interview-guide`, `synthetic-respondents` по необходимости) | `outputs/research.md` | — |
+| 3 | Исследование | `research` (+ `data-analysis`, `behavior-analysis`, `ux-review`, `interview-guide`, `synthetic-respondents` по необходимости) | `outputs/research.md` | — |
 | 4 | Варианты | `options` + субагент `critic` | `outputs/options.md`, `outputs/quality-report.md` | выбирает вариант |
 | 5 | Стратегии | `product-strategy`, `comms-strategy` | `outputs/product-strategy.md`, `outputs/comms-strategy.md`, `quality-report.md` | подтверждает |
 | 6 | План проверки | `validation-plan` | `outputs/validation-plan.md`, `outputs/decision-brief.md` | подтверждает |

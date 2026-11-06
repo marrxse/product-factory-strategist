@@ -43,8 +43,15 @@ role = "orchestrator"
 tool = "sf.py media inspect · media frames (ffmpeg) · media transcribe (whisper)"
 why = "сначала перевести в кадры и текст, потом анализировать как изображения и интервью"
 [[routing.rules]]
+name = "анализ поведения клиентов"
+words = ["поведен", "мотив", "отток", "удержан", "уход", "churn", "retention", "активац", "когорт", "привычк", "почему не покупа"]
+skill = "behavior-analysis"
+role = "orchestrator"
+tool = "sf.py behavior events|churn (--within, --where) · методичка behavior-analysis"
+why = "сначала наблюдаемые действия и расчёт кодом, затем механизм как гипотеза; модель выбирает разрезы и проверяет смешение факторов"
+[[routing.rules]]
 name = "таблицы и расчёты"
-words = ["таблиц", "csv", "расчёт", "расчет", "посчита", "когорт", "воронк", "конверс", "метрик"]
+words = ["таблиц", "csv", "расчёт", "расчет", "посчита", "воронк", "конверс", "метрик"]
 skill = "data-analysis"
 role = "orchestrator"
 tool = "sf.py analyze · скрипт в state/analysis/ · evidence kind=calc"

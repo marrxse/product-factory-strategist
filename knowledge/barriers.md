@@ -1,7 +1,7 @@
 ---
 title: Барьеры понимания и выбора
 tags: [барьеры, коммуникация, доверие, конверсия, онбординг, выбор]
-related: [jtbd, positioning, hypotheses-experiments]
+related: [jtbd, positioning, hypotheses-experiments, behavior-analysis]
 ---
 
 # Барьеры: почему человек, которому продукт нужен, его не выбирает

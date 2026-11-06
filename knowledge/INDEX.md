@@ -19,6 +19,7 @@
 | Юнит-экономика | [unit-economics.md](unit-economics.md) | LTV, CAC, ARPU, окупаемость | metrics-pitfalls, value-proposition, option-matrix |
 | Открытые источники (РФ) | [open-sources-ru.md](open-sources-ru.md) | статистика, отзывы, отчётность | source-quality, metrics-pitfalls |
 | Рубрика качества | [quality-rubric.md](quality-rubric.md) | оценка, critic | source-quality, claim-status, option-matrix |
+| Анализ поведения клиентов | [behavior-analysis.md](behavior-analysis.md) | поведение, COM-B, искажения, сегменты, когорты | barriers, jtbd, metrics-pitfalls, hypotheses-experiments |
 | Эвристики интерфейса | [ux-heuristics.md](ux-heuristics.md) | интерфейс, путь пользователя, композиция | barriers, value-proposition, hypotheses-experiments |
 
 ## Синонимы (поиск по смыслу)
@@ -29,6 +30,7 @@
 - синонимы: конкуренты, альтернативы, аналоги, позиционирование
 - синонимы: эксперимент, тест, проверка, валидация, гипотеза, пилот
 - синонимы: источник, доказательство, факт, цитата, достоверность, надёжность
+- синонимы: поведение, поведенческий, мотив, мотивация, привычка, искажение, nudge, подталкивание, психология
 - синонимы: интерфейс, экран, скриншот, ux, юзабилити, лендинг, приложение, макет, кнопка
 - синонимы: риск, провал, возражение, критика, премортем
 - синонимы: вариант, опция, сценарий, альтернатива, решение

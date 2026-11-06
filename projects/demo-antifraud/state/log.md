@@ -166,3 +166,9 @@
 - 2026-11-05 05:20:50 | CORRECTION | evidence:quality:E44 | качество B → C: verifier: пересказ пресс-службы оператора без методики и первоисточника
 - 2026-11-05 05:20:51 | CORRECTION | evidence:quality:E45 | качество B → C: verifier: метрика оператора «примерно 10%» без методики и базы, тот же пресс-релиз
 - 2026-11-05 05:21:09 | NOTE | revisit:classify:route | verifier: классификатор прав в 3 из 5 (E37, E44, E45 → C), реестр — в 2 (E24, E26); исправлено, оговорки к E44 в 3 документах; state/routing/verifier-decisions.md
+- 2026-11-06 23:41:54 | START | revisit:behavior:analysis | анализ поведения клиентов: карта поведения, данные ВЦИОМ, удерживающий эффект защитных услуг на учебных данных
+- 2026-11-06 23:41:54 | ROUTE | revisit:behavior:route | выбор: data-analysis / claude-sonnet-5-5 / sf.py analyze · скрипт в state/analysis/ · evidence kind=calc
+- 2026-11-06 23:42:11 | ROUTE | revisit:behavior:route | ошибочный выбор: data-analysis (правила для поведения клиентов не было) → исправление: behavior-analysis; добавлено правило «анализ поведения клиентов»
+- 2026-11-06 23:42:11 | ROUTE | revisit:behavior:route | выбор: behavior-analysis / claude-sonnet-5-5 / sf.py behavior events/churn (--within, --where) · методичка behavior-analysis
+- 2026-11-06 23:43:13 | CORRECTION | evidence:revoke:E58 | дублирует E4: та же фраза ВЦИОМ 2021 о жертвах по группам входит в цитату E4
+- 2026-11-06 23:45:58 | DONE | revisit:behavior:analysis | behavior.md: C15–C18, E56–E61 (E58 отозвана как дубль); verifier 9/11 записей, C15 и C18 сужены; метрика нажатий и сравнение оттока в плане проверки

@@ -93,3 +93,11 @@ ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds
 2026-11-05 05:19:49,8,transcript,orchestrator,claude-opus-5-5,86,49747,10556241,87569,3.807084,0,факт,41 ответов модели; API-эквивалент
 2026-11-05 05:20:38,8,transcript,orchestrator,claude-opus-5-5,10,3471,1516812,14409,0.488094,0,факт,5 ответов модели; API-эквивалент
 2026-11-05 05:20:38,8,transcript,subagent,claude-sonnet-5-5,8,1968,227318,83485,0.273872,0,факт,4 ответов модели; API-эквивалент
+2026-11-05 20:02:08,8,transcript,orchestrator,<synthetic>,0,0,0,0,0.0,0,факт,1 ответов; нет цены для <synthetic> в config.toml
+2026-11-05 20:02:08,8,transcript,orchestrator,claude-opus-5-5,62,25760,9507931,354716,5.254762,0,факт,29 ответов модели; API-эквивалент
+2026-11-06 03:57:04,8,transcript,orchestrator,claude-opus-5-5,6,675,779810,324863,2.76839,0,факт,3 ответов модели; API-эквивалент
+2026-11-06 23:29:19,8,transcript,subagent,claude-haiku-5-5,16,6850,25428,22855,0.006538,0,факт,8 ответов модели; API-эквивалент
+2026-11-06 23:29:19,8,transcript,orchestrator,claude-opus-5-5,44,15168,7082038,395294,4.882296,0,факт,18 ответов модели; API-эквивалент
+2026-11-06 23:34:24,8,transcript,orchestrator,claude-opus-5-5,8,1874,1334732,10693,0.390002,0,факт,3 ответов модели; API-эквивалент
+2026-11-06 23:45:14,8,transcript,orchestrator,claude-opus-5-5,63,48044,15308589,77127,4.639866,0,факт,31 ответов модели; API-эквивалент
+2026-11-06 23:45:14,8,transcript,subagent,claude-sonnet-5-5,12,7975,204201,52267,0.251282,0,факт,6 ответов модели; API-эквивалент

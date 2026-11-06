@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import journal, media, paths, route
+from . import behavior, journal, media, paths, route
 
 EXIT_ALREADY_DONE = 3
 EXIT_FAILED_CHECK = 1
@@ -129,7 +129,43 @@ def cmd_route(args: argparse.Namespace) -> int:
     return EXIT_FAILED_CHECK if diffs else 0
 
 
+def cmd_behavior(args: argparse.Namespace) -> int:
+    proj = _project(args)
+    source = Path(args.file)
+    source = source if source.is_absolute() or source.exists() else proj / source
+    if args.mode == "events":
+        text = behavior.events_report(source, args.activation, args.target_event, args.window, args.risk_days)
+        suffix = "behavior"
+    else:
+        if not args.target or args.positive is None:
+            raise paths.SfError("Для churn нужны --target <колонка> и --positive <значение ухода>.")
+        skip = [c.strip() for c in (args.skip or "").split(",") if c.strip()]
+        text = behavior.churn_report(source, args.target, args.positive, skip, args.within, args.where)
+        suffix = "churn"
+    out = proj / "state" / "analysis" / f"{source.stem}-{suffix}.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text, encoding="utf-8")
+    print(text if args.show else f"Отчёт: {out.relative_to(proj).as_posix()}")
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("behavior", help="поведение клиентов: events (журнал событий) или churn (таблица оттока)")
+    p.add_argument("mode", choices=("events", "churn"))
+    p.add_argument("file", help="CSV относительно проекта или текущей папки")
+    p.add_argument("--activation", help="events: ключевое действие активации")
+    p.add_argument("--target-event", dest="target_event", help="events: целевое действие (покупка, подписка)")
+    p.add_argument("--window", type=int, default=7, help="events: дней на активацию")
+    p.add_argument("--risk-days", type=int, default=30, help="events: сколько дней молчания — риск ухода")
+    p.add_argument("--target", help="churn: колонка признака ухода")
+    p.add_argument("--positive", help="churn: значение, означающее уход (например, Yes)")
+    p.add_argument("--skip", help="churn: колонки через запятую, которые не анализировать")
+    p.add_argument("--where", help="churn: одно условие отбора строк, например \"InternetService!=No\"")
+    p.add_argument("--within", help="churn: контрольный признак — сравнить разрывы внутри его групп")
+    p.add_argument("--show", action="store_true", help="напечатать отчёт целиком")
+    p.set_defaults(func=cmd_behavior)
+
+
     p = sub.add_parser("media", help="изображения, аудио, видео: inspect, shot, text, frames, transcribe, tools")
     p.add_argument("action", choices=("inspect", "shot", "text", "frames", "transcribe", "tools"))
     p.add_argument("target", nargs="?", help="файл (относительно проекта) или адрес страницы")

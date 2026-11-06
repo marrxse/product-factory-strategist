@@ -19,7 +19,8 @@ class KnowledgeSearchTest(unittest.TestCase):
         # в запросе нет слов из названия темы — найдено через группу синонимов
         self.assertIn("knowledge/metrics-pitfalls.md", top_files("churn"))
         self.assertEqual(top_files("сколько можно заработать")[0], "knowledge/unit-economics.md")
-        self.assertEqual(top_files("люди не доверяют списаниям")[0], "knowledge/barriers.md")
+        # недоверие — и барьер выбора, и поведенческое искажение: обе темы уместны, барьеры — в первой паре
+        self.assertIn("knowledge/barriers.md", top_files("люди не доверяют списаниям")[:2])
 
     def test_adds_related_topics_marked_as_links(self):
         hits = kb.search("как задавать вопросы", kb.load_docs(REPO), kb.synonym_groups(REPO), 5)
