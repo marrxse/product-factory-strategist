@@ -172,3 +172,4 @@
 - 2026-11-06 23:42:11 | ROUTE | revisit:behavior:route | выбор: behavior-analysis / claude-sonnet-5-5 / sf.py behavior events/churn (--within, --where) · методичка behavior-analysis
 - 2026-11-06 23:43:13 | CORRECTION | evidence:revoke:E58 | дублирует E4: та же фраза ВЦИОМ 2021 о жертвах по группам входит в цитату E4
 - 2026-11-06 23:45:58 | DONE | revisit:behavior:analysis | behavior.md: C15–C18, E56–E61 (E58 отозвана как дубль); verifier 9/11 записей, C15 и C18 сужены; метрика нажатий и сравнение оттока в плане проверки
+- 2026-11-06 23:56:11 | CORRECTION | analysis:breakeven:summary | скрипт теперь печатает сводку E49 (≈547–2 810 пар, предельная стоимость привлечения ≈297–457 ₽ / ≈222–342 ₽): раньше эти числа выводились из формулы вручную

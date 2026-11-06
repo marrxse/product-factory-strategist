@@ -25,3 +25,11 @@ for inv in INVESTMENT:
                 value = price * MARGIN * paid_months(churn) * (1 - CANNIBALIZATION) - cac
                 per_month.append("не окупается" if value <= 0 else f"≈{inv / value / HORIZON:,.0f}".replace(",", " "))
             print(f"{inv/1e6:.0f} млн ₽ | {price} ₽ | {cac} ₽ | {per_month[0]} … {per_month[1]}")
+
+# Сводка для реестра (E49): все числа записи выводятся этим скриптом.
+need = [inv / (price * MARGIN * paid_months(ch) * (1 - CANNIBALIZATION)) / HORIZON
+        for inv in INVESTMENT for price in (199,) for ch in MONTHLY_CHURN]
+print(f"сводка: окупаемость за {HORIZON} мес.; при 199 ₽ и бесплатном привлечении нужно ≈{min(need):,.0f}–{max(need):,.0f} новых платящих пар в месяц".replace(",", " "))
+for price in PRICES:
+    limits = [price * MARGIN * paid_months(ch) * (1 - CANNIBALIZATION) for ch in MONTHLY_CHURN]
+    print(f"сводка: предельная стоимость привлечения при {price} ₽ ≈{min(limits):.0f}–{max(limits):.0f} ₽ (дороже — не окупается при любом наборе)")

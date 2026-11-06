@@ -65,8 +65,7 @@ def _ci(succ: int, total: int) -> str:
 
 
 def _header(title: str, path: Path, sha: str, command: str) -> list[str]:
-    return [f"# {title}", "", f"- Данные: `{path.name}` (sha1 {sha})", f"- Расчёт: `{command}` — повторный запуск даёт те же числа",
-            f"- Дата расчёта: {date.today().isoformat()}", ""]
+    return [f"# {title}", "", f"- Данные: `{path.name}` (sha1 {sha})", f"- Расчёт: `{command}` — повторный запуск даёт тот же отчёт", ""]
 
 
 # ---------- журнал событий ----------

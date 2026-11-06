@@ -1,8 +1,7 @@
 # Поведение клиентов: кто уходит
 
 - Данные: `telco-churn-ibm.csv` (sha1 539a8c8d79)
-- Расчёт: `sf.py behavior churn telco-churn-ibm.csv --target Churn --positive Yes --skip customerID --within Contract --where "InternetService!=No"` — повторный запуск даёт те же числа
-- Дата расчёта: 2026-11-06
+- Расчёт: `sf.py behavior churn telco-churn-ibm.csv --target Churn --positive Yes --skip customerID --within Contract --where "InternetService!=No"` — повторный запуск даёт тот же отчёт
 
 ## Проверка данных
 - Клиентов: 5517 из 7043 (условие: InternetService!=No); признаков: 20
