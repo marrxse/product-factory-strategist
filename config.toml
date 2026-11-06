@@ -36,6 +36,13 @@ role = "orchestrator"
 tool = "sf.py media shot (компьютер и телефон) · sf.py media inspect"
 why = "нужно зрение и привязка к видимому; дешёвая модель чаще додумывает невидимое"
 [[routing.rules]]
+name = "ответы нейросетей"
+words = ["нейросет", "ассистент", "алис", "gigachat", "chatgpt", "geo", "нейропоиск", "ответы ии"]
+skill = "comms-strategy"
+role = "orchestrator"
+tool = "sources/geo/questions.md → ответы ассистентов в sources/geo/ → sf.py geo --brands … --risky …"
+why = "канал коммуникации: что ассистенты говорят покупателю; расчёт упоминаний и источников — кодом"
+[[routing.rules]]
 name = "аудио и видео"
 words = ["аудио", "видео", "запис", "ролик", "подка"]
 skill = "ux-review"

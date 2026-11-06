@@ -173,3 +173,7 @@
 - 2026-11-06 23:43:13 | CORRECTION | evidence:revoke:E58 | дублирует E4: та же фраза ВЦИОМ 2021 о жертвах по группам входит в цитату E4
 - 2026-11-06 23:45:58 | DONE | revisit:behavior:analysis | behavior.md: C15–C18, E56–E61 (E58 отозвана как дубль); verifier 9/11 записей, C15 и C18 сужены; метрика нажатий и сравнение оттока в плане проверки
 - 2026-11-06 23:56:11 | CORRECTION | analysis:breakeven:summary | скрипт теперь печатает сводку E49 (≈547–2 810 пар, предельная стоимость привлечения ≈297–457 ₽ / ≈222–342 ₽): раньше эти числа выводились из формулы вручную
+- 2026-11-07 00:06:58 | START | collect:fetch:yandex-com-support-browser-mobile-android-phone-ru-security--c30d41 | https://yandex.com/support/browser-mobile-android-phone/ru/security/trusted-person.md
+- 2026-11-07 00:07:00 | DONE | collect:fetch:yandex-com-support-browser-mobile-android-phone-ru-security--c30d41 | сохранено web-yandex-com-support-browser-mobile-android-phone-ru-security--c30d41-2026-11-07.md
+- 2026-11-07 00:07:19 | START | revisit:geo:ai-answers | канал «ответы нейросетей»: 6 вопросов покупателя ассистенту с веб-поиском, разбор упоминаний и источников
+- 2026-11-07 00:07:49 | DONE | revisit:geo:ai-answers | C22 (свободное место в ответах нейросетей), C23 (П2 уже у МТС, МегаФона, Яндекса); E62–E66; канал и метрика в comms-strategy; креатив: C19–C21, S7–S14

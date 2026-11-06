@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import behavior, journal, media, paths, pipeline, route
+from . import behavior, geo, journal, media, paths, pipeline, route
 
 EXIT_ALREADY_DONE = 3
 EXIT_FAILED_CHECK = 1
@@ -161,7 +161,26 @@ def cmd_pipeline(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_geo(args: argparse.Namespace) -> int:
+    proj = _project(args)
+    answers = geo.load(proj / "sources" / "geo")
+    risky = [r.strip() for r in (args.risky or "").split(",") if r.strip()]
+    text = geo.analyze(answers, geo.parse_brands(args.brands), risky)
+    out = proj / "state" / "analysis" / "geo-answers.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text, encoding="utf-8")
+    print(text if args.show else f"Отчёт: {out.relative_to(proj).as_posix()}")
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("geo", help="канал «ответы нейросетей»: бренды, источники и рискованные утверждения в ответах ИИ-ассистентов")
+    p.add_argument("--brands", required=True, help="\"МТС=МТС|MTS; МегаФон=МегаФон|Мегафон\"")
+    p.add_argument("--risky", help="маркеры утверждений для сверки через запятую, например \"по закону,бесплатно,100%%\"")
+    p.add_argument("--show", action="store_true")
+    p.set_defaults(func=cmd_geo)
+
+
     p = sub.add_parser("pipeline", help="цепочка промптов на одной странице: docs/PIPELINE.md из кода и навыков")
     p.add_argument("--check", action="store_true", help="только проверить, что документ не устарел")
     p.set_defaults(func=cmd_pipeline)
