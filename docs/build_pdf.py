@@ -42,7 +42,9 @@ th { text-align: left; font-weight: 650; color: var(--muted); border-bottom: 1.5
 td { border-bottom: 1px solid var(--line); padding: 4pt 6pt; vertical-align: top; }
 tr { break-inside: avoid; }
 figure { margin: 10pt 0 14pt; break-inside: avoid; }
-figure img { width: 100%; border-radius: 10px; border: 1px solid var(--line); }
+figure img { display: block; max-width: 100%; max-height: 215mm; width: auto; height: auto; margin: 0 auto;
+  border-radius: 10px; border: 1px solid var(--line); }
+figure { page-break-inside: avoid; }
 figcaption { color: var(--muted); font-size: 8.5pt; margin-top: 4pt; }
 .cover { break-after: page; }
 .cover .eyebrow { color: var(--green); font-weight: 650; font-size: 11pt; margin: 0 0 8pt; }
