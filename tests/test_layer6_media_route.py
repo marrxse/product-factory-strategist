@@ -180,6 +180,19 @@ class EvidenceQualityTest(unittest.TestCase):
             self.assertIn("evidence:quality:E1", log)
 
 
+class PipelineDocTest(unittest.TestCase):
+    def test_committed_pipeline_matches_code_and_skills(self):
+        from sflib import pipeline, stages
+        from tests.helpers import REPO
+        self.assertTrue(pipeline.is_current(REPO), "docs/PIPELINE.md устарел — python3 sf.py pipeline")
+        self.assertEqual([s.stage for s in pipeline.STEPS], [s.num for s in stages.STAGES])
+        for step in pipeline.STEPS:
+            for skill in step.skills:
+                self.assertTrue((REPO / "skills" / skill / "SKILL.md").exists(), skill)
+            for agent in step.subagents:
+                self.assertTrue((REPO / "agents" / f"{agent}.md").exists(), agent)
+
+
 class UxReviewValidateTest(unittest.TestCase):
     def test_ux_review_requires_sections(self):
         with TempRepo() as root:

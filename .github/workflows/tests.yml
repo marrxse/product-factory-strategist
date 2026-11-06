@@ -26,6 +26,7 @@ jobs:
           PYTHONUTF8: "1"
         run: |
           python sf.py doctor
+          python sf.py pipeline --check
           python sf.py -p demo-antifraud validate --final
           python sf.py -p fitness-trial validate --final
           python sf.py scan secrets

@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import behavior, journal, media, paths, route
+from . import behavior, journal, media, paths, pipeline, route
 
 EXIT_ALREADY_DONE = 3
 EXIT_FAILED_CHECK = 1
@@ -149,7 +149,24 @@ def cmd_behavior(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_pipeline(args: argparse.Namespace) -> int:
+    root = paths.repo_root()
+    if args.check:
+        if pipeline.is_current(root):
+            print(f"{pipeline.DOC.as_posix()} совпадает с устройством агента")
+            return 0
+        print(f"{pipeline.DOC.as_posix()} устарел — выполните: python3 sf.py pipeline")
+        return EXIT_FAILED_CHECK
+    print(f"Обновлено: {pipeline.write(root).relative_to(root).as_posix()}")
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("pipeline", help="цепочка промптов на одной странице: docs/PIPELINE.md из кода и навыков")
+    p.add_argument("--check", action="store_true", help="только проверить, что документ не устарел")
+    p.set_defaults(func=cmd_pipeline)
+
+
     p = sub.add_parser("behavior", help="поведение клиентов: events (журнал событий) или churn (таблица оттока)")
     p.add_argument("mode", choices=("events", "churn"))
     p.add_argument("file", help="CSV относительно проекта или текущей папки")

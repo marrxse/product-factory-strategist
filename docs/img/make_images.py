@@ -143,3 +143,37 @@ for i, (color, text, _) in enumerate(lines):
 out = svg(1200, H2, "Анимация: агент дописал число без источника, validate выдал ошибку, этап не закрылся; revisit E11 нашёл 4 зависимых вывода и 20 мест в 5 документах", b, glows=False)
 out = out.replace(f"<style>text{{font-family:{FONT}}}</style>", "<style>" + "\n".join(css) + "</style>")
 (OUT / "check.svg").write_text(out, encoding="utf-8")
+
+# ---------- pipeline: цепочка промптов (источник правды — docs/PIPELINE.md) ----------
+rows_p = [  # этап, промпт, результат, проверка, ворота
+    ("0", "Постановка задачи", "intake", "brief.md", "≤3 вопроса с вариантом по умолчанию", True),
+    ("1", "Сбор материалов", "collect", "evidence.csv", "цитата, место, дата · классификатор", False),
+    ("2", "План исследования", "research-plan", "research-plan.md", "цена ошибки × неопределённость", True),
+    ("3", "Исследование", "research + 4 навыка", "research.md · behavior.md", "раздел «Чего мы не знаем»", False),
+    ("4", "Варианты", "options + quality-review", "options.md", "≥3 варианта · критик вслепую", True),
+    ("5", "Стратегии", "product- + comms-strategy", "2 стратегии", "обещание → возможность продукта", True),
+    ("6", "План проверки", "validation-plan", "decision-brief.md", "пороги «продолжить / остановить»", True),
+    ("7", "Поддержка решения", "decision-support", "decisions.md", "сроки и условия пересмотра", False),
+    ("8", "Пересмотр", "decision-support", "revisit-<дата>.md", "граф затронутых выводов", True),
+]
+cols = [(80, "Этап"), (320, "Промпт (навык)"), (560, "Результат"), (790, "Проверка"), (1105, "")]
+top_p, rh_p = 262, 64
+H3 = top_p + len(rows_p) * rh_p + 90
+b = [t(80, 98, "Цепочка промптов", 20, GREEN, 600, 0.2),
+     t(80, 160, "Один шаг — один промпт, результат и проверка.", 48, FG, 700, -1.3),
+     t(80, 202, "Полная таблица собирается из кода командой sf.py pipeline — docs/PIPELINE.md.", 21, MUT, 400, -0.2)]
+b += [t(x, top_p - 18, name, 14, MUT, 600, 0.4) for x, name in cols[:4]]
+b.append(t(1120, top_p - 18, "ворота", 14, MUT, 600, 0.4, "end"))
+for i, (num, stage, skill, result, check, gate) in enumerate(rows_p):
+    y = top_p + i * rh_p
+    b.append(f'<rect x="64" y="{y}" width="1072" height="{rh_p - 8}" rx="14" fill="{CARD if i % 2 == 0 else BG}"/>')
+    b.append(t(84, y + 36, num, 18, GREEN, 700, 0, "start"))
+    b.append(t(112, y + 36, esc(stage), 17, FG, 600, -0.2))
+    b.append(f'<text class="m" x="320" y="{y + 35}" font-size="14.5" fill="{PURPLE_T}" font-family="{MONO}">{esc(skill)}</text>')
+    b.append(f'<text class="m" x="560" y="{y + 35}" font-size="14.5" fill="{FG}" font-family="{MONO}">{esc(result)}</text>')
+    b.append(t(790, y + 35, esc(check), 14.5, MUT))
+    if gate:
+        b.append(f'<circle cx="1108" cy="{y + 28}" r="11" fill="{BG}" stroke="{GREEN}" stroke-width="2.2"/><circle cx="1108" cy="{y + 28}" r="5" fill="{GREEN}"/>')
+fy3 = top_p + len(rows_p) * rh_p + 30
+b.append(t(80, fy3 + 10, "Каждый шаг: хук после записи проверяет метки и ссылки · этап не закрывается, пока проверка красная · на воротах решает человек.", 16, MUT))
+(OUT / "pipeline.svg").write_text(svg(1200, H3, "Цепочка промптов агента: девять шагов, у каждого промпт-навык, результат, проверка и ворота человека", b, glows=False), encoding="utf-8")

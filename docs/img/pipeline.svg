@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 928" width="1200" height="928" role="img" aria-label="Цепочка промптов агента: девять шагов, у каждого промпт-навык, результат, проверка и ворота человека">
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style>
+
+<rect width="1200" height="928" rx="28" fill="#000000"/>
+<text x="80" y="98" font-size="20" font-weight="600" fill="#00B956" letter-spacing="0.2" text-anchor="start">Цепочка промптов</text>
+<text x="80" y="160" font-size="48" font-weight="700" fill="#f5f5f7" letter-spacing="-1.3" text-anchor="start">Один шаг — один промпт, результат и проверка.</text>
+<text x="80" y="202" font-size="21" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">Полная таблица собирается из кода командой sf.py pipeline — docs/PIPELINE.md.</text>
+<text x="80" y="244" font-size="14" font-weight="600" fill="#86868b" letter-spacing="0.4" text-anchor="start">Этап</text>
+<text x="320" y="244" font-size="14" font-weight="600" fill="#86868b" letter-spacing="0.4" text-anchor="start">Промпт (навык)</text>
+<text x="560" y="244" font-size="14" font-weight="600" fill="#86868b" letter-spacing="0.4" text-anchor="start">Результат</text>
+<text x="790" y="244" font-size="14" font-weight="600" fill="#86868b" letter-spacing="0.4" text-anchor="start">Проверка</text>
+<text x="1120" y="244" font-size="14" font-weight="600" fill="#86868b" letter-spacing="0.4" text-anchor="end">ворота</text>
+<rect x="64" y="262" width="1072" height="56" rx="14" fill="#161618"/>
+<text x="84" y="298" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">0</text>
+<text x="112" y="298" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Постановка задачи</text>
+<text class="m" x="320" y="297" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">intake</text>
+<text class="m" x="560" y="297" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">brief.md</text>
+<text x="790" y="297" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">≤3 вопроса с вариантом по умолчанию</text>
+<circle cx="1108" cy="290" r="11" fill="#000000" stroke="#00B956" stroke-width="2.2"/><circle cx="1108" cy="290" r="5" fill="#00B956"/>
+<rect x="64" y="326" width="1072" height="56" rx="14" fill="#000000"/>
+<text x="84" y="362" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">1</text>
+<text x="112" y="362" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Сбор материалов</text>
+<text class="m" x="320" y="361" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">collect</text>
+<text class="m" x="560" y="361" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">evidence.csv</text>
+<text x="790" y="361" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">цитата, место, дата · классификатор</text>
+<rect x="64" y="390" width="1072" height="56" rx="14" fill="#161618"/>
+<text x="84" y="426" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">2</text>
+<text x="112" y="426" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">План исследования</text>
+<text class="m" x="320" y="425" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">research-plan</text>
+<text class="m" x="560" y="425" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">research-plan.md</text>
+<text x="790" y="425" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">цена ошибки × неопределённость</text>
+<circle cx="1108" cy="418" r="11" fill="#000000" stroke="#00B956" stroke-width="2.2"/><circle cx="1108" cy="418" r="5" fill="#00B956"/>
+<rect x="64" y="454" width="1072" height="56" rx="14" fill="#000000"/>
+<text x="84" y="490" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">3</text>
+<text x="112" y="490" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Исследование</text>
+<text class="m" x="320" y="489" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">research + 4 навыка</text>
+<text class="m" x="560" y="489" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">research.md · behavior.md</text>
+<text x="790" y="489" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">раздел «Чего мы не знаем»</text>
+<rect x="64" y="518" width="1072" height="56" rx="14" fill="#161618"/>
+<text x="84" y="554" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">4</text>
+<text x="112" y="554" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Варианты</text>
+<text class="m" x="320" y="553" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">options + quality-review</text>
+<text class="m" x="560" y="553" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">options.md</text>
+<text x="790" y="553" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">≥3 варианта · критик вслепую</text>
+<circle cx="1108" cy="546" r="11" fill="#000000" stroke="#00B956" stroke-width="2.2"/><circle cx="1108" cy="546" r="5" fill="#00B956"/>
+<rect x="64" y="582" width="1072" height="56" rx="14" fill="#000000"/>
+<text x="84" y="618" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">5</text>
+<text x="112" y="618" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Стратегии</text>
+<text class="m" x="320" y="617" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">product- + comms-strategy</text>
+<text class="m" x="560" y="617" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">2 стратегии</text>
+<text x="790" y="617" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">обещание → возможность продукта</text>
+<circle cx="1108" cy="610" r="11" fill="#000000" stroke="#00B956" stroke-width="2.2"/><circle cx="1108" cy="610" r="5" fill="#00B956"/>
+<rect x="64" y="646" width="1072" height="56" rx="14" fill="#161618"/>
+<text x="84" y="682" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">6</text>
+<text x="112" y="682" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">План проверки</text>
+<text class="m" x="320" y="681" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">validation-plan</text>
+<text class="m" x="560" y="681" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">decision-brief.md</text>
+<text x="790" y="681" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">пороги «продолжить / остановить»</text>
+<circle cx="1108" cy="674" r="11" fill="#000000" stroke="#00B956" stroke-width="2.2"/><circle cx="1108" cy="674" r="5" fill="#00B956"/>
+<rect x="64" y="710" width="1072" height="56" rx="14" fill="#000000"/>
+<text x="84" y="746" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">7</text>
+<text x="112" y="746" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Поддержка решения</text>
+<text class="m" x="320" y="745" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">decision-support</text>
+<text class="m" x="560" y="745" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">decisions.md</text>
+<text x="790" y="745" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">сроки и условия пересмотра</text>
+<rect x="64" y="774" width="1072" height="56" rx="14" fill="#161618"/>
+<text x="84" y="810" font-size="18" font-weight="700" fill="#00B956" letter-spacing="0" text-anchor="start">8</text>
+<text x="112" y="810" font-size="17" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Пересмотр</text>
+<text class="m" x="320" y="809" font-size="14.5" fill="#d7a3ef" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">decision-support</text>
+<text class="m" x="560" y="809" font-size="14.5" fill="#f5f5f7" font-family="'SF Mono',Menlo,Consolas,'Liberation Mono',monospace">revisit-&lt;дата&gt;.md</text>
+<text x="790" y="809" font-size="14.5" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">граф затронутых выводов</text>
+<circle cx="1108" cy="802" r="11" fill="#000000" stroke="#00B956" stroke-width="2.2"/><circle cx="1108" cy="802" r="5" fill="#00B956"/>
+<text x="80" y="878" font-size="16" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Каждый шаг: хук после записи проверяет метки и ссылки · этап не закрывается, пока проверка красная · на воротах решает человек.</text>
+</svg>

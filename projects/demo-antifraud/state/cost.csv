@@ -101,3 +101,5 @@ ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds
 2026-11-06 23:34:24,8,transcript,orchestrator,claude-opus-5-5,8,1874,1334732,10693,0.390002,0,факт,3 ответов модели; API-эквивалент
 2026-11-06 23:45:14,8,transcript,orchestrator,claude-opus-5-5,63,48044,15308589,77127,4.639866,0,факт,31 ответов модели; API-эквивалент
 2026-11-06 23:45:14,8,transcript,subagent,claude-sonnet-5-5,12,7975,204201,52267,0.251282,0,факт,6 ответов модели; API-эквивалент
+2026-11-06 23:47:09,8,transcript,orchestrator,claude-opus-5-5,14,8199,3743974,14591,1.029559,0,факт,7 ответов модели; API-эквивалент
+2026-11-06 23:49:14,8,transcript,orchestrator,claude-opus-5-5,6,561,1083727,1574,0.240581,0,факт,2 ответов модели; API-эквивалент
