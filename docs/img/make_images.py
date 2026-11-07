@@ -3,8 +3,8 @@ import sys
 from pathlib import Path
 OUT = Path(sys.argv[1])
 FONT = "-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif"
-BG, FG, MUT, LINE, CARD = "#000000", "#f5f5f7", "#86868b", "#2c2c2e", "#161618"
-GREEN, PURPLE, PURPLE_T = "#00B956", "#731982", "#d7a3ef"
+BG, FG, MUT, LINE, CARD = "#ffffff", "#1d1d1f", "#6e6e73", "#e3e3e8", "#f5f5f7"
+GREEN, PURPLE, PURPLE_T = "#00a650", "#731982", "#731982"
 
 def esc(s): return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -12,12 +12,12 @@ def svg(w, h, label, body, glows=True):
     g = ""
     if glows:
         g = f"""<defs>
-<radialGradient id="g1" cx="0.92" cy="-0.05" r="0.55"><stop offset="0" stop-color="{GREEN}" stop-opacity="0.32"/><stop offset="1" stop-color="{GREEN}" stop-opacity="0"/></radialGradient>
-<radialGradient id="g2" cx="0.02" cy="1.08" r="0.6"><stop offset="0" stop-color="{PURPLE}" stop-opacity="0.45"/><stop offset="1" stop-color="{PURPLE}" stop-opacity="0"/></radialGradient>
+<radialGradient id="g1" cx="0.92" cy="-0.05" r="0.55"><stop offset="0" stop-color="{GREEN}" stop-opacity="0.13"/><stop offset="1" stop-color="{GREEN}" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="0.02" cy="1.08" r="0.6"><stop offset="0" stop-color="{PURPLE}" stop-opacity="0.10"/><stop offset="1" stop-color="{PURPLE}" stop-opacity="0"/></radialGradient>
 </defs>"""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{esc(label)}">\n'
             f'<style>text{{font-family:{FONT}}}</style>\n{g}\n'
-            f'<rect width="{w}" height="{h}" rx="28" fill="{BG}"/>\n'
+            f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="28" fill="{BG}" stroke="{LINE}" stroke-width="2"/>\n'
             + (f'<rect width="{w}" height="{h}" rx="28" fill="url(#g1)"/><rect width="{w}" height="{h}" rx="28" fill="url(#g2)"/>\n' if glows else "")
             + "\n".join(body) + "\n</svg>\n")
 
@@ -62,11 +62,11 @@ for i, (lv, *_) in enumerate(rows):
     p = max(j for j in range(i) if rows[j][0] == lv - 1)
     px, cy = x0 + (lv - 1) * ind + 30, ys[i] + 8
     b.append(f'<path d="M{px} {ys[p] + 26} V{cy - 14} Q{px} {cy} {px + 14} {cy} H{x0 + lv * ind - 10}" '
-             f'fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>')
+             f'fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>')
 for i, (lv, kind, cid, l1, l2) in enumerate(rows):
     x, y = x0 + lv * ind, ys[i]
     fill, tc = (PURPLE, PURPLE_T) if kind == "C" else (GREEN, GREEN)
-    op = "0.38" if kind == "C" else "0.16"
+    op = "0.12" if kind == "C" else "0.12"
     b.append(f'<rect x="{x}" y="{y - 8}" width="62" height="32" rx="16" fill="{fill}" fill-opacity="{op}"/>')
     b.append(t(x + 31, y + 14, cid, 16, tc, 700, 0.3, "middle"))
     b.append(t(x + 80, y + 14, esc(l1), 20 if kind == "C" else 18, FG, 600 if kind == "C" else 400, -0.2))
@@ -74,7 +74,7 @@ for i, (lv, kind, cid, l1, l2) in enumerate(rows):
 fy = top + len(rows) * rh + 10
 b += [f'<rect x="80" y="{fy}" width="1040" height="96" rx="20" fill="{CARD}" stroke="{LINE}"/>',
       f'<circle cx="122" cy="{fy + 48}" r="16" fill="{GREEN}"/>',
-      f'<path d="M114 {fy + 48} l6 6 l11 -12" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+      f'<path d="M114 {fy + 48} l6 6 l11 -12" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
       t(160, fy + 42, "Отзовите один источник — агент сам найдёт, что пересмотреть.", 21, FG, 600, -0.2),
       t(160, fy + 70, "Для E36 это 9 зависимых выводов и 31 место в 7 документах. В демо так прошли два пересмотра.", 16, MUT)]
 (OUT / "evidence-chain.svg").write_text(svg(1200, h, "Цепочка оснований вывода C15 до дословных цитат источников; отзыв записи E36 затрагивает 9 выводов и 31 место в 7 документах", b, glows=False), encoding="utf-8")
@@ -87,7 +87,7 @@ b = [t(80, 98, "Как идёт работа", 20, GREEN, 600, 0.2),
      t(80, 202, "На воротах агент останавливается и ждёт вашего ответа. Остальное делает сам.", 21, MUT, 400, -0.2)]
 y, xa, xb = 300, 130, 1070
 step = (xb - xa) / 8
-b.append(f'<rect x="{xa}" y="{y - 1}" width="{xb - xa}" height="2" fill="#3a3a3c"/>')
+b.append(f'<rect x="{xa}" y="{y - 1}" width="{xb - xa}" height="2" fill="#d1d1d6"/>')
 for i, (name, gate) in enumerate(stages):
     x = round(xa + i * step)
     b.append(t(x, y - 34, str(i), 15, MUT, 600, 0, "middle"))
@@ -105,7 +105,7 @@ b.append(t(80, 440, "После решения агент следит за ег
 # ---------- check: анимация настоящих выводов sf.py ----------
 # Строки — дословный вывод команд на копии демо, куда добавлена строка без источника.
 MONO = "'SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
-RED, YELLOW = "#ff6961", "#ffd60a"
+RED, YELLOW = "#d70015", "#b25000"
 lines = [  # (цвет, текст, пауза перед строкой в долях цикла)
     (MUT, "# в research.md попала строка: «Рынок защиты от мошенников вырос на 37% за год.»", 0.04),
     (FG, "$ python3 sf.py validate", 0.10),
@@ -135,7 +135,7 @@ b = [t(80, 98, "Проверка кодом, а не просьбой", 20, GREE
      t(80, 160, "Число без источника не пройдёт.", 48, FG, 700, -1.3),
      t(80, 202, "Настоящий вывод команд агента: этап не закрыть, пока проверка красная.", 21, MUT, 400, -0.2),
      f'<rect x="80" y="236" width="1040" height="{H2 - 236 - 60}" rx="16" fill="{CARD}" stroke="{LINE}"/>',
-     f'<rect x="80" y="236" width="1040" height="40" rx="16" fill="#202022"/><rect x="80" y="260" width="1040" height="16" fill="#202022"/>',
+     f'<rect x="80" y="236" width="1040" height="40" rx="16" fill="#ececf0"/><rect x="80" y="260" width="1040" height="16" fill="#ececf0"/>',
      '<circle cx="106" cy="256" r="6.5" fill="#ff5f57"/><circle cx="128" cy="256" r="6.5" fill="#febc2e"/><circle cx="150" cy="256" r="6.5" fill="#28c840"/>',
      t(600, 261, "demo-antifraud", 14, MUT, 500, 0, "middle")]
 for i, (color, text, _) in enumerate(lines):

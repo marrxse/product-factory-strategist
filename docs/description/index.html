@@ -89,23 +89,21 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
 .layer b { font-weight: 600; } .layer span { color: var(--muted); font-size: 10pt; }
 .layer code { font-family: var(--mono); font-size: 8.5pt; color: var(--ink); }
 .note { font-size: 9.8pt; color: var(--muted); }
-/* обложка */
-.cover { background: #000; color: #f5f5f7; padding: 22mm 24mm 18mm; }
-.cover::before { content: ""; position: absolute; right: -60mm; top: -70mm; width: 220mm; height: 220mm; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,185,86,.42), rgba(0,185,86,0) 65%); }
-.cover::after { content: ""; position: absolute; left: -70mm; bottom: -90mm; width: 230mm; height: 230mm; border-radius: 50%;
-  background: radial-gradient(circle, rgba(115,25,130,.55), rgba(115,25,130,0) 65%); }
+/* обложка — светлая, с едва заметным свечением в фирменных цветах */
+.cover { background: #fff; color: var(--ink); padding: 22mm 24mm 18mm; }
+.cover::before { content: ""; position: absolute; right: -70mm; top: -80mm; width: 230mm; height: 230mm; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,166,80,.16), rgba(0,166,80,0) 65%); }
+.cover::after { content: ""; position: absolute; left: -80mm; bottom: -100mm; width: 240mm; height: 240mm; border-radius: 50%;
+  background: radial-gradient(circle, rgba(115,25,130,.12), rgba(115,25,130,0) 65%); }
 .cover > * { position: relative; z-index: 1; }
-.cover .eyebrow { color: #00c25f; font-weight: 650; font-size: 10pt; letter-spacing: .02em; }
-.cover h1 { color: #fff; font-size: 44pt; max-width: 240mm; margin-top: 9mm; letter-spacing: -0.03em; }
-.cover h1 em { color: #00c25f; }
-.cover .lead { color: #a1a1a6; font-size: 14pt; max-width: 200mm; margin-top: 6mm; }
-.cover .stats { margin-top: auto; padding-top: 8mm; border-top: 1px solid #2c2c2e; }
-.cover .num { color: #fff; font-size: 32pt; } .cover .cap { color: #8e8e93; }
-.cover .meta { display: flex; gap: 12mm; margin-top: 9mm; font-size: 8.5pt; color: #8e8e93; }
-.cover .meta b { color: #d1d1d6; font-weight: 600; display: block; font-size: 8pt; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .8mm; }
-.dark { background: #000; color: #f5f5f7; } .dark .top, .dark .foot { color: #8e8e93; border-color: #2c2c2e; }
-.dark h1 { color: #fff; } .dark .lead { color: #a1a1a6; }
+.cover .eyebrow { color: var(--green); font-weight: 650; font-size: 10pt; letter-spacing: .02em; }
+.cover h1 { font-size: 44pt; max-width: 240mm; margin-top: 9mm; letter-spacing: -0.03em; }
+.cover .lead { font-size: 14pt; max-width: 200mm; margin-top: 6mm; }
+.cover .stats { margin-top: auto; padding-top: 8mm; border-top: 1px solid var(--line); }
+.cover .num { font-size: 32pt; } .cover .num.g { color: var(--green); }
+.cover .meta { display: flex; gap: 12mm; margin-top: 9mm; font-size: 8.5pt; color: var(--muted); }
+.cover .meta b { color: var(--ink); font-weight: 600; display: block; font-size: 8pt; letter-spacing: .05em; text-transform: uppercase; margin-bottom: .8mm; }
+.term { font-family: var(--mono); font-size: 10pt; color: var(--ink); line-height: 1.8; }
 .idea { font-family: var(--display); font-size: 25pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--purple); }
 </style>
 </head>
@@ -117,7 +115,7 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
   <h1>ИИ-агент, после которого решению <em>можно доверять.</em></h1>
   <p class="lead">Ведёт руководителя цифрового продукта от размытого вопроса к исследованию, вариантам, продуктовой и коммуникационной стратегиям и плану проверки. Под каждой цифрой — цитата из источника. После решения следит за его основаниями.</p>
   <div class="stats s4">
-    <div><div class="num">93%</div><div class="cap">утверждений подтвердила<br>независимая проверка</div></div>
+    <div><div class="num g">93%</div><div class="cap">утверждений подтвердила<br>независимая проверка</div></div>
     <div><div class="num">0</div><div class="cap">выдуманных цитат и чисел<br>во всех проверках</div></div>
     <div><div class="num">3 из 3</div><div class="cap">независимых прогонов дали<br>ту же рекомендацию</div></div>
     <div><div class="num">13–38×</div><div class="cap">дешевле аналитика в штате;<br>часы вместо 8–12 рабочих дней</div></div>
@@ -400,35 +398,35 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
 </section>
 
 <!-- 15. ЗАПУСК -->
-<section class="page dark">
+<section class="page">
   <div class="top"><span><b>14</b> · Как запустить и проверить</span><span>Стратег Фабрики продуктов</span></div>
   <h1>Пять минут до первого результата.</h1>
   <div class="body cols-2" style="align-content:start;">
-    <div class="card" style="background:#161618;">
+    <div class="card">
       <div class="k">Установка</div>
-      <p style="font-family:var(--mono); font-size:10pt; color:#f5f5f7; line-height:1.8;">git clone github.com/marrxse/product-factory-strategist<br>cd product-factory-strategist<br>python3 sf.py doctor</p>
+      <p class="term">git clone github.com/marrxse/product-factory-strategist<br>cd product-factory-strategist<br>python3 sf.py doctor</p>
       <div class="k" style="margin-top:6mm;">Проверить самому</div>
-      <p style="font-family:var(--mono); font-size:10pt; color:#f5f5f7; line-height:1.8;">python3 -m unittest discover -s tests<br>python3 sf.py -p demo-antifraud claims trace C15<br>python3 eval/repro.py</p>
+      <p class="term">python3 -m unittest discover -s tests<br>python3 sf.py -p demo-antifraud claims trace C15<br>python3 eval/repro.py</p>
     </div>
-    <div class="card" style="background:#161618;">
+    <div class="card">
       <div class="k">Как говорить с агентом</div>
-      <table class="t" style="color:#d1d1d6;">
+      <table class="t">
         <tbody>
-          <tr><td style="color:#fff; border-color:#2c2c2e">начни &lt;тема&gt;</td><td style="color:#a1a1a6; border-color:#2c2c2e">новый проект</td></tr>
-          <tr><td style="color:#fff; border-color:#2c2c2e">продолжи</td><td style="color:#a1a1a6; border-color:#2c2c2e">с того же места, в том числе в новом чате</td></tr>
-          <tr><td style="color:#fff; border-color:#2c2c2e">стоп</td><td style="color:#a1a1a6; border-color:#2c2c2e">остановка с сохранением состояния</td></tr>
-          <tr><td style="color:#fff; border-color:#2c2c2e">основания C15</td><td style="color:#a1a1a6; border-color:#2c2c2e">цепочка доказательств до цитат</td></tr>
-          <tr><td style="color:#fff; border-color:#2c2c2e">исправь … / новые данные</td><td style="color:#a1a1a6; border-color:#2c2c2e">правка с пересмотром зависимых выводов</td></tr>
-          <tr><td style="color:#fff; border-color:#2c2c2e">отчёт · стоимость</td><td style="color:#a1a1a6; border-color:#2c2c2e">HTML для руководителя · затраты и время</td></tr>
+          <tr><td>начни &lt;тема&gt;</td><td>новый проект</td></tr>
+          <tr><td>продолжи</td><td>с того же места, в том числе в новом чате</td></tr>
+          <tr><td>стоп</td><td>остановка с сохранением состояния</td></tr>
+          <tr><td>основания C15</td><td>цепочка доказательств до цитат</td></tr>
+          <tr><td>исправь … / новые данные</td><td>правка с пересмотром зависимых выводов</td></tr>
+          <tr><td>отчёт · стоимость</td><td>HTML для руководителя · затраты и время</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="body cols-4" style="margin-top:7mm;">
-    <div class="card" style="background:#161618;"><div class="k">Репозиторий</div><p style="color:#d1d1d6">github.com/marrxse/<br>product-factory-strategist</p></div>
-    <div class="card" style="background:#161618;"><div class="k">Отчёт демо</div><p style="color:#d1d1d6">claude.ai/artifact/<br>7Vi8aTQvJjr9CGuKELdhc3</p></div>
-    <div class="card" style="background:#161618;"><div class="k">Цепочка промптов</div><p style="color:#d1d1d6">docs/PIPELINE.md</p></div>
-    <div class="card" style="background:#161618;"><div class="k">Проверки</div><p style="color:#d1d1d6">eval/ · docs/LIMITATIONS.md</p></div>
+    <div class="card"><div class="k">Репозиторий</div><p>github.com/marrxse/<br>product-factory-strategist</p></div>
+    <div class="card"><div class="k">Отчёт демо</div><p>claude.ai/artifact/<br>7Vi8aTQvJjr9CGuKELdhc3</p></div>
+    <div class="card"><div class="k">Цепочка промптов</div><p>docs/PIPELINE.md</p></div>
+    <div class="card"><div class="k">Проверки</div><p>eval/ · docs/LIMITATIONS.md</p></div>
   </div>
   <div class="foot"><span>Стратег Фабрики продуктов · MGIMO×AI Challenge 2026 · кейс МегаФона</span><span>15</span></div>
 </section>

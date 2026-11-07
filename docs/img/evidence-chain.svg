@@ -1,47 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1002" width="1200" height="1002" role="img" aria-label="Цепочка оснований вывода C15 до дословных цитат источников; отзыв записи E36 затрагивает 9 выводов и 31 место в 7 документах">
 <style>text{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style>
 
-<rect width="1200" height="1002" rx="28" fill="#000000"/>
-<text x="80" y="98" font-size="20" font-weight="600" fill="#00B956" letter-spacing="0.2" text-anchor="start">Доказательность</text>
-<text x="80" y="160" font-size="48" font-weight="700" fill="#f5f5f7" letter-spacing="-1.3" text-anchor="start">Каждый вывод доходит до цитаты.</text>
-<text x="80" y="202" font-size="21" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">Настоящая цепочка из демо — так агент отвечает на «основания C15».</text>
-<path d="M110 276 V330 Q110 344 124 344 H122" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
-<path d="M110 276 V416 Q110 430 124 430 H122" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
-<path d="M110 276 V502 Q110 516 124 516 H122" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
-<path d="M110 276 V588 Q110 602 124 602 H122" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
-<path d="M162 620 V674 Q162 688 176 688 H174" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
-<path d="M214 706 V760 Q214 774 228 774 H226" fill="none" stroke="#3a3a3c" stroke-width="2" stroke-linecap="round"/>
-<rect x="80" y="242" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
-<text x="111" y="264" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C15</text>
-<text x="160" y="264" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Продавать не «защиту себя», а помощь близкому</text>
-<text x="160" y="292" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Вывод о поведении клиентов · behavior.md</text>
-<rect x="132" y="328" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
-<text x="163" y="350" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E56</text>
-<text x="212" y="350" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«46% считают такое развитие событий маловероятным, 27% — невозможным»</text>
-<text x="212" y="378" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2024, 1600 человек · качество A</text>
-<rect x="132" y="414" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
-<text x="163" y="436" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E57</text>
-<text x="212" y="436" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«…молодежь 18-24 лет (42%)» уверены, что «этого никогда не случится»</text>
-<text x="212" y="464" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2024 · качество A</text>
-<rect x="132" y="500" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
-<text x="163" y="522" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E4</text>
-<text x="212" y="522" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«…молодежь 18–24 лет (14%)» — чаще других теряли деньги</text>
-<text x="212" y="550" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2021 — другой год и выборка, это оговорено</text>
-<rect x="132" y="586" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
-<text x="163" y="608" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C11</text>
-<text x="212" y="608" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Проверить «семейную защиту» в I квартале 2027 года</text>
-<text x="212" y="636" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Рекомендация · утверждена человеком на воротах 4</text>
-<rect x="184" y="672" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.38"/>
-<text x="215" y="694" font-size="16" font-weight="700" fill="#d7a3ef" letter-spacing="0.3" text-anchor="middle">C10</text>
-<text x="264" y="694" font-size="20" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Базовую блокировку не нужно делать бесплатной — она уже бесплатна</text>
-<text x="264" y="722" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Вывод · options.md</text>
-<rect x="236" y="758" width="62" height="32" rx="16" fill="#00B956" fill-opacity="0.16"/>
-<text x="267" y="780" font-size="16" font-weight="700" fill="#00B956" letter-spacing="0.3" text-anchor="middle">E36</text>
-<text x="316" y="780" font-size="18" font-weight="400" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">«Базовая блокировка спама и мошеннических звонков у нашего оператора уже бесплатна…»</text>
-<text x="316" y="808" font-size="15" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Бриф, уточнение руководителя · 04.11.2026 · качество A</text>
-<rect x="80" y="862" width="1040" height="96" rx="20" fill="#161618" stroke="#2c2c2e"/>
-<circle cx="122" cy="910" r="16" fill="#00B956"/>
-<path d="M114 910 l6 6 l11 -12" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="160" y="904" font-size="21" font-weight="600" fill="#f5f5f7" letter-spacing="-0.2" text-anchor="start">Отзовите один источник — агент сам найдёт, что пересмотреть.</text>
-<text x="160" y="932" font-size="16" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">Для E36 это 9 зависимых выводов и 31 место в 7 документах. В демо так прошли два пересмотра.</text>
+<rect x="1" y="1" width="1198" height="1000" rx="28" fill="#ffffff" stroke="#e3e3e8" stroke-width="2"/>
+<text x="80" y="98" font-size="20" font-weight="600" fill="#00a650" letter-spacing="0.2" text-anchor="start">Доказательность</text>
+<text x="80" y="160" font-size="48" font-weight="700" fill="#1d1d1f" letter-spacing="-1.3" text-anchor="start">Каждый вывод доходит до цитаты.</text>
+<text x="80" y="202" font-size="21" font-weight="400" fill="#6e6e73" letter-spacing="-0.2" text-anchor="start">Настоящая цепочка из демо — так агент отвечает на «основания C15».</text>
+<path d="M110 276 V330 Q110 344 124 344 H122" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+<path d="M110 276 V416 Q110 430 124 430 H122" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+<path d="M110 276 V502 Q110 516 124 516 H122" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+<path d="M110 276 V588 Q110 602 124 602 H122" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+<path d="M162 620 V674 Q162 688 176 688 H174" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+<path d="M214 706 V760 Q214 774 228 774 H226" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
+<rect x="80" y="242" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.12"/>
+<text x="111" y="264" font-size="16" font-weight="700" fill="#731982" letter-spacing="0.3" text-anchor="middle">C15</text>
+<text x="160" y="264" font-size="20" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Продавать не «защиту себя», а помощь близкому</text>
+<text x="160" y="292" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Вывод о поведении клиентов · behavior.md</text>
+<rect x="132" y="328" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
+<text x="163" y="350" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E56</text>
+<text x="212" y="350" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«46% считают такое развитие событий маловероятным, 27% — невозможным»</text>
+<text x="212" y="378" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2024, 1600 человек · качество A</text>
+<rect x="132" y="414" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
+<text x="163" y="436" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E57</text>
+<text x="212" y="436" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«…молодежь 18-24 лет (42%)» уверены, что «этого никогда не случится»</text>
+<text x="212" y="464" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2024 · качество A</text>
+<rect x="132" y="500" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
+<text x="163" y="522" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E4</text>
+<text x="212" y="522" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«…молодежь 18–24 лет (14%)» — чаще других теряли деньги</text>
+<text x="212" y="550" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2021 — другой год и выборка, это оговорено</text>
+<rect x="132" y="586" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.12"/>
+<text x="163" y="608" font-size="16" font-weight="700" fill="#731982" letter-spacing="0.3" text-anchor="middle">C11</text>
+<text x="212" y="608" font-size="20" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Проверить «семейную защиту» в I квартале 2027 года</text>
+<text x="212" y="636" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Рекомендация · утверждена человеком на воротах 4</text>
+<rect x="184" y="672" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.12"/>
+<text x="215" y="694" font-size="16" font-weight="700" fill="#731982" letter-spacing="0.3" text-anchor="middle">C10</text>
+<text x="264" y="694" font-size="20" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Базовую блокировку не нужно делать бесплатной — она уже бесплатна</text>
+<text x="264" y="722" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Вывод · options.md</text>
+<rect x="236" y="758" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
+<text x="267" y="780" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E36</text>
+<text x="316" y="780" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«Базовая блокировка спама и мошеннических звонков у нашего оператора уже бесплатна…»</text>
+<text x="316" y="808" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Бриф, уточнение руководителя · 04.11.2026 · качество A</text>
+<rect x="80" y="862" width="1040" height="96" rx="20" fill="#f5f5f7" stroke="#e3e3e8"/>
+<circle cx="122" cy="910" r="16" fill="#00a650"/>
+<path d="M114 910 l6 6 l11 -12" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="904" font-size="21" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Отзовите один источник — агент сам найдёт, что пересмотреть.</text>
+<text x="160" y="932" font-size="16" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Для E36 это 9 зависимых выводов и 31 место в 7 документах. В демо так прошли два пересмотра.</text>
 </svg>

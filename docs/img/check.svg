@@ -16,25 +16,25 @@
 @keyframes k12{0%,20%{opacity:1}23%,74.2%{opacity:0}75.4%,100%{opacity:1}}.l12{animation:k12 22s linear infinite}
 @media (prefers-reduced-motion:reduce){.l0,.l1,.l2,.l3,.l4,.l5,.l6,.l7,.l8,.l9,.l10,.l11,.l12{animation:none}}</style>
 
-<rect width="1200" height="790" rx="28" fill="#000000"/>
-<text x="80" y="98" font-size="20" font-weight="600" fill="#00B956" letter-spacing="0.2" text-anchor="start">Проверка кодом, а не просьбой</text>
-<text x="80" y="160" font-size="48" font-weight="700" fill="#f5f5f7" letter-spacing="-1.3" text-anchor="start">Число без источника не пройдёт.</text>
-<text x="80" y="202" font-size="21" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">Настоящий вывод команд агента: этап не закрыть, пока проверка красная.</text>
-<rect x="80" y="236" width="1040" height="494" rx="16" fill="#161618" stroke="#2c2c2e"/>
-<rect x="80" y="236" width="1040" height="40" rx="16" fill="#202022"/><rect x="80" y="260" width="1040" height="16" fill="#202022"/>
+<rect x="1" y="1" width="1198" height="788" rx="28" fill="#ffffff" stroke="#e3e3e8" stroke-width="2"/>
+<text x="80" y="98" font-size="20" font-weight="600" fill="#00a650" letter-spacing="0.2" text-anchor="start">Проверка кодом, а не просьбой</text>
+<text x="80" y="160" font-size="48" font-weight="700" fill="#1d1d1f" letter-spacing="-1.3" text-anchor="start">Число без источника не пройдёт.</text>
+<text x="80" y="202" font-size="21" font-weight="400" fill="#6e6e73" letter-spacing="-0.2" text-anchor="start">Настоящий вывод команд агента: этап не закрыть, пока проверка красная.</text>
+<rect x="80" y="236" width="1040" height="494" rx="16" fill="#f5f5f7" stroke="#e3e3e8"/>
+<rect x="80" y="236" width="1040" height="40" rx="16" fill="#ececf0"/><rect x="80" y="260" width="1040" height="16" fill="#ececf0"/>
 <circle cx="106" cy="256" r="6.5" fill="#ff5f57"/><circle cx="128" cy="256" r="6.5" fill="#febc2e"/><circle cx="150" cy="256" r="6.5" fill="#28c840"/>
-<text x="600" y="261" font-size="14" font-weight="500" fill="#86868b" letter-spacing="0" text-anchor="middle">demo-antifraud</text>
-<text class="m l0" x="108" y="318" font-size="16.5" fill="#86868b" xml:space="preserve"># в research.md попала строка: «Рынок защиты от мошенников вырос на 37% за год.»</text>
-<text class="m l1" x="108" y="349" font-size="16.5" fill="#f5f5f7" xml:space="preserve">$ python3 sf.py validate</text>
-<text class="m l2" x="108" y="380" font-size="16.5" fill="#ff6961" xml:space="preserve">[ОШИБКА] research.md:67: число без метки источника</text>
-<text class="m l3" x="108" y="411" font-size="16.5" fill="#ff6961" xml:space="preserve">         добавьте [E…], [ПРОГНОЗ …] или [ГИП]</text>
-<text class="m l4" x="108" y="442" font-size="16.5" fill="#f5f5f7" xml:space="preserve">$ python3 sf.py stage 3 done</text>
-<text class="m l5" x="108" y="473" font-size="16.5" fill="#ff6961" xml:space="preserve">Этап 3 не закрыт: validate нашёл ошибок 1.</text>
-<text class="m l6" x="108" y="504" font-size="16.5" fill="#86868b" xml:space="preserve"> </text>
-<text class="m l7" x="108" y="535" font-size="16.5" fill="#f5f5f7" xml:space="preserve">$ python3 sf.py revisit E11</text>
-<text class="m l8" x="108" y="566" font-size="16.5" fill="#ffd60a" xml:space="preserve">Изменилось: E11</text>
-<text class="m l9" x="108" y="597" font-size="16.5" fill="#ffd60a" xml:space="preserve">  Затронутые выводы (транзитивно): C1, C3, C9, C11</text>
-<text class="m l10" x="108" y="628" font-size="16.5" fill="#86868b" xml:space="preserve">  - decision-brief.md:11: I квартал 2027 года — проверить «семейную защиту»…</text>
-<text class="m l11" x="108" y="659" font-size="16.5" fill="#86868b" xml:space="preserve">  - product-strategy.md:41: Не продаём блокировку: она бесплатна у нас…</text>
-<text class="m l12" x="108" y="690" font-size="16.5" fill="#86868b" xml:space="preserve">  # … и ещё 18 мест — всего 20 в 5 документах</text>
+<text x="600" y="261" font-size="14" font-weight="500" fill="#6e6e73" letter-spacing="0" text-anchor="middle">demo-antifraud</text>
+<text class="m l0" x="108" y="318" font-size="16.5" fill="#6e6e73" xml:space="preserve"># в research.md попала строка: «Рынок защиты от мошенников вырос на 37% за год.»</text>
+<text class="m l1" x="108" y="349" font-size="16.5" fill="#1d1d1f" xml:space="preserve">$ python3 sf.py validate</text>
+<text class="m l2" x="108" y="380" font-size="16.5" fill="#d70015" xml:space="preserve">[ОШИБКА] research.md:67: число без метки источника</text>
+<text class="m l3" x="108" y="411" font-size="16.5" fill="#d70015" xml:space="preserve">         добавьте [E…], [ПРОГНОЗ …] или [ГИП]</text>
+<text class="m l4" x="108" y="442" font-size="16.5" fill="#1d1d1f" xml:space="preserve">$ python3 sf.py stage 3 done</text>
+<text class="m l5" x="108" y="473" font-size="16.5" fill="#d70015" xml:space="preserve">Этап 3 не закрыт: validate нашёл ошибок 1.</text>
+<text class="m l6" x="108" y="504" font-size="16.5" fill="#6e6e73" xml:space="preserve"> </text>
+<text class="m l7" x="108" y="535" font-size="16.5" fill="#1d1d1f" xml:space="preserve">$ python3 sf.py revisit E11</text>
+<text class="m l8" x="108" y="566" font-size="16.5" fill="#b25000" xml:space="preserve">Изменилось: E11</text>
+<text class="m l9" x="108" y="597" font-size="16.5" fill="#b25000" xml:space="preserve">  Затронутые выводы (транзитивно): C1, C3, C9, C11</text>
+<text class="m l10" x="108" y="628" font-size="16.5" fill="#6e6e73" xml:space="preserve">  - decision-brief.md:11: I квартал 2027 года — проверить «семейную защиту»…</text>
+<text class="m l11" x="108" y="659" font-size="16.5" fill="#6e6e73" xml:space="preserve">  - product-strategy.md:41: Не продаём блокировку: она бесплатна у нас…</text>
+<text class="m l12" x="108" y="690" font-size="16.5" fill="#6e6e73" xml:space="preserve">  # … и ещё 18 мест — всего 20 в 5 документах</text>
 </svg>

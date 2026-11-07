@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Стратег Фабрики продуктов — решение, под каждой цифрой которого цитата. 93% утверждений подтвердила проверка, 0 выдуманных цитат, 12 из 14 по слепой рубрике против 6 у обычного чата">
 <style>text{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style>
 <defs>
-<radialGradient id="g1" cx="0.92" cy="-0.05" r="0.55"><stop offset="0" stop-color="#00B956" stop-opacity="0.32"/><stop offset="1" stop-color="#00B956" stop-opacity="0"/></radialGradient>
-<radialGradient id="g2" cx="0.02" cy="1.08" r="0.6"><stop offset="0" stop-color="#731982" stop-opacity="0.45"/><stop offset="1" stop-color="#731982" stop-opacity="0"/></radialGradient>
+<radialGradient id="g1" cx="0.92" cy="-0.05" r="0.55"><stop offset="0" stop-color="#00a650" stop-opacity="0.13"/><stop offset="1" stop-color="#00a650" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="0.02" cy="1.08" r="0.6"><stop offset="0" stop-color="#731982" stop-opacity="0.10"/><stop offset="1" stop-color="#731982" stop-opacity="0"/></radialGradient>
 </defs>
-<rect width="1200" height="600" rx="28" fill="#000000"/>
+<rect x="1" y="1" width="1198" height="598" rx="28" fill="#ffffff" stroke="#e3e3e8" stroke-width="2"/>
 <rect width="1200" height="600" rx="28" fill="url(#g1)"/><rect width="1200" height="600" rx="28" fill="url(#g2)"/>
-<text x="80" y="108" font-size="20" font-weight="600" fill="#00B956" letter-spacing="0.2" text-anchor="start">ИИ-агент · Стратег Фабрики продуктов</text>
-<text x="80" y="188" font-size="64" font-weight="700" fill="#f5f5f7" letter-spacing="-1.8" text-anchor="start">Решение, под каждой цифрой</text>
-<text x="80" y="262" font-size="64" font-weight="700" fill="#f5f5f7" letter-spacing="-1.8" text-anchor="start">которого — <tspan fill="#00B956">цитата.</tspan></text>
-<text x="80" y="320" font-size="22" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">От размытого вопроса — к исследованию, вариантам, стратегии и плану проверки.</text>
-<text x="80" y="350" font-size="22" font-weight="400" fill="#86868b" letter-spacing="-0.2" text-anchor="start">А после решения — честный пересмотр, когда меняются данные.</text>
-<rect x="80" y="400" width="1040" height="1" fill="#2c2c2e"/>
-<text x="80" y="482" font-size="58" font-weight="700" fill="#f5f5f7" letter-spacing="-1.6" text-anchor="start">93%</text>
-<text x="80" y="518" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">утверждений подтвердила</text>
-<text x="80" y="542" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">независимая проверка</text>
-<text x="440" y="482" font-size="58" font-weight="700" fill="#f5f5f7" letter-spacing="-1.6" text-anchor="start">0</text>
-<text x="440" y="518" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">выдуманных цитат</text>
-<text x="440" y="542" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">и чисел во всех проверках</text>
-<text x="800" y="482" font-size="58" font-weight="700" fill="#f5f5f7" letter-spacing="-1.6" text-anchor="start">12 из 14</text>
-<text x="800" y="518" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">оценка моделью по рубрике —</text>
-<text x="800" y="542" font-size="18" font-weight="400" fill="#86868b" letter-spacing="0" text-anchor="start">у обычного ИИ-чата 6</text>
+<text x="80" y="108" font-size="20" font-weight="600" fill="#00a650" letter-spacing="0.2" text-anchor="start">ИИ-агент · Стратег Фабрики продуктов</text>
+<text x="80" y="188" font-size="64" font-weight="700" fill="#1d1d1f" letter-spacing="-1.8" text-anchor="start">Решение, под каждой цифрой</text>
+<text x="80" y="262" font-size="64" font-weight="700" fill="#1d1d1f" letter-spacing="-1.8" text-anchor="start">которого — <tspan fill="#00a650">цитата.</tspan></text>
+<text x="80" y="320" font-size="22" font-weight="400" fill="#6e6e73" letter-spacing="-0.2" text-anchor="start">От размытого вопроса — к исследованию, вариантам, стратегии и плану проверки.</text>
+<text x="80" y="350" font-size="22" font-weight="400" fill="#6e6e73" letter-spacing="-0.2" text-anchor="start">А после решения — честный пересмотр, когда меняются данные.</text>
+<rect x="80" y="400" width="1040" height="1" fill="#e3e3e8"/>
+<text x="80" y="482" font-size="58" font-weight="700" fill="#1d1d1f" letter-spacing="-1.6" text-anchor="start">93%</text>
+<text x="80" y="518" font-size="18" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">утверждений подтвердила</text>
+<text x="80" y="542" font-size="18" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">независимая проверка</text>
+<text x="440" y="482" font-size="58" font-weight="700" fill="#1d1d1f" letter-spacing="-1.6" text-anchor="start">0</text>
+<text x="440" y="518" font-size="18" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">выдуманных цитат</text>
+<text x="440" y="542" font-size="18" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">и чисел во всех проверках</text>
+<text x="800" y="482" font-size="58" font-weight="700" fill="#1d1d1f" letter-spacing="-1.6" text-anchor="start">12 из 14</text>
+<text x="800" y="518" font-size="18" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">оценка моделью по рубрике —</text>
+<text x="800" y="542" font-size="18" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">у обычного ИИ-чата 6</text>
 </svg>
