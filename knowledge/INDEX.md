@@ -22,6 +22,7 @@
 | Анализ поведения клиентов | [behavior-analysis.md](behavior-analysis.md) | поведение, COM-B, искажения, сегменты, когорты | barriers, jtbd, metrics-pitfalls, hypotheses-experiments |
 | Инсайт и креативная идея | [creative-platform.md](creative-platform.md) | креатив, инсайт, платформа, тест сообщений | barriers, behavior-analysis, positioning |
 | Ответы нейросетей (GEO) | [geo-ai-answers.md](geo-ai-answers.md) | ии-ассистенты, видимость бренда, источники | creative-platform, positioning, source-quality |
+| Проверка восприятия | [perception-testing.md](perception-testing.md) | внимание, понимание, айтрекинг, имплицитные тесты | creative-platform, behavior-analysis, ux-heuristics |
 | Эвристики интерфейса | [ux-heuristics.md](ux-heuristics.md) | интерфейс, путь пользователя, композиция | barriers, value-proposition, hypotheses-experiments |
 
 ## Синонимы (поиск по смыслу)
@@ -35,6 +36,7 @@
 - синонимы: поведение, поведенческий, мотив, мотивация, привычка, искажение, nudge, подталкивание, психология
 - синонимы: креатив, креативный, инсайт, идея, слоган, реклама, кампания, месседж, сообщение
 - синонимы: нейросети, ассистент, алиса, gigachat, chatgpt, нейропоиск, geo, генеративный поиск, ответы ии
+- синонимы: восприятие, внимание, айтрекинг, нейромаркетинг, эмоции, имплицитный, заметность
 - синонимы: интерфейс, экран, скриншот, ux, юзабилити, лендинг, приложение, макет, кнопка
 - синонимы: риск, провал, возражение, критика, премортем
 - синонимы: вариант, опция, сценарий, альтернатива, решение
