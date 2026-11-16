@@ -177,3 +177,4 @@
 - 2026-11-07 00:07:00 | DONE | collect:fetch:yandex-com-support-browser-mobile-android-phone-ru-security--c30d41 | сохранено web-yandex-com-support-browser-mobile-android-phone-ru-security--c30d41-2026-11-07.md
 - 2026-11-07 00:07:19 | START | revisit:geo:ai-answers | канал «ответы нейросетей»: 6 вопросов покупателя ассистенту с веб-поиском, разбор упоминаний и источников
 - 2026-11-07 00:07:49 | DONE | revisit:geo:ai-answers | C22 (свободное место в ответах нейросетей), C23 (П2 уже у МТС, МегаФона, Яндекса); E62–E66; канал и метрика в comms-strategy; креатив: C19–C21, S7–S14
+- 2026-11-16 23:57:57 | NOTE | revisit:scale-tone-perception | C24 (масштаб, E67), реакция конкурентов, тон и словарь, проверка восприятия; verifier: 8 исправлений внесены, S15

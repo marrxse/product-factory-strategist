@@ -135,7 +135,7 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
   <h1>Не текст про стратегию, а <em>проверяемое решение</em> — за часы, а не за недели.</h1>
   <div class="body cols-3" style="grid-template-rows: auto 1fr;">
     <div class="card"><div class="k">Задача руководителя</div><h3>«Продажи встали, пишут, что мы продаём положенное бесплатно. Что делать с продуктом и что говорить людям?»</h3><p class="note">Демо: платная защита от мошеннических звонков у условного оператора, только открытые данные. Бриф МегаФона подставляется без правок агента.</p></div>
-    <div class="card"><div class="k">Что делает агент</div><ul class="clean"><li>собирает 60 фактов с цитатами, местом и датой</li><li>исследует рынок, поведение клиентов, интерфейсы и ответы нейросетей</li><li>даёт 6 вариантов с «оставить» и «закрыть» и сильнейшими возражениями</li><li>пишет обе стратегии и план проверки</li></ul></div>
+    <div class="card"><div class="k">Что делает агент</div><ul class="clean"><li>собирает 61 факт с цитатами, местом и датой</li><li>исследует рынок, поведение клиентов, интерфейсы и ответы нейросетей</li><li>даёт 6 вариантов с «оставить» и «закрыть» и сильнейшими возражениями</li><li>пишет обе стратегии и план проверки</li></ul></div>
     <div class="card"><div class="k">Что получает руководитель</div><ul class="clean"><li>решение на одной странице с правилами «если — то»</li><li>стратегию на 2027 год по кварталам с развилками</li><li>пилот с метрикой, базой и порогами остановки</li><li>сигнал, когда основание решения устарело</li></ul></div>
     <div class="card line" style="grid-column: 1 / -1; display:grid; grid-template-columns: repeat(4,1fr); gap: 6mm; align-items:start;">
       <div><div class="k p">Почему доверять · 1</div><h3>Реестр доказательств</h3><p class="note">Нет записи с цитатой — значит, это гипотеза, и она так подписана.</p></div>
@@ -194,7 +194,7 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
       <div class="stats s3 mini" style="gap:3mm;">
         <div class="card"><div class="num g" style="font-size:22pt">16</div><div class="cap">навыков этапов</div></div>
         <div class="card"><div class="num g" style="font-size:22pt">5</div><div class="cap">субагентов</div></div>
-        <div class="card"><div class="num g" style="font-size:22pt">17</div><div class="cap">методичек</div></div>
+        <div class="card"><div class="num g" style="font-size:22pt">18</div><div class="cap">методичек</div></div>
         <div class="card"><div class="num" style="font-size:22pt">28</div><div class="cap">команд CLI</div></div>
         <div class="card"><div class="num" style="font-size:22pt">14</div><div class="cap">инструментов MCP</div></div>
         <div class="card"><div class="num" style="font-size:22pt">98</div><div class="cap">тестов на 3 ОС</div></div>
@@ -243,7 +243,7 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
       <div class="card"><div class="k p">Граф выводов</div><h3>Отозвали источник — агент находит всё, что пересмотреть</h3><p>В демо так прошли два пересмотра: «было → стало» с подтверждения руководителя.</p></div>
     </div>
   </div>
-  <div class="foot"><span>Демо: 60 фактов, 14 синтетических записей, 23 вывода, 6 отозванных записей с причинами</span><span>6</span></div>
+  <div class="foot"><span>Демо: 61 факт, 15 синтетических записей, 24 вывода, 6 отозванных записей с причинами</span><span>6</span></div>
 </section>
 
 <!-- 7. ПРОВЕРКА КОДОМ -->
@@ -313,7 +313,7 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
     <div class="shot"><div class="bar"><i></i><i></i><i></i><span>Отчёт для руководителя · report.html</span></div><img src="shot-decision.jpg" alt="Решение"></div>
     <div style="display:flex; flex-direction:column; gap:5mm;">
       <div class="card"><div class="k">Рекомендация</div><h3>Аудит подписки до 27 ноября — и правило решения при каждом исходе</h3><p>Затем в I квартале 2027 — проверка «семейной защиты»: близкий одной кнопкой зовёт на помощь.</p></div>
-      <div class="card"><div class="k p">Честно о неопределённости</div><h3>Уверенность — низкая</h3><p>Проверка построена так, чтобы закрыть вариант дёшево и рано: пороги «продолжить / остановить» записаны до пилота.</p></div>
+      <div class="card"><div class="k p">Честно о неопределённости</div><h3>Уверенность — низкая</h3><p>Пороги «продолжить / остановить» записаны до пилота. Расчёт масштаба: вариант реалистичнее для крупной базы абонентов.</p></div>
     </div>
   </div>
   <div class="foot"><span>Демо — временный пример на открытых данных; бриф МегаФона подставляется по docs/DEMO_SWAP.md</span><span>10</span></div>
@@ -334,7 +334,7 @@ table.t tr.sec td { padding-top: 3.5mm; font-size: 7.5pt; text-transform: upperc
   <div class="band"><div class="k">Что проверит пилот</div>
     <p><b>Нажатия кнопки помощи</b> после подозрительных звонков — ценность продукта в момент давления.</p>
     <p><b>A/B двух сообщений</b> на экране предложения — доля заявок, 4 недели.</p>
-    <p><b>Упоминание кнопки</b> в ответах нейросетей на тот же набор вопросов — раз в квартал.</p></div>
+    <p><b>Восприятие до пилота:</b> тест понимания, тест 5 секунд, при необходимости айтрекинг в лаборатории.</p></div>
   <div class="foot"><span>Синтетика — только поиск непонятных мест; выбирает A/B-тест в пилоте</span><span>11</span></div>
 </section>
 

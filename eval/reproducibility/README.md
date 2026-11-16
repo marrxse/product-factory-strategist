@@ -30,6 +30,7 @@ python3 eval/repro.py
 |---|---|---|---|
 | E37 | `state/analysis/price_ratio.py` | да | 4 из 4 |
 | E49 | `state/analysis/breakeven.py` | да | 7 из 7 |
+| E67 | `state/analysis/audience_scale.py` | да | 12 из 12 |
 | E60, E61 | `state/analysis/telco-churn-ibm-churn.md` | да | 2 из 2 |
 
 ### 2. Этап «Варианты»: исходный результат и независимые прогоны
