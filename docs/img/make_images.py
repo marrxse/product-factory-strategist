@@ -79,29 +79,6 @@ b += [f'<rect x="80" y="{fy}" width="1040" height="96" rx="20" fill="{CARD}" str
       t(160, fy + 70, "Для E36 это 9 зависимых выводов и 31 место в 7 документах. В демо так прошли два пересмотра.", 16, MUT)]
 (OUT / "evidence-chain.svg").write_text(svg(1200, h, "Цепочка оснований вывода C15 до дословных цитат источников; отзыв записи E36 затрагивает 9 выводов и 31 место в 7 документах", b, glows=False), encoding="utf-8")
 
-# ---------- process ----------
-stages = [("Постановка", 1), ("Сбор", 0), ("План", 1), ("Исследование", 0), ("Варианты", 1),
-          ("Стратегии", 1), ("План проверки", 1), ("Решение", 0), ("Пересмотр", 1)]
-b = [t(80, 98, "Как идёт работа", 20, GREEN, 600, 0.2),
-     t(80, 160, "9 этапов. 6 решений — ваши.", 48, FG, 700, -1.3),
-     t(80, 202, "На воротах агент останавливается и ждёт вашего ответа. Остальное делает сам.", 21, MUT, 400, -0.2)]
-y, xa, xb = 300, 130, 1070
-step = (xb - xa) / 8
-b.append(f'<rect x="{xa}" y="{y - 1}" width="{xb - xa}" height="2" fill="#d1d1d6"/>')
-for i, (name, gate) in enumerate(stages):
-    x = round(xa + i * step)
-    b.append(t(x, y - 34, str(i), 15, MUT, 600, 0, "middle"))
-    if gate:
-        b.append(f'<circle cx="{x}" cy="{y}" r="15" fill="{BG}" stroke="{GREEN}" stroke-width="2.5"/>')
-        b.append(f'<circle cx="{x}" cy="{y}" r="7" fill="{GREEN}"/>')
-    else:
-        b.append(f'<circle cx="{x}" cy="{y}" r="9" fill="{BG}" stroke="{MUT}" stroke-width="2"/>')
-    b.append(t(x, y + 50, name, 16, FG, 600, -0.2, "middle"))
-    if gate:
-        b.append(t(x, y + 74, "решаете вы", 14, GREEN, 500, 0, "middle"))
-b.append(t(80, 440, "После решения агент следит за его основаниями и сам предлагает пересмотр, когда данные меняются.", 17, MUT))
-(OUT / "process.svg").write_text(svg(1200, 500, "Девять этапов работы агента; на шести из них решает человек", b, glows=False), encoding="utf-8")
-
 # ---------- check: анимация настоящих выводов sf.py ----------
 # Строки — дословный вывод команд на копии демо, куда добавлена строка без источника.
 MONO = "'SF Mono',Menlo,Consolas,'Liberation Mono',monospace"

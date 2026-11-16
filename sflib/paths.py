@@ -57,7 +57,9 @@ def project_dir(slug: str | None = None) -> Path:
     """Папка проекта: явно заданного или активного."""
     name = slug or get_active()
     if not name:
-        raise SfError("Нет активного проекта. Создайте: python3 sf.py new <имя> или выберите: python3 sf.py use <имя>.")
+        existing = sorted(p.name for p in projects_dir().iterdir() if p.is_dir()) if projects_dir().is_dir() else []
+        hint = f" Готовые проекты: {', '.join(existing)} — например: python3 sf.py use {existing[0]}." if existing else ""
+        raise SfError("Нет активного проекта. Создайте: python3 sf.py new <имя> или выберите: python3 sf.py use <имя>." + hint)
     path = projects_dir() / validate_slug(name)
     if not path.is_dir():
         raise SfError(f"Проект «{name}» не найден в projects/.")

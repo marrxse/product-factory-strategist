@@ -63,7 +63,7 @@ def profile(path: Path) -> str:
     header, rows = _read(path)
     digest = hashlib.sha256(path.read_bytes()).hexdigest()[:12]
     out = [f"# Профиль таблицы {path.name}", "",
-           f"- Файл: `{path}` · sha256: {digest} · строк данных: {len(rows)} · колонок: {len(header)}",
+           f"- Файл: `{path.name}` · sha256: {digest} · строк данных: {len(rows)} · колонок: {len(header)}",
            f"- Сформировано: sf.py analyze, {date.today().isoformat()} (повторный запуск даёт тот же результат на том же файле)", ""]
     issues = []
     ragged = sum(1 for r in rows if len(r) != len(header))
