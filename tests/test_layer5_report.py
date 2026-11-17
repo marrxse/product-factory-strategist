@@ -22,6 +22,27 @@ class ReportTest(unittest.TestCase):
             self.assertIn("удержание падает", page)                # цитата источника в приложении
             self.assertTrue(page.index('id="decision-brief"') < page.index('id="research"'))  # решение первым
 
+    def test_report_is_printable_with_publication_dates(self):
+        with TempRepo() as root:
+            p = make_good_project(root)
+            run("evidence", "published", "E1", "2025-03")
+            run("report")
+            page = (p / "outputs" / "report.html").read_text(encoding="utf-8")
+            self.assertIn("@media print", page)                    # печать: светлая тема, разделы с новой страницы
+            self.assertIn("counter(pages)", page)                  # номера страниц в PDF
+            self.assertIn("ведёт к цитате в приложении", page)     # на бумаге сноска ведёт в приложение, а не «наведите»
+            self.assertRegex(page, r'id="ev-E1".*?2025-03<br><span class="meta">доступ')
+
+    def test_pdf_without_chrome_explains_manual_way(self):
+        from unittest import mock
+        from sflib import media, report
+        with TempRepo() as root:
+            p = make_good_project(root)
+            run("report")
+            with mock.patch.object(media, "find_chrome", return_value=None):
+                with self.assertRaisesRegex(Exception, "Сохранить как PDF"):
+                    report.to_pdf(p / "outputs" / "report.html")
+
 
 if __name__ == "__main__":
     unittest.main()

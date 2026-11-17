@@ -38,7 +38,21 @@ th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-alig
 .fact{background:var(--fact);color:var(--fact-fg)}sup a,a.ref{color:var(--accent);text-decoration:none;font-size:12px}
 .concl{scroll-margin-top:12px}.rev{text-decoration:line-through;color:var(--muted)}nav a{color:var(--accent);margin-right:12px;font-size:14px}
 blockquote{margin:8px 0;padding:4px 12px;border-left:3px solid var(--line);color:var(--muted)}code{font-size:13px}
-.legend span{margin-right:10px}
+.legend span{margin-right:10px}.print-only{display:none}
+@page{size:A4;margin:16mm 15mm 18mm;@bottom-right{content:counter(page) " / " counter(pages);font:9px -apple-system,Segoe UI,Roboto,sans-serif;color:#6b6b70}
+@bottom-left{content:"Отчёт агента «Стратег Фабрики продуктов»";font:9px -apple-system,Segoe UI,Roboto,sans-serif;color:#6b6b70}}
+@media print{:root,:root[data-theme="dark"]{--bg:#fff;--fg:#1d1d1f;--muted:#6b6b70;--line:#d9d7d0;--card:#fafaf8;--accent:#2f5d8a;
+--hyp:#fff1d6;--hyp-fg:#7a4b00;--fc:#e7efff;--fc-fg:#24467a;--syn:#f6e6ff;--syn-fg:#6a2a8a;--fact:#e6f5ea;--fact-fg:#1d6b37;color-scheme:light}
+html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}body{font-size:10.5pt;line-height:1.45}
+main{max-width:none;padding:0}h1{font-size:22pt}h2{font-size:15pt;margin-top:0}h3{font-size:12pt;break-after:avoid}
+section{break-before:page}section#decision-brief{break-before:auto}h2#evidence,h2#cost{break-before:page}
+table{display:table;font-size:8.6pt;break-inside:auto}thead{display:table-header-group}tr{break-inside:avoid}
+td,th{padding:4px 6px;overflow-wrap:anywhere}.card{break-inside:auto;border-radius:6px}
+nav{display:block;columns:2;margin:10px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:6px}nav a{display:block;margin:2px 0;font-size:10pt}
+.screen-only{display:none}.print-only{display:inline}p,li{orphans:3;widows:3}
+th:first-child,td:first-child{min-width:20mm}
+table.ev{table-layout:fixed}table.ev th:nth-child(1){width:11mm}table.ev th:nth-child(3){width:42mm}
+table.ev th:nth-child(4){width:20mm}table.ev th:nth-child(5){width:25mm}table.ev td:first-child,table.ev th:first-child{min-width:0}}
 """
 
 
@@ -148,8 +162,8 @@ def build(project: Path) -> Path:
     done = sum(1 for r in rows if r.status == "готов")
     stages = f"Этапов пройдено: {done} из {len(rows)}" + ("" if done == len(rows) else
               " · сейчас: " + next(f"{r.num} {r.title} ({r.status})" for r in rows if r.status != "готов"))
-    appendix = ["<h2 id='evidence'>Источники</h2><table><thead><tr><th>№</th><th>Цитата или расчёт</th><th>Источник</th>"
-                "<th>Качество</th><th>Дата</th></tr></thead><tbody>"]
+    appendix = ["<h2 id='evidence'>Источники</h2><table class='ev'><thead><tr><th>№</th><th>Цитата или расчёт</th><th>Источник</th>"
+                "<th>Качество</th><th>Дата публ.</th></tr></thead><tbody>"]
     for n, ref in enumerate(used, start=1):
         rec = records.get(ref)
         if rec is None:
@@ -157,10 +171,10 @@ def build(project: Path) -> Path:
         src = (f'<a href="{html.escape(rec.source)}">{html.escape(rec.source[:70])}</a>' if rec.source.startswith("http")
                else html.escape(rec.source))
         cls = ' class="rev"' if rec.status == ev.REVOKED else ""
-        kind = " · синтетика" if rec.kind == "synthetic" else (" · расчёт" if rec.kind == "calc" else "")
+        kind = "<br>синтетика" if rec.kind == "synthetic" else ("<br>расчёт" if rec.kind == "calc" else "")
         appendix.append(f'<tr id="ev-{ref}"{cls}><td>{n}<br><span class="meta">{ref}</span></td><td>«{html.escape(rec.quote)}»'
                         f'<br><span class="meta">{html.escape(rec.locator)}</span></td><td>{src}</td>'
-                        f'<td>{rec.quality}{kind}</td><td>{rec.accessed}</td></tr>')
+                        f'<td>{rec.quality}{kind}</td><td>{rec.published or "—"}<br><span class="meta">доступ<br>{rec.accessed}</span></td></tr>')
     appendix.append("</tbody></table>")
     cost_md = _md(cost.report(project), records, [])
     page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -168,14 +182,30 @@ def build(project: Path) -> Path:
 <p class="meta">Отчёт агента «Стратег Фабрики продуктов» · проект {project.name}</p>
 <h1>{html.escape(title)}</h1>
 <p class="meta">{html.escape(stages)}</p>
-<p class="legend meta">Как читать: <sup><a>1</a></sup> — сноска на источник (наведите — цитата) ·
+<p class="legend meta">Как читать: <sup><a>1</a></sup> — сноска на источник (<span class="screen-only">наведите — цитата</span><span class="print-only">ведёт к цитате в приложении «Источники»</span>) ·
 <span class="b hyp">гипотеза</span> не подтверждено · <span class="b fc">прогноз</span> оценка будущего ·
 <span class="b syn">синтетика</span> ответ ИИ-персоны, не данные · C4 — номер вывода (ссылка ведёт к нему)</p>
-<nav>{''.join(nav)}<a href="#evidence">Источники</a><a href="#cost">Затраты</a></nav>
+<p class="print-only meta"><b>Содержание</b></p><nav>{''.join(nav)}<a href="#evidence">Источники</a><a href="#cost">Затраты</a></nav>
 {''.join(sections)}
 {''.join(appendix)}
 <h2 id="cost">Затраты и время</h2>{cost_md}
 </main></body></html>"""
     target = out_dir / "report.html"
     target.write_text(page, encoding="utf-8")
+    return target
+
+
+def to_pdf(html_path: Path) -> Path:
+    """Печать отчёта в PDF через Chrome без окна: правила @media print — светлая тема, разделы с новой страницы, номера страниц."""
+    from . import media  # Chrome ищется только при печати
+    from .paths import SfError
+    chrome = media.find_chrome()
+    if not chrome:
+        raise SfError("Chrome не найден — откройте report.html в браузере и сохраните как PDF (Файл → Печать → Сохранить как PDF).")
+    target = html_path.with_suffix(".pdf")
+    import subprocess
+    subprocess.run([chrome, "--headless", "--disable-gpu", "--no-pdf-header-footer", "--virtual-time-budget=4000",
+                    f"--print-to-pdf={target}", html_path.resolve().as_uri()], check=True, capture_output=True, timeout=180)
+    if not target.exists() or target.stat().st_size == 0:
+        raise SfError("Chrome не сохранил PDF — сохраните report.html как PDF из браузера вручную.")
     return target
