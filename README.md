@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b><a href="https://claude.ai/artifact/7Vi8aTQvJjr9CGuKELdhc3">Открыть отчёт демо</a></b> ·
+  <b><a href="https://claude.ai/artifact/UuW7DtEcNzjPqFxkdSwLJR">Открыть отчёт демо</a></b> ·
   <a href="#запустить-за-5-минут">Запустить</a> ·
   <a href="docs/PIPELINE.md">Цепочка промптов</a> ·
   <a href="eval/results/README.md">Сравнение с обычным чатом</a> ·
@@ -57,7 +57,7 @@
 | Стоимость демо | ≈15 $ в ценах API, ≈28 минут работы агента, ≈10 минут решений человека |
 
 ## Посмотреть за 2 минуты
-1. **[Отчёт для руководителя](https://claude.ai/artifact/7Vi8aTQvJjr9CGuKELdhc3)** (или файл [report.html](projects/demo-antifraud/outputs/report.html)) — решение на одной странице, стратегия на 2027 год по кварталам, стратегии, план проверки, источники. Наведите на сноску — увидите цитату.
+1. **[Отчёт для руководителя](https://claude.ai/artifact/UuW7DtEcNzjPqFxkdSwLJR)** (или файл [report.html](projects/demo-antifraud/outputs/report.html)) — решение на одной странице, стратегия на 2027 год по кварталам, стратегии, план проверки, источники. Наведите на сноску — увидите цитату.
 2. **[revisit-2026-11-05.md](projects/demo-antifraud/outputs/revisit-2026-11-05.md)** — как агент пересмотрел свои выводы, когда новые данные их опровергли.
 3. **[LIMITATIONS.md](docs/LIMITATIONS.md)** — что агент не умеет и какие свои ошибки нашёл сам.
 
