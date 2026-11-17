@@ -8,6 +8,7 @@ from __future__ import annotations
 import html
 import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 from . import cost, evidence as ev
 from . import state as stmod
@@ -45,12 +46,13 @@ blockquote{margin:8px 0;padding:4px 12px;border-left:3px solid var(--line);color
 --hyp:#fff1d6;--hyp-fg:#7a4b00;--fc:#e7efff;--fc-fg:#24467a;--syn:#f6e6ff;--syn-fg:#6a2a8a;--fact:#e6f5ea;--fact-fg:#1d6b37;color-scheme:light}
 html,body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}body{font-size:10.5pt;line-height:1.45}
 main{max-width:none;padding:0}h1{font-size:22pt}h2{font-size:15pt;margin-top:0}h3{font-size:12pt;break-after:avoid}
-section{break-before:page}section#decision-brief{break-before:auto}h2#evidence,h2#cost{break-before:page}
+section{break-before:page}section#brief{break-before:auto}h2#materials,h2#evidence,h2#cost{break-before:page}
 table{display:table;font-size:8.6pt;break-inside:auto}thead{display:table-header-group}tr{break-inside:avoid}
 td,th{padding:4px 6px;overflow-wrap:anywhere}.card{break-inside:auto;border-radius:6px}
 nav{display:block;columns:2;margin:10px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:6px}nav a{display:block;margin:2px 0;font-size:10pt}
 .screen-only{display:none}.print-only{display:inline}p,li{orphans:3;widows:3}
 th:first-child,td:first-child{min-width:20mm}
+table.mat{table-layout:fixed}table.mat th:nth-child(2){width:30mm}table.mat th:nth-child(3){width:38mm}table.mat th:nth-child(4){width:19mm}
 table.ev{table-layout:fixed}table.ev th:nth-child(1){width:11mm}table.ev th:nth-child(3){width:42mm}
 table.ev th:nth-child(4){width:20mm}table.ev th:nth-child(5){width:25mm}table.ev td:first-child,table.ev th:first-child{min-width:0}}
 """
@@ -138,17 +140,60 @@ def _md(text: str, records: dict, used: list[str]) -> str:
             continue
         elif line.startswith(">"):
             out.append(f"<blockquote>{_inline(line.lstrip('> '), records, used)}</blockquote>")
+        elif re.fullmatch(r"\s*_(.+)_\s*", line):
+            out.append(f'<p class="meta">{_inline(line.strip()[1:-1], records, used)}</p>')
         elif line.strip() and not line.strip() == "---":
             out.append(f"<p>{_inline(line, records, used)}</p>")
         i += 1
     return "\n".join(out)
 
 
+KIND_OF_FILE = (("synthetic-", "синтетика — ответы ИИ-персон, не данные"), ("search-snippets", "фрагменты поисковой выдачи"),
+                ("web-", "снимок веб-страницы"), ("screens/", "снимок экрана"), ("geo/", "ответы ИИ-ассистента"))
+
+
+def _brief_html(project: Path, records: dict, used: list[str]) -> str:
+    """Задача руководителя — первым разделом: бриф без заголовка-«Бриф» и без служебных пометок для людей, ведущих репозиторий."""
+    lines = (project / "brief.md").read_text(encoding="utf-8").splitlines()[1:]
+    lines = [ln for ln in lines if not (ln.startswith(">") and "Статус:" in ln)]
+    lines = [re.sub(r"\s*[^.>]*docs/\S+", "", ln) if ln.startswith(">") else ln for ln in lines]  # указания для ведущих репозиторий
+    lines = [ln.replace("ВРЕМЕННЫЙ ДЕМО-ПРИМЕР", "Демо-пример") for ln in lines]
+    return "<h2>Задача руководителя</h2>" + _md("\n".join(lines), records, used)
+
+
+def _materials_html(project: Path, records: list) -> str:
+    """Приложение «Исходные материалы»: все собранные файлы и страницы — что это, откуда, когда и сколько записей реестра из них."""
+    counts: dict[str, int] = {}
+    for rec in records:
+        if rec.status == ev.ACTIVE:
+            counts[rec.source] = counts.get(rec.source, 0) + 1
+    rows = []
+    for path in sorted((project / "sources").rglob("*")):
+        if not path.is_file() or path.name.startswith("."):
+            continue
+        rel = path.relative_to(project).as_posix()
+        kind = next((label for key, label in KIND_OF_FILE if key in rel), "документ или таблица")
+        title, url = path.stem, ""
+        if path.suffix == ".md":
+            head = path.read_text(encoding="utf-8")[:1500]
+            found = re.search(r"^#\s+(.+)$", head, re.MULTILINE)
+            title = found.group(1).strip() if found else title
+            link = re.search(r"^- URL:\s*(https?://\S+)", head, re.MULTILINE)
+            url = link.group(1) if link else ""
+        where = f'<a href="{html.escape(url)}">{html.escape(urlparse(url).netloc)}</a>' if url else html.escape(rel)
+        used = counts.get(rel, 0) + sum(n for src, n in counts.items() if url and src == url)
+        rows.append(f"<tr><td>{html.escape(title[:120])}</td><td>{kind}</td><td>{where}</td><td>{used or '—'}</td></tr>")
+    return ("<h2 id='materials'>Исходные материалы</h2><p class='meta'>Всё, что агент собрал и сохранил снимком в проекте; "
+            "в последнем столбце — сколько записей реестра доказательств из этого материала.</p>"
+            "<table class='mat'><thead><tr><th>Материал</th><th>Вид</th><th>Откуда</th><th>Записей</th></tr></thead><tbody>"
+            + "".join(rows) + "</tbody></table>")
+
+
 def build(project: Path) -> Path:
     records = ev.by_id(ev.load(project))
     used: list[str] = []
     title = re.sub(r"^#\s*Бриф:\s*", "", (project / "brief.md").read_text(encoding="utf-8").splitlines()[0])
-    sections, nav = [], []
+    sections, nav = [f'<section id="brief">{_brief_html(project, records, used)}</section>'], ['<a href="#brief">Задача</a>']
     out_dir = project / "outputs"
     names = [n for n in ORDER if (out_dir / n).exists()] + sorted(p.name for p in out_dir.glob("revisit-*.md"))
     for name in names:
@@ -185,8 +230,9 @@ def build(project: Path) -> Path:
 <p class="legend meta">Как читать: <sup><a>1</a></sup> — сноска на источник (<span class="screen-only">наведите — цитата</span><span class="print-only">ведёт к цитате в приложении «Источники»</span>) ·
 <span class="b hyp">гипотеза</span> не подтверждено · <span class="b fc">прогноз</span> оценка будущего ·
 <span class="b syn">синтетика</span> ответ ИИ-персоны, не данные · C4 — номер вывода (ссылка ведёт к нему)</p>
-<p class="print-only meta"><b>Содержание</b></p><nav>{''.join(nav)}<a href="#evidence">Источники</a><a href="#cost">Затраты</a></nav>
+<p class="print-only meta"><b>Содержание</b></p><nav>{''.join(nav)}<a href="#materials">Исходные материалы</a><a href="#evidence">Источники</a><a href="#cost">Затраты</a></nav>
 {''.join(sections)}
+{_materials_html(project, ev.load(project))}
 {''.join(appendix)}
 <h2 id="cost">Затраты и время</h2>{cost_md}
 </main></body></html>"""

@@ -20,7 +20,10 @@ class ReportTest(unittest.TestCase):
             self.assertIn('id="ev-E1"', page)                      # реестр источников — приложением
             self.assertIn('id="C1"', page)                         # якоря выводов
             self.assertIn("удержание падает", page)                # цитата источника в приложении
-            self.assertTrue(page.index('id="decision-brief"') < page.index('id="research"'))  # решение первым
+            self.assertTrue(page.index('id="decision-brief"') < page.index('id="research"'))  # решение раньше подробностей
+        self.assertTrue(page.index('id="brief"') < page.index('id="decision-brief"'))     # задача руководителя — самой первой
+        self.assertIn("Задача руководителя", page)
+        self.assertIn("id='materials'", page)                  # приложение «Исходные материалы» — всё собранное, не только процитированное
 
     def test_report_is_printable_with_publication_dates(self):
         with TempRepo() as root:
