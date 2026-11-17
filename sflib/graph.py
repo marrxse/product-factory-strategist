@@ -136,13 +136,20 @@ def decisions_due(project: Path, today: date | None = None) -> list[str]:
     return due
 
 
-def stale(project: Path, max_age_days: int, today: date | None = None) -> list[str]:
-    """Устаревшие основания: отозванные, но используемые; слишком старые; несуществующие."""
+NO_PUBLISHED_KINDS = ("synthetic", "calc")  # возраст расчёта — возраст его входов; синтетика — не данные о мире
+
+
+def stale(project: Path, max_age_days: int, today: date | None = None, max_data_age_days: int = 730) -> list[str]:
+    """Устаревшие основания: отозванные, но используемые; давно не сверявшиеся; старые по дате публикации; несуществующие.
+
+    Дата доступа говорит, когда мы смотрели источник, а не насколько свежи сами данные:
+    опрос 2021 года, скачанный вчера, — всё равно данные 2021 года. Поэтому возраст считается дважды."""
     today = today or date.today()
     graph = build(project)
     records = ev.by_id(ev.load(project))
     used = {ref for line in graph.lines for ref in line.refs}
-    issues = []
+    issues: list[str] = []
+    undated: list[str] = []
     for ref in sorted(used):
         if ref.startswith("C"):
             if ref not in graph.conclusions:
@@ -154,6 +161,18 @@ def stale(project: Path, max_age_days: int, today: date | None = None) -> list[s
         elif record.status == ev.REVOKED:
             deps = ", ".join(graph.dependents_of(ref)) or "—"
             issues.append(f"{ref}: ОТОЗВАНА ({record.revoked_reason}), но используется; затронутые выводы: {deps}")
-        elif record.accessed and date.fromisoformat(record.accessed) < today - timedelta(days=max_age_days):
-            issues.append(f"{ref}: данные от {record.accessed} старше {max_age_days} дней — проверить актуальность")
+        else:
+            published = ev.published_end(record.published)
+            if published and published < today - timedelta(days=max_data_age_days):
+                deps = ", ".join(graph.dependents_of(ref)) or "—"
+                issues.append(f"{ref}: данные опубликованы {record.published} — старше {max_data_age_days // 365} лет; "
+                              f"найти свежие или оставить с оговоркой о годе; затронутые выводы: {deps}")
+            elif record.accessed and date.fromisoformat(record.accessed) < today - timedelta(days=max_age_days):
+                issues.append(f"{ref}: источник сверяли {record.accessed}, больше {max_age_days} дней назад — "
+                              f"проверить, не изменился ли он (sf.py watch {ref})")
+            if not record.published and record.kind not in NO_PUBLISHED_KINDS:
+                undated.append(ref)
+    if undated:
+        issues.append(f"Без даты публикации ({len(undated)}): {', '.join(undated)} — возраст данных не проверить; "
+                      f"укажите: sf.py evidence published <ID> <ГГГГ[-ММ[-ДД]]>")
     return issues

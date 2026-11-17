@@ -4,7 +4,9 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import behavior, geo, journal, media, paths, pipeline, route
+from datetime import date
+
+from . import behavior, fetch, geo, journal, media, paths, pipeline, pricing, route, watch
 
 EXIT_ALREADY_DONE = 3
 EXIT_FAILED_CHECK = 1
@@ -173,7 +175,46 @@ def cmd_geo(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_watch(args: argparse.Namespace) -> int:
+    proj = _project(args)
+    results = watch.check(proj, fetch.download, args.ids or None)
+    if not results:
+        print("Нет действующих записей с веб-источником — сторожить нечего.")
+        return 0
+    text = watch.report(results)
+    out = proj / "state" / f"watch-{date.today().isoformat()}.md"
+    out.write_text(text, encoding="utf-8")
+    changed = [r.record_id for r in results if r.status == watch.CHANGED]
+    journal.append(proj / "state" / "log.md", "NOTE", f"watch:{date.today().isoformat()}",
+                   f"сторож оснований: проверено {len(results)}, изменилось {len(changed)}"
+                   + (f" ({', '.join(changed)})" if changed else ""))
+    print(text if args.show else f"Отчёт: {out.relative_to(proj).as_posix()} · изменилось: {', '.join(changed) or 'ничего'}")
+    return EXIT_FAILED_CHECK if changed else 0
+
+
+def cmd_price(args: argparse.Namespace) -> int:
+    proj = _project(args)
+    source = _resolve(proj, args.file)
+    text = pricing.vw_report(source) if args.method == "vw" else pricing.gg_report(source)
+    out = proj / "state" / "analysis" / f"price-{args.method}-{source.stem}.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text, encoding="utf-8")
+    print(text if args.show else f"Отчёт: {out.relative_to(proj).as_posix()}")
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("watch", help="сторож оснований: заново открыть веб-источники и проверить, на месте ли цитаты")
+    p.add_argument("ids", nargs="*", help="записи E… (по умолчанию все с веб-источником)")
+    p.add_argument("--show", action="store_true", help="напечатать отчёт целиком")
+    p.set_defaults(func=cmd_watch)
+
+    p = sub.add_parser("price", help="цена: vw — Ван Вестендорп (диапазон), gg — Габор — Грейнджер / ценовой тест (спрос и выручка)")
+    p.add_argument("method", choices=("vw", "gg"))
+    p.add_argument("file", help="CSV: vw — too_cheap,cheap,expensive,too_expensive; gg — price,shown,bought")
+    p.add_argument("--show", action="store_true")
+    p.set_defaults(func=cmd_price)
+
     p = sub.add_parser("geo", help="канал «ответы нейросетей»: бренды, источники и рискованные утверждения в ответах ИИ-ассистентов")
     p.add_argument("--brands", required=True, help="\"МТС=МТС|MTS; МегаФон=МегаФон|Мегафон\"")
     p.add_argument("--risky", help="маркеры утверждений для сверки через запятую, например \"по закону,бесплатно,100%%\"")

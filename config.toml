@@ -109,7 +109,8 @@ max_rework_cycles = 2
 max_questions_per_turn = 3
 
 [evidence]
-max_age_days = 180             # старше — «основание устарело» в sf.py revisit --stale
+max_age_days = 180             # источник не сверяли дольше — предложить sf.py watch
+max_data_age_days = 730        # данные опубликованы раньше (по полю published) — «устарели» в sf.py revisit --stale
 
 [validate]
 # Файлы, где числа без меток допустимы (планы и отчёты о самой работе, а не выводы о мире)

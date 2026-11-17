@@ -32,7 +32,7 @@
 | `основания <ID>` | `sf.py evidence show <ID>` / `sf.py claims trace <ID>`: источник, цитата, что от него зависит |
 | `исправь …` | внеси правку, `sf.py log correction <ключ> "что и почему"`, затем найди зависимые выводы (`sf.py revisit`) и обнови их |
 | `новые данные` / `пересмотри` | этап 8, навык `decision-support` |
-| `что устарело` | `sf.py revisit --stale` и разделы «условия пересмотра» в `state/decisions.md` |
+| `что устарело` | `sf.py revisit --stale` (старые и непроверенные основания), `sf.py watch` (изменились ли цитаты в источниках) и «условия пересмотра» в `state/decisions.md` |
 | `стоимость` | `sf.py cost report` |
 | `отчёт` | `sf.py report` → `outputs/report.html` |
 

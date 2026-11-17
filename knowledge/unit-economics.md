@@ -1,7 +1,7 @@
 ---
 title: Юнит-экономика цифрового продукта
 tags: [юнит-экономика, экономика, ltv, cac, arpu, затраты, доходы, окупаемость, монетизация]
-related: [metrics-pitfalls, value-proposition, option-matrix]
+related: [metrics-pitfalls, value-proposition, option-matrix, pricing-wtp]
 ---
 
 # Юнит-экономика: связь пользы с деньгами
