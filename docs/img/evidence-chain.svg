@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1002" width="1200" height="1002" role="img" aria-label="Цепочка оснований вывода C15 до дословных цитат источников; отзыв записи E36 затрагивает 9 выводов и 35 мест в 7 документах">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1002" width="1200" height="1002" role="img" aria-label="Цепочка оснований вывода C15 до дословных цитат источников; отзыв записи E36 затрагивает 9 выводов и 36 мест в 7 документах">
 <style>text{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif}</style>
 
 <rect x="1" y="1" width="1198" height="1000" rx="28" fill="#ffffff" stroke="#e3e3e8" stroke-width="2"/>
@@ -13,20 +13,20 @@
 <path d="M214 706 V760 Q214 774 228 774 H226" fill="none" stroke="#c7c7cc" stroke-width="2" stroke-linecap="round"/>
 <rect x="80" y="242" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.12"/>
 <text x="111" y="264" font-size="16" font-weight="700" fill="#731982" letter-spacing="0.3" text-anchor="middle">C15</text>
-<text x="160" y="264" font-size="20" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Продавать не «защиту себя», а помощь близкому</text>
+<text x="160" y="264" font-size="20" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Продавать не «защиту себя», а помощь близкому в момент звонка</text>
 <text x="160" y="292" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Вывод о поведении клиентов · behavior.md</text>
 <rect x="132" y="328" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
-<text x="163" y="350" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E56</text>
-<text x="212" y="350" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«46% считают такое развитие событий маловероятным, 27% — невозможным»</text>
-<text x="212" y="378" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2024, 1600 человек · качество A</text>
+<text x="163" y="350" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E71</text>
+<text x="212" y="350" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«…58% уверены, что смогли бы … распознать признаки…»</text>
+<text x="212" y="378" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ФОМ, апрель 2025, 1500 человек (по Интерфаксу) · качество B</text>
 <rect x="132" y="414" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
-<text x="163" y="436" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E57</text>
-<text x="212" y="436" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«…молодежь 18-24 лет (42%)» уверены, что «этого никогда не случится»</text>
-<text x="212" y="464" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2024 · качество A</text>
+<text x="163" y="436" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E74</text>
+<text x="212" y="436" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«45% респондентов продолжают беседу…»</text>
+<text x="212" y="464" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">исследование Народного фронта · качество B</text>
 <rect x="132" y="500" width="62" height="32" rx="16" fill="#00a650" fill-opacity="0.12"/>
-<text x="163" y="522" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E4</text>
-<text x="212" y="522" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«…молодежь 18–24 лет (14%)» — чаще других теряли деньги</text>
-<text x="212" y="550" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">ВЦИОМ, опрос 2021 — другой год и выборка, это оговорено</text>
+<text x="163" y="522" font-size="16" font-weight="700" fill="#00a650" letter-spacing="0.3" text-anchor="middle">E73</text>
+<text x="212" y="522" font-size="18" font-weight="400" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">«…избежать материальных потерь удалось лишь 6%»</text>
+<text x="212" y="550" font-size="15" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">опрос «Сравни», январь 2026 · качество C</text>
 <rect x="132" y="586" width="62" height="32" rx="16" fill="#731982" fill-opacity="0.12"/>
 <text x="163" y="608" font-size="16" font-weight="700" fill="#731982" letter-spacing="0.3" text-anchor="middle">C11</text>
 <text x="212" y="608" font-size="20" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Проверить «семейную защиту» в I квартале 2027 года</text>
@@ -43,5 +43,5 @@
 <circle cx="122" cy="910" r="16" fill="#00a650"/>
 <path d="M114 910 l6 6 l11 -12" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="160" y="904" font-size="21" font-weight="600" fill="#1d1d1f" letter-spacing="-0.2" text-anchor="start">Отзовите один источник — агент сам найдёт, что пересмотреть.</text>
-<text x="160" y="932" font-size="16" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Для E36 это 9 зависимых выводов и 35 мест в 7 документах. В демо так прошли два пересмотра.</text>
+<text x="160" y="932" font-size="16" font-weight="400" fill="#6e6e73" letter-spacing="0" text-anchor="start">Для E36 это 9 зависимых выводов и 36 мест в 7 документах. В демо так прошли два пересмотра.</text>
 </svg>

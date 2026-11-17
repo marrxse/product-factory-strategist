@@ -159,7 +159,7 @@ b, strong { font-weight: 620; color: var(--ink); }
 
 /* ─── 6. дерево доказательств ─── */
 .tree { position: relative; }
-.node { display: grid; grid-template-columns: 13mm 1fr; gap: 3mm; align-items: start; padding: 3.3mm 0; position: relative; }
+.node { display: grid; grid-template-columns: 13mm 1fr; gap: 3mm; align-items: start; padding: 2.5mm 0; position: relative; }
 .node .id { justify-self: start; }
 .node .txt { font-size: 11pt; color: var(--ink); line-height: 1.35; }
 .node .src { font-size: 8pt; color: var(--muted); margin-top: .6mm; }
@@ -326,14 +326,14 @@ table.t { width: 100%; border-collapse: collapse; }
   <div class="main">
     <div class="flow">
       <div><div class="step">1 · Вопрос</div><h3>«Продажи встали, нас ругают за платное. Что делать?»</h3><p>Руководитель пишет как есть. Агент уточняет не больше трёх вещей — у каждой есть ответ по умолчанию.</p></div>
-      <div><div class="step">2 · Работа агента</div><h3>9 этапов, 6 решений — за человеком</h3><ul><li>61 факт с цитатой, местом и датой</li><li>рынок, поведение клиентов, интерфейсы, ответы нейросетей</li><li>6 вариантов с возражениями</li></ul></div>
+      <div><div class="step">2 · Работа агента</div><h3>9 этапов, 6 решений — за человеком</h3><ul><li>68 фактов с цитатой, местом и датой</li><li>рынок, поведение клиентов, интерфейсы, ответы нейросетей</li><li>6 вариантов с возражениями</li></ul></div>
       <div><div class="step">3 · Результат</div><h3>Решение на одной странице</h3><ul><li>правило «если — то» на 27 ноября</li><li>обе стратегии и план на 2027 год</li><li>пилот с порогами «продолжить / остановить»</li></ul></div>
       <div><div class="step">4 · После решения</div><h3>Следит за основаниями</h3><p>Отозван источник или пришли новые данные — агент находит затронутые выводы и предлагает правку «было → стало».</p></div>
     </div>
     <div class="fill"></div>
     <div class="k p">Почему рекомендации можно доверять</div>
     <div class="trust">
-      <div><div class="big g">61</div><h4>Реестр доказательств</h4><p>Нет записи с цитатой — значит, это гипотеза, и она так подписана.</p></div>
+      <div><div class="big g">68</div><h4>Реестр доказательств</h4><p>Нет записи с цитатой — значит, это гипотеза, и она так подписана.</p></div>
       <div><div class="big g">0</div><h4>Число без источника</h4><p>Проверка кодом после каждой записи: этап не закрывается, пока она красная.</p></div>
       <div><div class="big pu">93%</div><h4>Независимые проверяющие</h4><p>Критик не видел процесса; проверяющий сверяет утверждения с источниками.</p></div>
       <div><div class="big pu">3/3</div><h4>Воспроизводимость</h4><p>Тот же вход — то же решение; расчёты повторяются до цифры.</p></div>
@@ -411,9 +411,9 @@ table.t { width: 100%; border-collapse: collapse; }
   </div>
   <div class="main">
     <div class="live fill">
-      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>report.html · Поведение клиентов · вывод C15</span></div><img src="shot-claim.jpg" alt="Вывод C15 в отчёте со сносками 48, 49, 37 и метками гипотез"></div>
-      <div class="hop"><div class="arrow">↓</div><div><b>Сноска 48</b> — наведите, и браузер покажет цитату; нажмите — откроется запись в приложении «Источники»: дословная цитата, строка в снимке страницы, качество источника и дата.</div></div>
-      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>report.html · Источники</span></div><img src="shot-sources.jpg" alt="Записи E56 и E57 в приложении «Источники» с цитатой, строкой, качеством и датой"></div>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>report.html · Поведение клиентов · вывод C15</span></div><img src="shot-claim.jpg" alt="Вывод C15 в отчёте со сносками 32, 53, 38 и метками гипотез"></div>
+      <div class="hop"><div class="arrow">↓</div><div><b>Сноска 32</b> — наведите, и браузер покажет цитату; нажмите — откроется запись в приложении «Источники»: дословная цитата, строка в снимке страницы, качество источника и дата.</div></div>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>report.html · Источники</span></div><img src="shot-sources.jpg" alt="Запись E71 в приложении «Источники» с цитатой, местом, качеством и датой"></div>
     </div>
     <div class="how3">
       <div><h4>Метки в строке</h4>«гипотеза», «прогноз», «синтетика» видны там, где утверждение, а не в примечаниях.</div>
@@ -434,8 +434,8 @@ table.t { width: 100%; border-collapse: collapse; }
   </div>
   <div class="main">
     <div class="trio fill">
-      <div><div class="k">Поведение</div><div class="big g">73%</div><div class="cap">россиян считают обман маловероятным или невозможным для себя (ВЦИОМ, 2024)</div>
-        <p class="t">Поэтому продаём не «защиту себя», а <b>помощь близкому</b>. Механизм — гипотеза; в пилоте A/B двух рамок сообщения.</p>
+      <div><div class="k">Поведение</div><div class="big g">45%</div><div class="cap">продолжают разговор с мошенником, хотя 58% уверены, что распознали бы его (Народный фронт; ФОМ, 2025)</div>
+        <p class="t">Люди проигрывают в моменте разговора, поэтому продаём не «защиту себя», а <b>помощь близкому в момент звонка</b>. Механизм — гипотеза; в пилоте A/B двух рамок сообщения.</p>
         <div class="so"><b>→ в продукте:</b> главная метрика пилота — позвал ли близкий на помощь, а не только оплата.</div></div>
       <div><div class="k p">Креативная идея</div><div class="idea">«Сомневаешься — позови своего»</div>
         <div class="cap">Предтест на персонах: «позвать во время разговора» читается как прослушка, «вы не можете быть рядом» давит на вину, цены нет.</div>
@@ -459,16 +459,16 @@ table.t { width: 100%; border-collapse: collapse; }
   <div class="rail">
     <div class="no">06</div><div class="part">Доказательность</div>
     <h2>Каждый вывод доходит <em>до дословной цитаты</em> — и знает, что от него зависит.</h2>
-    <p class="lead">Это настоящая цепочка из демо: так агент отвечает на команду «основания C15». Ту же цепочку вживую восстановил Cursor на модели Grok.</p>
-    <div class="aside">Демо: <b>61 факт</b>, <b>24 вывода</b>, 15 синтетических записей, 6 отозванных записей — у каждой есть причина.</div>
+    <p class="lead">Это настоящая цепочка из демо: так агент отвечает на команду «основания C15». До пересмотра 17.11 эту же команду вживую выполнил Cursor на модели Grok и восстановил цепочку без ошибок.</p>
+    <div class="aside">Демо: <b>68 фактов</b>, <b>24 вывода</b>, 15 синтетических записей, 6 отозванных записей — у каждой есть причина.</div>
   </div>
   <div class="main">
     <div class="tree fill">
-      <div class="node c"><span class="chip p id">C15</span><div><div class="txt">Продавать не «защиту себя», а помощь близкому</div><div class="src">вывод о поведении клиентов · behavior.md</div></div></div>
+      <div class="node c"><span class="chip p id">C15</span><div><div class="txt">Продавать не «защиту себя», а помощь близкому в момент звонка</div><div class="src">вывод о поведении клиентов · behavior.md · обновлён пересмотром 17.11.2026</div></div></div>
       <div class="lvl1">
-        <div class="node e"><span class="chip g id">E56</span><div><div class="txt">«46% считают такое развитие событий маловероятным, 27% — невозможным»</div><div class="src">ВЦИОМ, опрос 2024, 1 600 человек · качество A</div></div></div>
-        <div class="node e"><span class="chip g id">E57</span><div><div class="txt">«…молодёжь 18–24 лет (42%)» уверены, что «этого никогда не случится»</div><div class="src">ВЦИОМ, опрос 2024, строка 160 · качество A</div></div></div>
-        <div class="node e"><span class="chip g id">E4</span><div><div class="txt">«…молодёжь 18–24 лет (14%)» — чаще других теряли деньги</div><div class="src">ВЦИОМ, 2021 — другой год и выборка, это оговорено · качество A</div></div></div>
+        <div class="node e"><span class="chip g id">E71</span><div><div class="txt">«…58% уверены, что смогли бы … распознать признаки…»</div><div class="src">ФОМ, апрель 2025, 1 500 человек (по Интерфаксу) · качество B</div></div></div>
+        <div class="node e"><span class="chip g id">E74</span><div><div class="txt">«45% респондентов продолжают беседу…»</div><div class="src">исследование Народного фронта · качество B</div></div></div>
+        <div class="node e"><span class="chip g id">E73</span><div><div class="txt">«…избежать материальных потерь удалось лишь 6%»</div><div class="src">опрос «Сравни», январь 2026 · качество C</div></div></div>
         <div class="node c"><span class="chip p id">C11</span><div><div class="txt">Проверить «семейную защиту» в I квартале 2027 года</div><div class="src">рекомендация · утверждена человеком на воротах 4</div></div></div>
         <div class="lvl2">
           <div class="node c"><span class="chip p id">C10</span><div><div class="txt">Базовую блокировку не нужно делать бесплатной — она уже бесплатна</div><div class="src">вывод · options.md</div></div></div>
@@ -479,7 +479,7 @@ table.t { width: 100%; border-collapse: collapse; }
       </div>
     </div>
     <div class="revoke"><div><h4>Отзовите один источник — агент сам найдёт, что пересмотреть</h4><p>Граф выводов хранит связи. Проверка не даст закрыть этап, пока все зависимые места не обновлены.</p></div>
-      <div class="nums"><div><div class="big">9</div><small>зависимых выводов<br>от E36</small></div><div><div class="big">35</div><small>мест в 7<br>документах</small></div></div></div>
+      <div class="nums"><div><div class="big">9</div><small>зависимых выводов<br>от E36</small></div><div><div class="big">36</div><small>мест в 7<br>документах</small></div></div></div>
     <div class="labels">
       <div><span class="chip g">[E7]</span><b>Факт</b>запись реестра: источник, место, дата, цитата</div>
       <div><span class="chip a">[ГИП]</span><b>Гипотеза</b>не подтверждено — и указано, как проверить</div>

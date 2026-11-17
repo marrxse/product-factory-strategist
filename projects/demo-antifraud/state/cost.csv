@@ -159,3 +159,5 @@ ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds
 2026-11-17 20:12:03,8,transcript,orchestrator,claude-opus-5-5,38,15674,6988470,42039,2.047638,0,факт,18 ответов модели; API-эквивалент
 2026-11-17 20:43:47,8,transcript,orchestrator,<synthetic>,0,0,0,0,0.0,0,факт,1 ответов; нет цены для <synthetic> в config.toml
 2026-11-17 20:43:47,8,transcript,orchestrator,claude-opus-5-5,16,6654,3350774,15509,0.927371,0,факт,8 ответов модели; API-эквивалент
+2026-11-17 20:57:34,8,transcript,orchestrator,claude-opus-5-5,114,56364,26990419,103648,7.355004,0,факт,55 ответов модели; API-эквивалент
+2026-11-17 21:01:26,8,transcript,orchestrator,claude-opus-5-5,40,15931,9828494,31745,2.538439,0,факт,18 ответов модели; API-эквивалент

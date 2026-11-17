@@ -184,3 +184,24 @@
 - 2026-11-17 20:52:56 | NOTE | watch:2026-11-17 | сторож оснований: проверено 40, изменилось 5 (E27, E28, E29, E30, E63)
 - 2026-11-17 20:54:41 | NOTE | watch:2026-11-17 | сторож оснований: проверено 40, изменилось 0
 - 2026-11-17 20:54:54 | CORRECTION | watch:2026-11-17 | первый прогон: 5 «изменений» — ложные; t-j.ru отдал пустую страницу (скрипты), справка Яндекса — коды &nbsp; в Markdown. Сторож исправлен (пустая страница = недоступна, HTML-коды и разметка нормализуются), тесты добавлены; повторный прогон: изменений нет
+- 2026-11-17 20:57:55 | STAGE | stage:8:start | Пересмотр по новым данным: start
+- 2026-11-17 20:57:55 | START | revisit:stale-data:2026-11-17 | пересмотр: опросы ВЦИОМ 2021 и 02.2024 старше 2 лет — поиск свежих данных
+- 2026-11-17 20:58:20 | START | collect:fetch:fom-ru-bezopasnost-i-pravo-15190-93cf0e | https://fom.ru/Bezopasnost-i-pravo/15190
+- 2026-11-17 20:58:22 | DONE | collect:fetch:fom-ru-bezopasnost-i-pravo-15190-93cf0e | сохранено web-fom-ru-bezopasnost-i-pravo-15190-93cf0e-2026-11-17.md
+- 2026-11-17 20:58:22 | START | collect:fetch:www-vedomosti-ru-society-news-2026-07-27-1216780-nachala-god-ecaf89 | https://www.vedomosti.ru/society/news/2026/07/27/1216780-nachala-goda-63-rossiyan
+- 2026-11-17 20:58:24 | DONE | collect:fetch:www-vedomosti-ru-society-news-2026-07-27-1216780-nachala-god-ecaf89 | сохранено web-www-vedomosti-ru-society-news-2026-07-27-1216780-nachala-god-ecaf89-2026-11-17.md
+- 2026-11-17 20:58:24 | START | collect:fetch:ria-ru-20260109-moshennichestvo-2066957835-html-e67f2d | https://ria.ru/20260109/moshennichestvo-2066957835.html
+- 2026-11-17 20:58:26 | DONE | collect:fetch:ria-ru-20260109-moshennichestvo-2066957835-html-e67f2d | сохранено web-ria-ru-20260109-moshennichestvo-2066957835-html-e67f2d-2026-11-17.md
+- 2026-11-17 20:58:26 | START | collect:fetch:www-interfax-ru-russia-1028070-b12102 | https://www.interfax.ru/russia/1028070
+- 2026-11-17 20:58:27 | DONE | collect:fetch:www-interfax-ru-russia-1028070-b12102 | сохранено web-www-interfax-ru-russia-1028070-b12102-2026-11-17.md
+- 2026-11-17 20:58:27 | START | collect:fetch:onf-ru-news-starye-sxemy-moshennikov-bolshe-ne-rabotayut-nar-e00e80 | https://onf.ru/news/starye-sxemy-moshennikov-bolshe-ne-rabotayut-narodnyj-front-fiksiruet-zametnye-izmeneniya
+- 2026-11-17 20:58:30 | DONE | collect:fetch:onf-ru-news-starye-sxemy-moshennikov-bolshe-ne-rabotayut-nar-e00e80 | сохранено web-onf-ru-news-starye-sxemy-moshennikov-bolshe-ne-rabotayut-nar-e00e80-2026-11-17.md
+- 2026-11-17 20:59:17 | START | collect:fetch:news-mail-ru-society-67057831-1460ec | https://news.mail.ru/society/67057831/
+- 2026-11-17 20:59:18 | DONE | collect:fetch:news-mail-ru-society-67057831-1460ec | сохранено web-news-mail-ru-society-67057831-1460ec-2026-11-17.md
+- 2026-11-17 20:59:19 | START | collect:fetch:www-mk-ru-economics-2025-08-14-banki-i-operatory-svyazi-posp-633fd1 | https://www.mk.ru/economics/2025/08/14/banki-i-operatory-svyazi-posporili-kto-budet-oplachivat-ushherb-ot-moshennikov.html
+- 2026-11-17 20:59:44 | FAIL | collect:fetch:www-mk-ru-economics-2025-08-14-banki-i-operatory-svyazi-posp-633fd1 | Сайт недоступен (<urlopen error _ssl.c:983: The handshake operation timed out>): https://www.mk.ru/economics/2025/08/14/banki-i-operatory-svyazi-posporili-kto-budet-oplachivat-ushherb-ot-moshennikov.html
+- 2026-11-17 20:59:49 | FAIL | collect:fetch:mk-2025-08-14 | МК недоступен (таймаут) — спор банков и операторов не используется
+- 2026-11-17 21:01:03 | DONE | revisit:stale-data:2026-11-17 | 6 новых записей E69–E74, таблица было→стало в outputs/revisit-2026-11-17.md; ждёт ворот 8
+- 2026-11-17 21:01:03 | STAGE | stage:8:done | Пересмотр по новым данным: done
+- 2026-11-17 21:03:45 | GATE | gate:8 | ok
+- 2026-11-17 21:04:19 | CORRECTION | revisit:stale-data:2026-11-17 | ворота 8 одобрены: C5 «массовая, но снижается» (E71, E72), C6 (E69, E70, E73), C15 (E71, E73, E74), оговорки о годе в C7 и C8; сторож «рынок страха сужается» в плане проверки и Р1
