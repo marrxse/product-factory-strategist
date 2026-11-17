@@ -25,6 +25,10 @@
 | Проверка восприятия | [perception-testing.md](perception-testing.md) | внимание, понимание, айтрекинг, имплицитные тесты | creative-platform, behavior-analysis, ux-heuristics |
 | Эвристики интерфейса | [ux-heuristics.md](ux-heuristics.md) | интерфейс, путь пользователя, композиция | barriers, value-proposition, hypotheses-experiments |
 | Цена и готовность платить | [pricing-wtp.md](pricing-wtp.md) | ценообразование, ван вестендорп, габор-грейнджер, ценовой тест | unit-economics, value-proposition, hypotheses-experiments, behavior-analysis |
+| Объём рынка (TAM, SAM, SOM) | [market-sizing.md](market-sizing.md) | размер рынка, потенциал, сколько клиентов | unit-economics, pricing-wtp, jtbd, option-matrix |
+| Путь клиента (CJM) | [customer-journey.md](customer-journey.md) | точки контакта, каналы, шаги, онбординг | barriers, behavior-analysis, creative-platform, metrics-pitfalls, choice-architecture |
+| Бренд и название | [brand-architecture.md](brand-architecture.md) | суббренд, нейминг, мастер-бренд | positioning, creative-platform, value-proposition |
+| Архитектура выбора | [choice-architecture.md](choice-architecture.md) | умолчание, фрейминг, намерение реализации, этика | behavior-analysis, customer-journey, perception-testing, hypotheses-experiments |
 
 ## Синонимы (поиск по смыслу)
 - синонимы: удержание, отток, retention, churn, уходят, возвращаемость
@@ -40,6 +44,10 @@
 - синонимы: восприятие, внимание, айтрекинг, нейромаркетинг, эмоции, имплицитный, заметность
 - синонимы: интерфейс, экран, скриншот, ux, юзабилити, лендинг, приложение, макет, кнопка
 - синонимы: цена, ценообразование, тариф, стоимость, прайс, готовность платить, pricing, wtp
+- синонимы: рынок, объём, размер, потенциал, tam, sam, som, ёмкость
+- синонимы: путь, cjm, воронка, точка контакта, онбординг, касание
+- синонимы: бренд, суббренд, название, нейминг, имя продукта
+- синонимы: подталкивание, nudge, умолчание, фрейминг, архитектура выбора, поведенческий дизайн
 - синонимы: риск, провал, возражение, критика, премортем
 - синонимы: вариант, опция, сценарий, альтернатива, решение
 - синонимы: интервью, опрос, респондент, беседа, исследование пользователей
