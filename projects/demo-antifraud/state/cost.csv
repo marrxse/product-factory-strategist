@@ -150,3 +150,7 @@ ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds
 2026-11-16 23:57:23,8,transcript,orchestrator,<synthetic>,0,0,0,0,0.0,0,факт,1 ответов; нет цены для <synthetic> в config.toml
 2026-11-16 23:57:23,8,transcript,orchestrator,claude-fable-5-2,30,15207,10918242,889269,0.0,0,факт,13 ответов; нет цены для claude-fable-5-2 в config.toml
 2026-11-16 23:57:23,8,transcript,subagent,claude-sonnet-5-5,12,8298,152793,41982,0.218518,0,факт,6 ответов модели; API-эквивалент
+2026-11-16 23:58:55,8,transcript,orchestrator,claude-fable-5-2,10,4400,4620532,10078,0.0,0,факт,5 ответов; нет цены для claude-fable-5-2 в config.toml
+2026-11-17 00:00:27,8,transcript,orchestrator,claude-fable-5-2,4,420,1858111,481,0.0,0,факт,2 ответов; нет цены для claude-fable-5-2 в config.toml
+2026-11-17 00:09:24,8,transcript,orchestrator,claude-fable-5-2,8,25622,1859350,5945,0.0,0,факт,2 ответов; нет цены для claude-fable-5-2 в config.toml
+2026-11-17 19:52:39,8,transcript,orchestrator,claude-opus-5-5,8,1629,333524,54261,0.533405,0,факт,4 ответов модели; API-эквивалент
