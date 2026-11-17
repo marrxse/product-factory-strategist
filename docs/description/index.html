@@ -74,6 +74,24 @@ b, strong { font-weight: 620; color: var(--ink); }
   font-size: 8.4pt; color: var(--muted); }
 .cover .meta b { display: block; font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: 1mm; }
 
+/* обложка: живой кадр отчёта */
+.cover .hero { position: absolute; right: 18mm; top: 30mm; width: 112mm; }
+.cover h1 { max-width: 150mm !important; font-size: 40pt !important; }
+.cover .sub { max-width: 140mm !important; font-size: 12.5pt !important; }
+.browser { border: 1px solid var(--line); border-radius: 2.5mm; overflow: hidden; background: #fbfaf7; border-color: #d6d6dc; }
+.browser .bar { height: 6mm; background: #f0f0f3; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 1.4mm; padding: 0 3mm; }
+.browser .bar i { width: 2.2mm; height: 2.2mm; border-radius: 50%; display: block; background: #d4d4d9; }
+.browser .bar span { margin-left: 3mm; font-size: 7pt; color: var(--muted); }
+.browser img { display: block; width: 100%; }
+.hero-cap { font-size: 8pt; color: var(--muted); margin-top: 3mm; text-align: right; }
+/* живой отчёт */
+.live { display: flex; flex-direction: column; gap: 4mm; justify-content: center; }
+.hop { display: grid; grid-template-columns: auto 1fr; gap: 4mm; align-items: center; font-size: 9.6pt; color: var(--ink-2); padding-left: 6mm; }
+.hop .arrow { font-family: var(--display); font-size: 22pt; color: var(--green); line-height: 1; }
+.how3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+.how3 > div { border-top: 2px solid var(--ink); padding-top: 2.5mm; font-size: 9.2pt; color: var(--ink-2); }
+.how3 h4 { font-size: 10.4pt; color: var(--ink); margin-bottom: 1mm; }
+
 /* ─── 2. за 30 секунд ─── */
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--ink); }
 .flow > div { padding: 4.5mm 5mm 0 0; position: relative; }
@@ -83,11 +101,11 @@ b, strong { font-weight: 620; color: var(--ink); }
 .flow p, .flow li { color: var(--ink-2); font-size: 10.2pt; }
 .flow ul { list-style: none; } .flow li { margin: 1.4mm 0; padding-left: 3.5mm; position: relative; }
 .flow li::before { content: "–"; position: absolute; left: 0; color: var(--faint); }
-.trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
-.trust > div { background: var(--tint); border-radius: 3mm; padding: 5mm 5mm 5.5mm; display: flex; flex-direction: column; }
-.trust .big { font-size: 26pt; }
-.trust h4 { font-size: 11.6pt; margin: 3mm 0 1.2mm; }
-.trust p { color: var(--muted); font-size: 9.6pt; line-height: 1.38; }
+.trust { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 5mm; }
+.trust > div { background: var(--tint); border-radius: 3mm; padding: 4.5mm 5.5mm; display: grid; grid-template-columns: 27mm 1fr; column-gap: 4mm; align-items: center; }
+.trust .big { font-size: 28pt; grid-row: span 2; }
+.trust h4 { font-size: 11.6pt; margin: 0 0 1mm; align-self: end; }
+.trust p { align-self: start; color: var(--muted); font-size: 9.6pt; line-height: 1.38; }
 
 /* ─── 3. варианты ─── */
 .opts { width: 100%; border-collapse: collapse; }
@@ -190,6 +208,10 @@ table.pipe { width: 100%; border-collapse: collapse; }
 /* ─── 9. слои знаний ─── */
 .stack { display: grid; gap: 2mm; }
 .layer { display: grid; grid-template-columns: 44mm 40mm 1fr; gap: 4mm; align-items: center; border-radius: 2.5mm; padding: 4.9mm 5mm; background: var(--tint); }
+.stack.compact { grid-template-columns: 1fr 1fr; gap: 1.5mm 3mm; }
+.stack.compact .layer { grid-template-columns: 1fr; gap: .2mm; padding: 1.6mm 3.5mm; }
+.stack.compact .layer b { font-size: 9.6pt; } .stack.compact .layer span { font-size: 8.4pt; }
+.t.dense td { padding: 1.35mm 4mm 1.35mm 0; font-size: 9pt; } .t.dense tr.sec td { padding-top: 3mm; padding-bottom: 1.2mm; }
 .layer b { font-size: 10.2pt; } .layer code { font-family: var(--mono); font-size: 8.6pt; color: var(--purple); }
 .layer span { color: var(--muted); font-size: 9.2pt; }
 .layer.proj { background: var(--green-bg); } .layer.proj code { color: var(--green-ink); }
@@ -216,7 +238,7 @@ table.t { width: 100%; border-collapse: collapse; }
 
 /* ─── 12. деньги ─── */
 .bars { display: grid; grid-template-columns: 46mm 1fr 48mm; gap: 0 5mm; align-items: center; border-top: 1px solid var(--line); }
-.bars > div { padding: 6.5mm 0; border-bottom: 1px solid var(--line); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+.bars > div { padding: 8.5mm 0; border-bottom: 1px solid var(--line); align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
 .bars .lab b { font-size: 12pt; } .bars .lab small { display: block; color: var(--muted); font-size: 8.4pt; margin-top: .6mm; }
 .track { height: 7mm; background: var(--tint); border-radius: 1mm; position: relative; }
 .track i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 1mm; background: #c9c9cf; min-width: 1.2mm; }
@@ -231,7 +253,7 @@ table.t { width: 100%; border-collapse: collapse; }
 .score { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--ink); }
 .score > div { padding: 4mm 5mm 0 0; } .score > div + div { padding-left: 5mm; border-left: 1px solid var(--line); }
 .score .big { font-size: 34pt; } .score p { font-size: 8.8pt; color: var(--muted); margin-top: 2mm; line-height: 1.35; }
-.path { display: flex; align-items: flex-end; gap: 2.2mm; height: 64mm; }
+.path { display: flex; align-items: flex-end; gap: 2.2mm; height: 74mm; }
 .path div { flex: 1; background: #d9d9de; border-radius: 1mm 1mm 0 0; position: relative; }
 .path div.pass { background: var(--green); }
 .path div span { position: absolute; top: -4.4mm; left: 0; right: 0; text-align: center; font-size: 7.6pt; color: var(--ink-2); font-weight: 620; }
@@ -276,6 +298,7 @@ table.t { width: 100%; border-collapse: collapse; }
 <!-- 1. ОБЛОЖКА -->
 <section class="page cover">
   <div class="eyebrow">MGIMO×AI Challenge 2026 · кейс МегаФона «Стратег Фабрики продуктов» · описание работы</div>
+  <div class="hero"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>Отчёт для руководителя · report.html</span></div><img src="shot-report-top.jpg" alt="Верх настоящего отчёта агента по демо"></div><div class="hero-cap">Настоящий отчёт агента по демо — один HTML-файл</div></div>
   <h1>ИИ-агент, после которого решению <em>можно доверять.</em></h1>
   <p class="sub">Ведёт руководителя цифрового продукта от размытого вопроса к исследованию, вариантам, продуктовой и коммуникационной стратегиям и плану проверки. Под каждой цифрой — цитата из источника. После решения следит за его основаниями.</p>
   <div class="stats">
@@ -378,10 +401,33 @@ table.t { width: 100%; border-collapse: collapse; }
   <div class="foot"><span>Пороги — гипотезы, записанные до пилота · decision-brief.md, validation-plan.md</span><span class="pg">4</span></div>
 </section>
 
-<!-- 5. ПОВЕДЕНИЕ И КОММУНИКАЦИЯ -->
+<!-- 5. ЖИВОЙ ОТЧЁТ -->
 <section class="page">
   <div class="rail">
-    <div class="no">04</div><div class="part">Демо · клиенты и коммуникация</div>
+    <div class="no">04</div><div class="part">Так это видит руководитель</div>
+    <h2>Каждая сноска ведёт <em>к дословной цитате</em> — проверить может любой.</h2>
+    <p class="lead">Это не макет, а кадры настоящего отчёта по демо. Руководитель читает обычный текст; гипотезы подписаны прямо в строке, а у каждого числа есть сноска.</p>
+    <div class="aside">Отчёт собирает команда <span class="code">sf.py report</span>: один HTML-файл, решение первым, источники приложением. Опубликованная версия — по ссылке на последней странице.</div>
+  </div>
+  <div class="main">
+    <div class="live fill">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>report.html · Поведение клиентов · вывод C15</span></div><img src="shot-claim.jpg" alt="Вывод C15 в отчёте со сносками 48, 49, 37 и метками гипотез"></div>
+      <div class="hop"><div class="arrow">↓</div><div><b>Сноска 48</b> — наведите, и браузер покажет цитату; нажмите — откроется запись в приложении «Источники»: дословная цитата, строка в снимке страницы, качество источника и дата.</div></div>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>report.html · Источники</span></div><img src="shot-sources.jpg" alt="Записи E56 и E57 в приложении «Источники» с цитатой, строкой, качеством и датой"></div>
+    </div>
+    <div class="how3">
+      <div><h4>Метки в строке</h4>«гипотеза», «прогноз», «синтетика» видны там, где утверждение, а не в примечаниях.</div>
+      <div><h4>Снимок источника</h4>Страница сохранена с датой в проекте: цитату можно сверить, даже если сайт изменится.</div>
+      <div><h4>Вывод знает основания</h4>«основания C15» в чате покажет ту же цепочку командой агента.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Кадры сняты из projects/demo-antifraud/outputs/report.html без правок</span><span class="pg">5</span></div>
+</section>
+
+<!-- 6. ПОВЕДЕНИЕ И КОММУНИКАЦИЯ -->
+<section class="page">
+  <div class="rail">
+    <div class="no">05</div><div class="part">Демо · клиенты и коммуникация</div>
     <h2>От того, что люди делают, — к сообщению, которое они <em>понимают правильно.</em></h2>
     <p class="lead">Сначала поведение (данные), потом механизм (гипотеза с названием), потом вмешательство и способ его измерить. Синтетические персоны ищут непонятные места, но не доказывают спрос.</p>
     <div class="aside"><b>Тон и словарь:</b> говорим «позвать на помощь», «ваш близкий сам решает»; не говорим «следить», «вас обманут», «100% защита». У каждой пары есть причина из исследования.</div>
@@ -405,13 +451,13 @@ table.t { width: 100%; border-collapse: collapse; }
       <div><h4>A/B в пилоте</h4>Две рамки сообщения на экране предложения, доля заявок, 4 недели.</div>
     </div>
   </div>
-  <div class="foot"><span>behavior.md · comms-strategy.md · методички «Анализ поведения» и «Проверка восприятия»</span><span class="pg">5</span></div>
+  <div class="foot"><span>behavior.md · comms-strategy.md · методички «Анализ поведения» и «Проверка восприятия»</span><span class="pg">6</span></div>
 </section>
 
 <!-- 6. ДОКАЗАТЕЛЬНОСТЬ -->
 <section class="page">
   <div class="rail">
-    <div class="no">05</div><div class="part">Доказательность</div>
+    <div class="no">06</div><div class="part">Доказательность</div>
     <h2>Каждый вывод доходит <em>до дословной цитаты</em> — и знает, что от него зависит.</h2>
     <p class="lead">Это настоящая цепочка из демо: так агент отвечает на команду «основания C15». Ту же цепочку вживую восстановил Cursor на модели Grok.</p>
     <div class="aside">Демо: <b>61 факт</b>, <b>24 вывода</b>, 15 синтетических записей, 6 отозванных записей — у каждой есть причина.</div>
@@ -441,13 +487,13 @@ table.t { width: 100%; border-collapse: collapse; }
       <div><span class="chip m">[СИНТ]</span><b>Синтетика</b>ответ ИИ-персоны — только для гипотез</div>
     </div>
   </div>
-  <div class="foot"><span>Реестр — evidence.csv; связи выводов — claims.csv; команда — sf.py claims trace</span><span class="pg">6</span></div>
+  <div class="foot"><span>Реестр — evidence.csv; связи выводов — claims.csv; команда — sf.py claims trace</span><span class="pg">7</span></div>
 </section>
 
 <!-- 7. ПРОВЕРКА КОДОМ -->
 <section class="page">
   <div class="rail">
-    <div class="no">06</div><div class="part">Проверка кодом</div>
+    <div class="no">07</div><div class="part">Проверка кодом</div>
     <h2><em>Правила проверяет код</em>, смысл — независимые проверяющие.</h2>
     <p class="lead">Просьба к модели «не выдумывай» не работает надёжно. Поэтому всё, что можно проверить механически, проверяет программа после каждой записи результата.</p>
     <div class="aside"><b>Критик</b> — сильная модель, не видел процесса. <b>Проверяющий</b> сверяет выборку утверждений с источниками. <b>Классификатор</b> — дешёвая модель, вслепую оценивает качество источников.</div>
@@ -481,13 +527,13 @@ $ python3 sf.py revisit E11
     <div class="measure"><div><div class="big">10</div><small>раз синтетика как<br>довод спроса</small></div><div><div class="big">6</div><small>чисел<br>без источника</small></div>
       <p><b>Зачем это нужно — измерено.</b> Три прогона этапа «Варианты» без проверки дали эти ошибки. В обычной работе хук ловит их до закрытия этапа.</p></div>
   </div>
-  <div class="foot"><span>sf.py validate · хук после каждой записи в outputs/ · CI на каждом изменении</span><span class="pg">7</span></div>
+  <div class="foot"><span>sf.py validate · хук после каждой записи в outputs/ · CI на каждом изменении</span><span class="pg">8</span></div>
 </section>
 
 <!-- 8. ЦЕПОЧКА ПРОМПТОВ -->
 <section class="page">
   <div class="rail">
-    <div class="no">07</div><div class="part">Архитектура · цепочка промптов</div>
+    <div class="no">08</div><div class="part">Архитектура · цепочка промптов</div>
     <h2>Один шаг — <em>один промпт</em>, результат и проверка.</h2>
     <p class="lead">Модель среды читает правила AGENTS.md и навык этапа, сама выбирает действие, вызывает инструменты <span class="code">sf.py</span>. На воротах решает человек — без его ответа агент дальше не идёт.</p>
     <div class="counts" style="margin-top:auto">
@@ -513,61 +559,42 @@ $ python3 sf.py revisit E11
     <div class="fill"></div>
     <div class="panel tint small"><b>Схема не устаревает.</b> Полную таблицу «этап → промпт → модель → вход → выход → проверка» собирает из настоящих файлов команда <span class="code">sf.py pipeline</span> (docs/PIPELINE.md). Если навык изменится, а схема нет, упадёт тест в CI.</div>
   </div>
-  <div class="foot"><span>Вспомогательные навыки этапа 3: данные, поведение клиентов, интерфейсы, интервью, синтетические респонденты</span><span class="pg">8</span></div>
+  <div class="foot"><span>Вспомогательные навыки этапа 3: данные, поведение клиентов, интерфейсы, интервью, синтетические респонденты</span><span class="pg">9</span></div>
 </section>
 
-<!-- 9. ЗНАНИЯ И КОНТЕКСТ -->
+<!-- 10. ЗНАНИЯ И МОДЕЛИ -->
 <section class="page">
   <div class="rail">
-    <div class="no">08</div><div class="part">Контекст и знания</div>
-    <h2>Правила, методики, материалы и состояние лежат <em>раздельно.</em></h2>
-    <p class="lead">Поэтому работу можно прервать и продолжить в новом чате, а агент не путает свою прошлую догадку с фактом.</p>
-    <div class="aside">Источник правды — файлы, а не история чата. Больше половины затрат — повторное чтение длинного контекста, поэтому после ворот 2 и 4 агент сам предлагает новый чат.</div>
+    <div class="no">09</div><div class="part">Знания, модели, сервисы</div>
+    <h2>Знания лежат раздельно. <em>Дорогая модель — только там, где нужна глубина.</em></h2>
+    <p class="lead">Источник правды — файлы, а не история чата: «стоп», новый чат, «продолжи» — и работа идёт с того же места. Выполненный шаг не повторяется: журнал отвечает «уже выполнен».</p>
+    <div class="aside"><b>Маршрутизация на деле:</b> классификатор на Haiku вслепую оценил 50 источников и совпал с агентом в 45 случаях за 0,02 $. В трёх из пяти спорных прав оказался он — агент завысил качество.</div>
   </div>
   <div class="main">
-    <div class="stack">
-      <div class="layer"><b>Постоянные правила</b><code>AGENTS.md</code><span>один файл для Claude Code и Cursor</span></div>
-      <div class="layer"><b>Процедуры этапов</b><code>skills/</code><span>загружаются только на своём этапе</span></div>
-      <div class="layer"><b>Помощники</b><code>agents/</code><span>критик, проверяющий, исследователь, респондент, классификатор</span></div>
-      <div class="layer"><b>Методики</b><code>knowledge/</code><span>18 методичек; поиск по словам, смыслу и связям</span></div>
-      <div class="layer"><b>Память между проектами</b><code>memory/</code><span>наблюдения с датой, не факты; исправление и отзыв с историей</span></div>
-      <div class="layer proj"><b>Материалы проекта</b><code>projects/&lt;имя&gt;/</code><span>бриф, снимки источников, реестр, результаты</span></div>
-      <div class="layer proj"><b>Состояние задачи</b><code>state/</code><span>этапы, журнал шагов, решения, затраты</span></div>
+    <div>
+      <div class="k">Слои знаний</div>
+      <div class="stack compact">
+        <div class="layer"><b>Постоянные правила · <code>AGENTS.md</code></b><span>один файл для Claude Code и Cursor</span></div>
+        <div class="layer"><b>Процедуры этапов · <code>skills/</code></b><span>загружаются только на своём этапе</span></div>
+        <div class="layer"><b>Помощники · <code>agents/</code></b><span>критик, проверяющий, исследователь, респондент, классификатор</span></div>
+        <div class="layer"><b>Методики · <code>knowledge/</code></b><span>18 методичек; поиск по словам, смыслу и связям</span></div>
+        <div class="layer"><b>Память · <code>memory/</code></b><span>наблюдения с датой, не факты; исправление и отзыв</span></div>
+        <div class="layer proj"><b>Материалы проекта · <code>projects/&lt;имя&gt;/</code></b><span>бриф, снимки источников, реестр, результаты</span></div>
+        <div class="layer proj" style="grid-column:1/-1"><b>Состояние задачи · <code>state/</code></b><span>этапы, журнал шагов, решения, затраты — по ним агент продолжает после перерыва</span></div>
+      </div>
     </div>
-    <div class="fill"></div>
-    <div class="split">
-      <div><div class="k">Перерыв</div><h4>«стоп» — и «продолжи» в новом чате</h4><p>Хук при старте показывает этап и незавершённые шаги. Выполненный шаг не повторяется: журнал отвечает «уже выполнен».</p></div>
-      <div><div class="k p">Память</div><h4>Прошлый ответ агента — не факт</h4><p>Запись памяти попадает в выводы только после подтверждения источником в реестре.</p></div>
-      <div><div class="k m">Устойчивость</div><h4>Сбой виден, а не спрятан</h4><p>Недоступный сайт записывается в журнал как сбой с причиной; агент предлагает обход или помечает пробел.</p></div>
-    </div>
-  </div>
-  <div class="foot"><span>Переносимость: export/import проекта; в Cursor проверено вживую на модели Grok (xAI) — eval/cursor</span><span class="pg">9</span></div>
-</section>
-
-<!-- 10. МОДЕЛИ И ИНСТРУМЕНТЫ -->
-<section class="page">
-  <div class="rail">
-    <div class="no">09</div><div class="part">Модели, сервисы, инструменты</div>
-    <h2>Дорогая модель — там, где нужна глубина. <em>Массовую работу делает дешёвая.</em></h2>
-    <p class="lead">Маршрутизатор выбирает процесс, модель и инструмент по задаче и пишет выбор в журнал. Если проверка нашла ошибку дешёвой модели, шаг переделывает модель сильнее.</p>
-    <div class="aside"><b>Пример из журнала:</b> классификатор на Haiku вслепую оценил 50 источников, совпал с агентом в 45 случаях за 0,02 $. В трёх из пяти спорных прав оказался он: агент завысил качество.</div>
-  </div>
-  <div class="main">
-    <table class="t">
-      <thead><tr><th style="width:46mm">Что</th><th style="width:60mm">Роль</th><th>Для чего</th></tr></thead>
+    <table class="t dense">
+      <thead><tr><th style="width:46mm">Модель или сервис</th><th style="width:58mm">Роль</th><th>Для чего</th></tr></thead>
       <tbody>
-        <tr class="sec"><td colspan="3">Модели</td></tr>
         <tr><td><span class="tier" style="background:var(--purple)"></span>Claude Opus 5.5</td><td>критик; оркестратор в этой сессии</td><td>сильнейшие возражения к вариантам и стратегиям</td></tr>
-        <tr><td><span class="tier" style="background:var(--green)"></span>Claude Sonnet 5.5</td><td>проверяющий; рекомендуемый оркестратор</td><td>сверка утверждений с источниками, разбор спорных оценок</td></tr>
-        <tr><td><span class="tier" style="background:#c9c9cf"></span>Claude Haiku 5.5</td><td>исследователь, респондент, классификатор</td><td>извлечение цитат, синтетические персоны, качество источников A/B/C</td></tr>
-        <tr><td><span class="tier" style="background:var(--ink)"></span>Grok 4.7 (xAI)</td><td>модель в Cursor при проверке</td><td>агент работает по своим правилам и на модели другого разработчика</td></tr>
-        <tr class="sec"><td colspan="3">Среда и инструменты</td></tr>
+        <tr><td><span class="tier" style="background:var(--green)"></span>Claude Sonnet 5.5</td><td>проверяющий; рекомендуемый оркестратор</td><td>сверка утверждений с источниками, спорные оценки</td></tr>
+        <tr><td><span class="tier" style="background:#c9c9cf"></span>Claude Haiku 5.5</td><td>исследователь, респондент, классификатор</td><td>извлечение цитат, персоны, качество источников A/B/C</td></tr>
+        <tr><td><span class="tier" style="background:var(--ink)"></span>Grok 4.7 (xAI)</td><td>модель в Cursor при проверке</td><td>агент работает и на модели другого разработчика</td></tr>
         <tr><td>Claude Code · Cursor</td><td>среда агента</td><td>навыки, 3 хука, субагенты, веб-поиск; в Cursor — правила и MCP</td></tr>
-        <tr><td>Python 3.11+ · sf.py</td><td>28 команд, только стандартная библиотека</td><td>реестр, граф, проверки, журнал, затраты, поведение, медиа, маршрутизация, отчёт</td></tr>
+        <tr><td>Python 3.11+ · sf.py</td><td>28 команд, стандартная библиотека</td><td>реестр, граф, проверки, журнал, затраты, поведение, медиа, отчёт</td></tr>
         <tr><td>Chrome · ffmpeg · whisper</td><td>необязательные, локально</td><td>снимки сайтов; кадры видео и расшифровка аудио без отправки в сервисы</td></tr>
         <tr><td>GitHub Actions</td><td>CI</td><td>98 тестов на Linux, Windows и macOS при каждом изменении</td></tr>
-        <tr class="sec"><td colspan="3">Данные</td></tr>
-        <tr><td>Только открытые источники</td><td>ВЦИОМ, Банк России, законы и законопроекты, СМИ, сайты операторов</td><td>снимки страниц с датой лежат в проекте; закрытых данных МегаФона и других компаний нет</td></tr>
+        <tr><td>Данные</td><td>только открытые источники</td><td>ВЦИОМ, Банк России, законы, СМИ, сайты операторов; закрытых данных нет</td></tr>
       </tbody>
     </table>
   </div>
