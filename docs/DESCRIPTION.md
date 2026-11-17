@@ -9,7 +9,7 @@
 | | |
 |---|---|
 | Репозиторий | https://github.com/marrxse/product-factory-strategist |
-| Отчёт демо | PDF в репозитории: `projects/demo-antifraud/outputs/report.pdf` (54 страницы); онлайн: https://claude.ai/artifact/UuW7DtEcNzjPqFxkdSwLJR |
+| Отчёт демо | PDF в репозитории: `projects/demo-antifraud/outputs/report.pdf` (54 страницы); HTML-версия со сносками-подсказками — `report.html` там же |
 | Автор | одна участница (marrxse) |
 | Среда | Claude Code — основная; Cursor — через `AGENTS.md`, `.cursor/rules` и MCP |
 | Запуск | Python 3.11+, только стандартная библиотека; ключи API и платные сервисы не нужны |
