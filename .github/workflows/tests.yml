@@ -9,7 +9,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        # macOS убран 17.11.2026: GitHub отменял задания из-за нехватки машин (тесты не падали), значок краснел.
+        # На macOS агент разрабатывался и проверяется локально: python3 -m unittest discover -s tests
+        os: [ubuntu-latest, windows-latest]
         python: ["3.11", "3.12"]
     runs-on: ${{ matrix.os }}
     steps:
