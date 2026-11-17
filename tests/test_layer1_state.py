@@ -30,9 +30,16 @@ class ProjectLifecycleTest(unittest.TestCase):
             self.assertEqual(code, 1)
             self.assertIn("не подходит", out)
 
-    def test_command_without_active_project_explains_what_to_do(self):
+    def test_status_without_active_project_is_a_friendly_start(self):
         with TempRepo():
             code, out = run("status")
+            self.assertEqual(code, 0)                           # первый запуск — не ошибка
+            self.assertNotIn("Ошибка", out)
+            self.assertIn("начни <тема>", out)
+
+    def test_command_without_active_project_explains_what_to_do(self):
+        with TempRepo():
+            code, out = run("evidence", "list")
             self.assertEqual(code, 1)
             self.assertIn("Нет активного проекта", out)
 

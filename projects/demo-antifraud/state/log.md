@@ -205,3 +205,14 @@
 - 2026-11-17 21:01:03 | STAGE | stage:8:done | Пересмотр по новым данным: done
 - 2026-11-17 21:03:45 | GATE | gate:8 | ok
 - 2026-11-17 21:04:19 | CORRECTION | revisit:stale-data:2026-11-17 | ворота 8 одобрены: C5 «массовая, но снижается» (E71, E72), C6 (E69, E70, E73), C15 (E71, E73, E74), оговорки о годе в C7 и C8; сторож «рынок страха сужается» в плане проверки и Р1
+- 2026-11-17 23:48:42 | START | collect:fetch:moskva-mts-ru-personal-novosti-2025-12-02-zaschitnik-teperj--0ca3fe | https://moskva.mts.ru/personal/novosti/2025-12-02/zaschitnik-teperj-vigodnee-dlya-semji
+- 2026-11-17 23:48:43 | DONE | collect:fetch:moskva-mts-ru-personal-novosti-2025-12-02-zaschitnik-teperj--0ca3fe | сохранено web-moskva-mts-ru-personal-novosti-2025-12-02-zaschitnik-teperj--0ca3fe-2026-11-17.md
+- 2026-11-17 23:48:43 | START | collect:fetch:moskva-mts-ru-about-media-centr-soobshheniya-kompanii-novost-cab286 | https://moskva.mts.ru/about/media-centr/soobshheniya-kompanii/novosti-mts-v-rossii-i-mire/2026-02-06/mts-predupredit-o-moshennicheskih-zvonkah-chlenam-semi
+- 2026-11-17 23:48:44 | DONE | collect:fetch:moskva-mts-ru-about-media-centr-soobshheniya-kompanii-novost-cab286 | сохранено web-moskva-mts-ru-about-media-centr-soobshheniya-kompanii-novost-cab286-2026-11-17.md
+- 2026-11-17 23:49:30 | START | collect:upgrade:mts-family | замена записей из поисковой выдачи (E17, E18, E19, E38) первоисточниками МТС
+- 2026-11-17 23:49:47 | CORRECTION | evidence:revoke:E17 | заменена первоисточником E75 (пресс-релиз МТС 06.02.2026) — запись была из поисковой выдачи
+- 2026-11-17 23:49:47 | CORRECTION | evidence:revoke:E18 | заменена первоисточником E75 (пресс-релиз МТС 06.02.2026) — запись была из поисковой выдачи
+- 2026-11-17 23:49:48 | CORRECTION | evidence:revoke:E38 | заменена первоисточником E76 (пресс-релиз МТС 06.02.2026)
+- 2026-11-17 23:49:48 | CORRECTION | evidence:revoke:E19 | заменена первоисточником E77 (пресс-релиз МТС 06.02.2026)
+- 2026-11-17 23:50:10 | DONE | collect:upgrade:mts-family | E17, E18, E19, E38 (поисковая выдача, C) заменены первоисточниками МТС E75–E78 (A/B); пересчёт цены на человека исправлен: у МТС до четырёх человек (E78)
+- 2026-11-17 23:50:10 | CORRECTION | collect:upgrade:mts-family | было: «149 ₽ не дороже МТС на человека» (считали 2–3 человека); стало: у МТС владелец + до трёх близких (E78) — семья из четырёх платит ~62 ₽ на человека, наша цена выигрывает только у пар

@@ -37,6 +37,16 @@ def cmd_list(_: argparse.Namespace) -> int:
 
 
 def cmd_status(args: argparse.Namespace) -> int:
+    if not args.project and not paths.get_active():
+        # Первый запуск свежей копии — это не ошибка, а начало: подсказываем, с чего начать
+        existing = sorted(p.name for p in paths.projects_dir().iterdir() if p.is_dir()) if paths.projects_dir().is_dir() else []
+        lines = ["Активного проекта пока нет — это нормально для первого запуска.",
+                 "Начать новую задачу: напишите агенту «начни <тема>» (или python3 sf.py new <имя> --title \"<тема>\")."]
+        if existing:
+            lines.append(f"Посмотреть готовый пример: python3 sf.py use {existing[0]} — затем «покажи состояние» "
+                         f"(есть: {', '.join(existing)}).")
+        print("\n".join(lines))
+        return 0
     print(project.summary(paths.project_dir(args.project)))
     return 0
 

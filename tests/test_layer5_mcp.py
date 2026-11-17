@@ -51,5 +51,24 @@ class McpServerTest(unittest.TestCase):
             self.assertIn("число без метки", replies[0]["result"]["content"][0]["text"])
 
 
+    def test_new_tools_report_price_and_watch_are_exposed(self):
+        with TempRepo() as root:
+            p = make_good_project(root)
+            (p / "gg.csv").write_text("price,shown,bought\n99,40,6\n149,40,5\n", encoding="utf-8")
+            replies = session(root, [
+                {"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+                {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "sf_report", "arguments": {}}},
+                {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "sf_price", "arguments": {"method": "gg", "file": "gg.csv"}}},
+            ])
+            by_id = {r["id"]: r for r in replies}
+            names = {t["name"] for t in by_id[1]["result"]["tools"]}
+            self.assertTrue({"sf_report", "sf_price", "sf_watch"} <= names)
+            self.assertFalse(by_id[2]["result"]["isError"])
+            self.assertTrue((p / "outputs" / "report.html").exists())
+            self.assertIn("Выручка на 100 показов", by_id[3]["result"]["content"][0]["text"])
+            watch_tool = next(t for t in by_id[1]["result"]["tools"] if t["name"] == "sf_watch")
+            self.assertIn("ids", watch_tool["inputSchema"]["properties"])   # сам сторож проверен без сети в test_layer9
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -460,7 +460,7 @@ table.t { width: 100%; border-collapse: collapse; }
     <div class="no">06</div><div class="part">Доказательность</div>
     <h2>Каждый вывод доходит <em>до дословной цитаты</em> — и знает, что от него зависит.</h2>
     <p class="lead">Это настоящая цепочка из демо: так агент отвечает на команду «основания C15». До пересмотра 17.11 эту же команду вживую выполнил Cursor на модели Grok и восстановил цепочку без ошибок.</p>
-    <div class="aside">Демо: <b>68 фактов</b>, <b>24 вывода</b>, 15 синтетических записей, 6 отозванных записей — у каждой есть причина.</div>
+    <div class="aside">Демо: <b>68 фактов</b>, <b>24 вывода</b>, 15 синтетических записей, 10 отозванных записей — у каждой есть причина.</div>
   </div>
   <div class="main">
     <div class="tree fill">
@@ -538,7 +538,7 @@ $ python3 sf.py revisit E11
     <p class="lead">Модель среды читает правила AGENTS.md и навык этапа, сама выбирает действие, вызывает инструменты <span class="code">sf.py</span>. На воротах решает человек — без его ответа агент дальше не идёт.</p>
     <div class="counts" style="margin-top:auto">
       <div><div class="big g">16</div><span>навыков</span></div><div><div class="big g">5</div><span>субагентов</span></div><div><div class="big g">19</div><span>методичек</span></div>
-      <div><div class="big">30</div><span>команд CLI</span></div><div><div class="big">14</div><span>инструментов MCP</span></div><div><div class="big">115</div><span>тестов: Linux, Windows, macOS</span></div>
+      <div><div class="big">30</div><span>команд CLI</span></div><div><div class="big">17</div><span>инструментов MCP</span></div><div><div class="big">117</div><span>тестов: Linux, Windows, macOS</span></div>
     </div>
   </div>
   <div class="main">
@@ -593,7 +593,7 @@ $ python3 sf.py revisit E11
         <tr><td>Claude Code · Cursor</td><td>среда агента</td><td>навыки, 3 хука, субагенты, веб-поиск; в Cursor — правила и MCP</td></tr>
         <tr><td>Python 3.11+ · sf.py</td><td>30 команд, стандартная библиотека</td><td>реестр, граф, проверки, журнал, затраты, поведение, медиа, отчёт</td></tr>
         <tr><td>Chrome · ffmpeg · whisper</td><td>необязательные, локально</td><td>снимки сайтов; кадры видео и расшифровка аудио без отправки в сервисы</td></tr>
-        <tr><td>GitHub Actions</td><td>CI</td><td>115 тестов на Linux и Windows при каждом изменении; macOS — локально</td></tr>
+        <tr><td>GitHub Actions</td><td>CI</td><td>117 тестов на Linux и Windows при каждом изменении; macOS — локально</td></tr>
         <tr><td>Данные</td><td>только открытые источники</td><td>ВЦИОМ, Банк России, законы, СМИ, сайты операторов; закрытых данных нет</td></tr>
       </tbody>
     </table>
@@ -678,7 +678,7 @@ $ python3 sf.py revisit E11
     </div>
     <div class="fill"></div>
     <div>
-      <div class="k">21 ошибка, найденная на прогонах и исправленная · примеры</div>
+      <div class="k">22 ошибки, найденные на прогонах и исправленные · примеры</div>
       <div class="errs">
         <div><b>План «на 2026 год» в ноябре 2026</b>поймала проверка устаревших оснований — не критик</div>
         <div><b>Завышенное качество трёх источников</b>нашёл классификатор на дешёвой модели вслепую</div>
@@ -721,7 +721,7 @@ $ python3 sf.py revisit E11
           <div class="ck"><i>✓</i><div><b>Пересмотр при новых данных</b><span>граф выводов, «было → стало»</span></div></div>
           <div class="ck"><i>✓</i><div><b>Маршрутизация</b><span>правила, классификатор, эскалация</span></div></div>
           <div class="ck"><i>✓</i><div><b>Навыки, хуки, субагенты</b><span>16 навыков · 3 хука · 5 субагентов</span></div></div>
-          <div class="ck"><i>✓</i><div><b>MCP и CLI</b><span>30 команд, 14 инструментов MCP</span></div></div>
+          <div class="ck"><i>✓</i><div><b>MCP и CLI</b><span>30 команд, 17 инструментов MCP</span></div></div>
           <div class="ck"><i>✓</i><div><b>База знаний и память</b><span>смысл, связи, исправление и отзыв</span></div></div>
           <div class="ck"><i>✓</i><div><b>Устойчивость к сбоям</b><span>журнал шагов, без незаметных повторов</span></div></div>
           <div class="ck"><i>✓</i><div><b>Переносимость</b><span>export/import, тесты на 3 ОС, Cursor + Grok</span></div></div>
@@ -749,7 +749,7 @@ $ python3 sf.py revisit E11
         <li>пересматривать выводы при новых данных</li><li>работать в новой области — второй пример про фитнес-приложение</li></ul></div>
       <div class="lim-no"><div class="k m">Границы — честно</div><ul>
         <li>проверка кодом проверяет форму, а не ум стратегии; критик и проверяющий — тоже модели</li><li>внутренних данных нет: экономика — допущения с меткой прогноза</li>
-        <li>многие источники о конкурентах — из поисковой выдачи (качество C)</li><li>креатив и сообщения не проверены на реальных людях</li>
+        <li>14 из 68 фактов — качества C: расчёты на допущениях, данные компаний без методики, 2 цены из поисковой выдачи</li><li>креатив и сообщения не проверены на реальных людях</li>
         <li>аудио и видео — только тестами; в Cursor проверены состояние и основания, полный прогон — нет</li><li>сравнение с чатом — один запрос, оценка моделью</li></ul></div>
     </div>
     <div class="fill"></div>
