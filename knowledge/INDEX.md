@@ -29,6 +29,7 @@
 | Путь клиента (CJM) | [customer-journey.md](customer-journey.md) | точки контакта, каналы, шаги, онбординг | barriers, behavior-analysis, creative-platform, metrics-pitfalls, choice-architecture |
 | Бренд и название | [brand-architecture.md](brand-architecture.md) | суббренд, нейминг, мастер-бренд | positioning, creative-platform, value-proposition |
 | Архитектура выбора | [choice-architecture.md](choice-architecture.md) | умолчание, фрейминг, намерение реализации, этика | behavior-analysis, customer-journey, perception-testing, hypotheses-experiments |
+| Синтетическая фокус-группа | [synthetic-focus-group.md](synthetic-focus-group.md) | персоны, карта возражений, страхи клиентов | interviews, creative-platform, perception-testing, barriers, claim-status |
 
 ## Синонимы (поиск по смыслу)
 - синонимы: удержание, отток, retention, churn, уходят, возвращаемость
@@ -48,6 +49,7 @@
 - синонимы: путь, cjm, воронка, точка контакта, онбординг, касание
 - синонимы: бренд, суббренд, название, нейминг, имя продукта
 - синонимы: подталкивание, nudge, умолчание, фрейминг, архитектура выбора, поведенческий дизайн
+- синонимы: фокус-группа, персоны, страхи, возражения клиентов, реакция на предложение
 - синонимы: риск, провал, возражение, критика, премортем
 - синонимы: вариант, опция, сценарий, альтернатива, решение
 - синонимы: интервью, опрос, респондент, беседа, исследование пользователей

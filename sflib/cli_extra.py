@@ -6,7 +6,7 @@ from pathlib import Path
 
 from datetime import date
 
-from . import behavior, fetch, geo, journal, media, paths, pipeline, pricing, route, watch
+from . import behavior, fetch, focus, geo, journal, media, paths, pipeline, pricing, route, watch
 
 EXIT_ALREADY_DONE = 3
 EXIT_FAILED_CHECK = 1
@@ -203,7 +203,29 @@ def cmd_price(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_focus(args: argparse.Namespace) -> int:
+    proj = _project(args)
+    spec = _resolve(proj, args.spec)
+    if args.action == "setup":
+        table, prompts = focus.write_setup(proj, spec)
+        print(f"Персоны: {table.relative_to(proj).as_posix()} · заданий для субагента respondent: {len(prompts)} "
+              f"({prompts[0].relative_to(proj).as_posix()} …). Ответы — строками JSON в state/focus/responses.jsonl.")
+        return 0
+    text = focus.objection_map(proj, spec, _resolve(proj, args.responses))
+    out = proj / "state" / "focus" / "objection-map.md"
+    out.write_text(text, encoding="utf-8")
+    print(text if args.show else f"Карта возражений: {out.relative_to(proj).as_posix()}")
+    return 0
+
+
 def register(sub: argparse._SubParsersAction) -> None:
+    p = sub.add_parser("focus", help="синтетическая фокус-группа: setup — персоны и задания; map — карта стоп-факторов (не прогноз спроса)")
+    p.add_argument("action", choices=("setup", "map"))
+    p.add_argument("--spec", default="state/focus/spec.toml", help="спецификация сегментов (относительно проекта)")
+    p.add_argument("--responses", default="state/focus/responses.jsonl", help="для map: ответы субагентов")
+    p.add_argument("--show", action="store_true")
+    p.set_defaults(func=cmd_focus)
+
     p = sub.add_parser("watch", help="сторож оснований: заново открыть веб-источники и проверить, на месте ли цитаты")
     p.add_argument("ids", nargs="*", help="записи E… (по умолчанию все с веб-источником)")
     p.add_argument("--show", action="store_true", help="напечатать отчёт целиком")

@@ -62,7 +62,7 @@ class McpServerTest(unittest.TestCase):
             ])
             by_id = {r["id"]: r for r in replies}
             names = {t["name"] for t in by_id[1]["result"]["tools"]}
-            self.assertTrue({"sf_report", "sf_price", "sf_watch"} <= names)
+            self.assertTrue({"sf_report", "sf_price", "sf_watch", "sf_focus"} <= names)
             self.assertFalse(by_id[2]["result"]["isError"])
             self.assertTrue((p / "outputs" / "report.html").exists())
             self.assertIn("Выручка на 100 показов", by_id[3]["result"]["content"][0]["text"])

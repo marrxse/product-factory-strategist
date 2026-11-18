@@ -291,6 +291,18 @@ table.t { width: 100%; border-collapse: collapse; }
 .say td:first-child { font-family: var(--mono); font-size: 9.2pt; color: var(--green-ink); width: 52mm; font-weight: 600; }
 .links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
 .links > div { border-top: 2px solid var(--ink); padding-top: 2.5mm; font-size: 9.2pt; color: var(--ink-2); word-break: break-word; }
+
+/* фокус-группа */
+.fg { display: grid; grid-template-columns: 62mm 1fr 22mm 52mm; gap: 0 4mm; align-items: center; }
+.fg > div { padding: 3.6mm 0; border-bottom: 1px solid var(--line); }
+.fg .lab { font-size: 10pt; font-weight: 620; color: var(--ink); }
+.fg .bar { height: 5mm; background: var(--tint); border-radius: 1mm; position: relative; }
+.fg .bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 1mm; background: var(--purple); }
+.fg .n { font-family: var(--display); font-weight: 700; font-size: 13pt; text-align: right; color: var(--purple); }
+.fg .q { font-size: 8.4pt; color: var(--muted); line-height: 1.3; }
+.fgnote { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.fgnote > div { border-radius: 3mm; padding: 4mm 5mm; font-size: 9.3pt; color: var(--ink-2); }
+.fgnote h4 { font-size: 10.4pt; color: var(--ink); margin-bottom: 1mm; }
 </style>
 </head>
 <body>
@@ -454,13 +466,35 @@ table.t { width: 100%; border-collapse: collapse; }
   <div class="foot"><span>behavior.md · comms-strategy.md · методички «Анализ поведения» и «Проверка восприятия»</span><span class="pg">6</span></div>
 </section>
 
+<!-- 6а. ФОКУС-ГРУППА -->
+<section class="page">
+  <div class="rail">
+    <div class="no">06</div><div class="part">Демо · синтетическая фокус-группа</div>
+    <h2>60 ИИ-персон показали, <em>что проверить на людях</em> — а не сколько купят.</h2>
+    <p class="lead">Персоны трёх сегментов создал код; на сообщение реагировали субагенты, не знавшие наших гипотез. Частоты — среди персон, а не людей: они ранжируют возражения, а не измеряют спрос.</p>
+    <div class="aside"><b>Отличие от «виртуальных фокус-групп»</b>, которые выдают «вердикт по цифрам»: агент сознательно не считает долю «купят» — задание запрещает выдавать синтетику за спрос, и проверка кодом это блокирует.</div>
+  </div>
+  <div class="main">
+    <div>
+      <div class="k p">Стоп-факторы к сообщению «Сомневаетесь в звонке — нажмите кнопку…» · из 60 персон</div>
+      <div class="fg"><div class="lab">Цена</div><div><div class="bar"><i style="width:100%"></i></div></div><div class="n">×20</div><div class="q">«149 в месяц при моём доходе — ощутимо»</div><div class="lab">Недоверие к оператору</div><div><div class="bar"><i style="width:90%"></i></div></div><div class="n">×18</div><div class="q">«платные услуги оператора — это всегда лишние списания»</div><div class="lab">«Мне не нужно»</div><div><div class="bar"><i style="width:90%"></i></div></div><div class="n">×18</div><div class="q">у близких: «меня не обманут»</div><div class="lab">Уже есть защита</div><div><div class="bar"><i style="width:55%"></i></div></div><div class="n">×11</div><div class="q">«чем это отличается от бесплатной блокировки?»</div><div class="lab">Сложно разобраться</div><div><div class="bar"><i style="width:45%"></i></div></div><div class="n">×9</div><div class="q">«кнопку эту найду с трудом»</div><div class="lab">Неловко беспокоить близкого</div><div><div class="bar"><i style="width:40%"></i></div></div><div class="n">×8</div><div class="q">«не хочу быть обузой»</div><div class="lab">Слежка и приватность</div><div><div class="bar"><i style="width:35%"></i></div></div><div class="n">×7</div><div class="q">«кто-то в курсе моих звонков, мне не нравится»</div><div class="lab">Не успею нажать</div><div><div class="bar"><i style="width:30%"></i></div></div><div class="n">×6</div><div class="q">«пока я буду искать кнопку, человек уже скажет мне код»</div></div>
+    </div>
+    <div class="fill"></div>
+    <div class="fgnote">
+      <div style="background:var(--purple-bg)"><h4>Что меняем до проверки на людях</h4>В тексте — кто кому перезванивает (4 из 60 пересказов поняли неверно) и чем кнопка отличается от бесплатной блокировки; цена после пробы и отмена — рядом с кнопкой.</div>
+      <div style="background:var(--tint)"><h4>Совет взглядов: 5 ролей</h4>У варианта B нет ни одного «против», но нет и безусловного «за»; вариант D «бесплатно в тарифах» поддержали юрист и поддержка — запасной путь, если аудит найдёт обязательное в платной части.</div>
+    </div>
+  </div>
+  <div class="foot"><span>state/focus/objection-map.md · state/board-2026-11-19.md · выводы C28, C29 — гипотезы</span><span class="pg">7</span></div>
+</section>
+
 <!-- 6. ДОКАЗАТЕЛЬНОСТЬ -->
 <section class="page">
   <div class="rail">
-    <div class="no">06</div><div class="part">Доказательность</div>
+    <div class="no">07</div><div class="part">Доказательность</div>
     <h2>Каждый вывод доходит <em>до дословной цитаты</em> — и знает, что от него зависит.</h2>
     <p class="lead">Это настоящая цепочка из демо: так агент отвечает на команду «основания C15». До пересмотра 17.11 эту же команду вживую выполнил Cursor на модели Grok и восстановил цепочку без ошибок.</p>
-    <div class="aside">Демо: <b>70 фактов</b>, <b>27 выводов</b>, 15 синтетических записей, 10 отозванных записей — у каждой есть причина.</div>
+    <div class="aside">Демо: <b>70 фактов</b>, <b>29 выводов</b>, 20 синтетических записей, 10 отозванных записей — у каждой есть причина.</div>
   </div>
   <div class="main">
     <div class="tree fill">
@@ -479,7 +513,7 @@ table.t { width: 100%; border-collapse: collapse; }
       </div>
     </div>
     <div class="revoke"><div><h4>Отзовите один источник — агент сам найдёт, что пересмотреть</h4><p>Граф выводов хранит связи. Проверка не даст закрыть этап, пока все зависимые места не обновлены.</p></div>
-      <div class="nums"><div><div class="big">12</div><small>зависимых выводов<br>от E36</small></div><div><div class="big">47</div><small>мест в 7<br>документах</small></div></div></div>
+      <div class="nums"><div><div class="big">14</div><small>зависимых выводов<br>от E36</small></div><div><div class="big">51</div><small>место в 7<br>документах</small></div></div></div>
     <div class="labels">
       <div><span class="chip g">[E7]</span><b>Факт</b>запись реестра: источник, место, дата, цитата</div>
       <div><span class="chip a">[ГИП]</span><b>Гипотеза</b>не подтверждено — и указано, как проверить</div>
@@ -487,13 +521,13 @@ table.t { width: 100%; border-collapse: collapse; }
       <div><span class="chip m">[СИНТ]</span><b>Синтетика</b>ответ ИИ-персоны — только для гипотез</div>
     </div>
   </div>
-  <div class="foot"><span>Реестр — evidence.csv; связи выводов — claims.csv; команда — sf.py claims trace</span><span class="pg">7</span></div>
+  <div class="foot"><span>Реестр — evidence.csv; связи выводов — claims.csv; команда — sf.py claims trace</span><span class="pg">8</span></div>
 </section>
 
 <!-- 7. ПРОВЕРКА КОДОМ -->
 <section class="page">
   <div class="rail">
-    <div class="no">07</div><div class="part">Проверка кодом</div>
+    <div class="no">08</div><div class="part">Проверка кодом</div>
     <h2><em>Правила проверяет код</em>, смысл — независимые проверяющие.</h2>
     <p class="lead">Просьба к модели «не выдумывай» не работает надёжно. Поэтому всё, что можно проверить механически, проверяет программа после каждой записи результата.</p>
     <div class="aside"><b>Критик</b> — сильная модель, не видел процесса. <b>Проверяющий</b> сверяет выборку утверждений с источниками. <b>Классификатор</b> — дешёвая модель, вслепую оценивает качество источников.</div>
@@ -527,18 +561,18 @@ $ python3 sf.py revisit E11
     <div class="measure"><div><div class="big">10</div><small>раз синтетика как<br>довод спроса</small></div><div><div class="big">6</div><small>чисел<br>без источника</small></div>
       <p><b>Зачем это нужно — измерено.</b> Три прогона этапа «Варианты» без проверки дали эти ошибки. В обычной работе хук ловит их до закрытия этапа.</p></div>
   </div>
-  <div class="foot"><span>sf.py validate · хук после каждой записи в outputs/ · CI на каждом изменении</span><span class="pg">8</span></div>
+  <div class="foot"><span>sf.py validate · хук после каждой записи в outputs/ · CI на каждом изменении</span><span class="pg">9</span></div>
 </section>
 
 <!-- 8. ЦЕПОЧКА ПРОМПТОВ -->
 <section class="page">
   <div class="rail">
-    <div class="no">08</div><div class="part">Архитектура · цепочка промптов</div>
+    <div class="no">09</div><div class="part">Архитектура · цепочка промптов</div>
     <h2>Один шаг — <em>один промпт</em>, результат и проверка.</h2>
     <p class="lead">Модель среды читает правила AGENTS.md и навык этапа, сама выбирает действие, вызывает инструменты <span class="code">sf.py</span>. На воротах решает человек — без его ответа агент дальше не идёт.</p>
     <div class="counts" style="margin-top:auto">
-      <div><div class="big g">16</div><span>навыков</span></div><div><div class="big g">5</div><span>субагентов</span></div><div><div class="big g">19</div><span>методичек</span></div>
-      <div><div class="big">30</div><span>команд CLI</span></div><div><div class="big">17</div><span>инструментов MCP</span></div><div><div class="big">117</div><span>тестов: Linux, Windows, macOS</span></div>
+      <div><div class="big g">16</div><span>навыков</span></div><div><div class="big g">6</div><span>субагентов</span></div><div><div class="big g">19</div><span>методичек</span></div>
+      <div><div class="big">31</div><span>команда CLI</span></div><div><div class="big">18</div><span>инструментов MCP</span></div><div><div class="big">123</div><span>тестов: Linux, Windows, macOS</span></div>
     </div>
   </div>
   <div class="main">
@@ -559,13 +593,13 @@ $ python3 sf.py revisit E11
     <div class="fill"></div>
     <div class="panel tint small"><b>Схема не устаревает.</b> Полную таблицу «этап → промпт → модель → вход → выход → проверка» собирает из настоящих файлов команда <span class="code">sf.py pipeline</span> (docs/PIPELINE.md). Если навык изменится, а схема нет, упадёт тест в CI.</div>
   </div>
-  <div class="foot"><span>Вспомогательные навыки этапа 3: данные, поведение клиентов, интерфейсы, интервью, синтетические респонденты</span><span class="pg">9</span></div>
+  <div class="foot"><span>Вспомогательные навыки этапа 3: данные, поведение клиентов, интерфейсы, интервью, синтетические респонденты</span><span class="pg">10</span></div>
 </section>
 
 <!-- 10. ЗНАНИЯ И МОДЕЛИ -->
 <section class="page">
   <div class="rail">
-    <div class="no">09</div><div class="part">Знания, модели, сервисы</div>
+    <div class="no">10</div><div class="part">Знания, модели, сервисы</div>
     <h2>Знания лежат раздельно. <em>Дорогая модель — только там, где нужна глубина.</em></h2>
     <p class="lead">Источник правды — файлы, а не история чата: «стоп», новый чат, «продолжи» — и работа идёт с того же места. Выполненный шаг не повторяется: журнал отвечает «уже выполнен».</p>
     <div class="aside"><b>Маршрутизация на деле:</b> классификатор на Haiku вслепую оценил 50 источников и совпал с агентом в 45 случаях за 0,02 $. В трёх из пяти спорных прав оказался он — агент завысил качество.</div>
@@ -577,7 +611,7 @@ $ python3 sf.py revisit E11
         <div class="layer"><b>Постоянные правила · <code>AGENTS.md</code></b><span>один файл для Claude Code и Cursor</span></div>
         <div class="layer"><b>Процедуры этапов · <code>skills/</code></b><span>загружаются только на своём этапе</span></div>
         <div class="layer"><b>Помощники · <code>agents/</code></b><span>критик, проверяющий, исследователь, респондент, классификатор</span></div>
-        <div class="layer"><b>Методики · <code>knowledge/</code></b><span>23 методички; поиск по словам, смыслу и связям</span></div>
+        <div class="layer"><b>Методики · <code>knowledge/</code></b><span>24 методички; поиск по словам, смыслу и связям</span></div>
         <div class="layer"><b>Память · <code>memory/</code></b><span>наблюдения с датой, не факты; исправление и отзыв</span></div>
         <div class="layer proj"><b>Материалы проекта · <code>projects/&lt;имя&gt;/</code></b><span>бриф, снимки источников, реестр, результаты</span></div>
         <div class="layer proj" style="grid-column:1/-1"><b>Состояние задачи · <code>state/</code></b><span>этапы, журнал шагов, решения, затраты — по ним агент продолжает после перерыва</span></div>
@@ -591,20 +625,20 @@ $ python3 sf.py revisit E11
         <tr><td><span class="tier" style="background:#c9c9cf"></span>Claude Haiku 5.5</td><td>исследователь, респондент, классификатор</td><td>извлечение цитат, персоны, качество источников A/B/C</td></tr>
         <tr><td><span class="tier" style="background:var(--ink)"></span>Grok 4.7 (xAI)</td><td>модель в Cursor при проверке</td><td>агент работает и на модели другого разработчика</td></tr>
         <tr><td>Claude Code · Cursor</td><td>среда агента</td><td>навыки, 3 хука, субагенты, веб-поиск; в Cursor — правила и MCP</td></tr>
-        <tr><td>Python 3.11+ · sf.py</td><td>30 команд, стандартная библиотека</td><td>реестр, граф, проверки, журнал, затраты, поведение, медиа, отчёт</td></tr>
+        <tr><td>Python 3.11+ · sf.py</td><td>31 команда, стандартная библиотека</td><td>реестр, граф, проверки, журнал, затраты, поведение, медиа, отчёт</td></tr>
         <tr><td>Chrome · ffmpeg · whisper</td><td>необязательные, локально</td><td>снимки сайтов; кадры видео и расшифровка аудио без отправки в сервисы</td></tr>
-        <tr><td>GitHub Actions</td><td>CI</td><td>117 тестов на Linux и Windows при каждом изменении; macOS — локально</td></tr>
+        <tr><td>GitHub Actions</td><td>CI</td><td>123 теста на Linux и Windows при каждом изменении; macOS — локально</td></tr>
         <tr><td>Данные</td><td>только открытые источники</td><td>ВЦИОМ, Банк России, законы, СМИ, сайты операторов; закрытых данных нет</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="foot"><span>Платных сервисов, кроме среды, нет · секретов в репозитории нет — проверяется в CI · модели по ролям — config.toml</span><span class="pg">10</span></div>
+  <div class="foot"><span>Платных сервисов, кроме среды, нет · секретов в репозитории нет — проверяется в CI · модели по ролям — config.toml</span><span class="pg">11</span></div>
 </section>
 
 <!-- 11. ПРОМПТЫ -->
 <section class="page">
   <div class="rail">
-    <div class="no">10</div><div class="part">Ключевые промпты</div>
+    <div class="no">11</div><div class="part">Ключевые промпты</div>
     <h2>Короткие правила, которые <em>меняют поведение модели.</em></h2>
     <p class="lead">Цитаты дословные. Длинные инструкции не помогают — помогает одно правило в нужном месте и проверка, что оно выполнено.</p>
     <div class="aside">Всё, что можно проверить механически, вынесено из промптов в код. Обзор промптов и что вынесено — docs/PROMPTS.md.</div>
@@ -622,13 +656,13 @@ $ python3 sf.py revisit E11
       <div><div class="who g">Коммуникация</div><q>Три варианта сообщения — с разными углами, не перефразы; выбирает реальная проверка, а не вкус.</q><div class="src">skills/comms-strategy</div></div>
     </div>
   </div>
-  <div class="foot"><span>Зелёным — правила работы агента; фиолетовым — роли независимых помощников</span><span class="pg">11</span></div>
+  <div class="foot"><span>Зелёным — правила работы агента; фиолетовым — роли независимых помощников</span><span class="pg">12</span></div>
 </section>
 
 <!-- 12. ВРЕМЯ И ДЕНЬГИ -->
 <section class="page">
   <div class="rail">
-    <div class="no">11</div><div class="part">Время и расходы</div>
+    <div class="no">12</div><div class="part">Время и расходы</div>
     <h2>В <em>13–38 раз дешевле</em> аналитика. Почти вся цена — время человека на проверку.</h2>
     <p class="lead">Агент в десятки раз дороже обычного чата — это честная цена источников, проверок и воспроизводимости. Рядом с работой аналитика он стоит копейки.</p>
     <div class="aside">Цены — в долларах API по официальным тарифам, а не платёж автора. Факт из транскрипта и оценка по символам никогда не складываются в одно число.</div>
@@ -650,13 +684,13 @@ $ python3 sf.py revisit E11
       <div><div class="k">Второй пример</div><h4>3,97 $ — фитнес-приложение</h4>Другая предметная область, та же версия агента: он оспорил идею маркетинга данными.</div>
     </div>
   </div>
-  <div class="foot"><span>Расчёт — eval/analyst/cost.py: зарплаты Хабр Карьеры (I полугодие 2026), прайс агентства; часы аналитика — допущение · docs/COSTS.md</span><span class="pg">12</span></div>
+  <div class="foot"><span>Расчёт — eval/analyst/cost.py: зарплаты Хабр Карьеры (I полугодие 2026), прайс агентства; часы аналитика — допущение · docs/COSTS.md</span><span class="pg">13</span></div>
 </section>
 
 <!-- 13. КАЧЕСТВО -->
 <section class="page">
   <div class="rail">
-    <div class="no">12</div><div class="part">Качество и воспроизводимость</div>
+    <div class="no">13</div><div class="part">Качество и воспроизводимость</div>
     <h2>Агент сам находит свои ошибки — и <em>даёт то же решение</em> при повторе.</h2>
     <p class="lead">Порог качества не подгоняли: оценки критика шли вверх по мере исправлений, а не сразу. Путь виден целиком.</p>
     <div class="aside"><b>Оговорка:</b> критик, проверяющий и судья сравнения — тоже модели. Сравнение с чатом — один запрос, слепота неполная: метки источников выдают агента.</div>
@@ -687,13 +721,13 @@ $ python3 sf.py revisit E11
       </div>
     </div>
   </div>
-  <div class="foot"><span>Повторить проверку воспроизводимости — python3 eval/repro.py · подробно — eval/, docs/LIMITATIONS.md</span><span class="pg">13</span></div>
+  <div class="foot"><span>Повторить проверку воспроизводимости — python3 eval/repro.py · подробно — eval/, docs/LIMITATIONS.md</span><span class="pg">14</span></div>
 </section>
 
 <!-- 14. СООТВЕТСТВИЕ ЗАДАНИЮ -->
 <section class="page">
   <div class="rail">
-    <div class="no">13</div><div class="part">Соответствие заданию</div>
+    <div class="no">14</div><div class="part">Соответствие заданию</div>
     <h2>Минимум — целиком. Дополнительный уровень — <em>13 из 13</em>, 12 показаны на демо.</h2>
     <p class="lead">Каждый пункт задания есть в репозитории и проверяется тестом или артефактом демо, а не только описан.</p>
     <div class="aside"><span class="chip g" style="padding:.2mm 1.6mm">◐</span> — сделано и проверено тестами, живого прогона на записи нет: на этом компьютере нет ffmpeg и whisper.</div>
@@ -720,8 +754,8 @@ $ python3 sf.py revisit E11
           <div class="ck"><i>✓</i><div><b>Поддержка решений</b><span>ответственные, сроки, условия пересмотра</span></div></div>
           <div class="ck"><i>✓</i><div><b>Пересмотр при новых данных</b><span>граф выводов, «было → стало»</span></div></div>
           <div class="ck"><i>✓</i><div><b>Маршрутизация</b><span>правила, классификатор, эскалация</span></div></div>
-          <div class="ck"><i>✓</i><div><b>Навыки, хуки, субагенты</b><span>16 навыков · 3 хука · 5 субагентов</span></div></div>
-          <div class="ck"><i>✓</i><div><b>MCP и CLI</b><span>30 команд, 17 инструментов MCP</span></div></div>
+          <div class="ck"><i>✓</i><div><b>Навыки, хуки, субагенты</b><span>16 навыков · 3 хука · 6 субагентов</span></div></div>
+          <div class="ck"><i>✓</i><div><b>MCP и CLI</b><span>31 команда, 18 инструментов MCP</span></div></div>
           <div class="ck"><i>✓</i><div><b>База знаний и память</b><span>смысл, связи, исправление и отзыв</span></div></div>
           <div class="ck"><i>✓</i><div><b>Устойчивость к сбоям</b><span>журнал шагов, без незаметных повторов</span></div></div>
           <div class="ck"><i>✓</i><div><b>Переносимость</b><span>export/import, тесты на 3 ОС, Cursor + Grok</span></div></div>
@@ -730,13 +764,13 @@ $ python3 sf.py revisit E11
       </div>
     </div>
   </div>
-  <div class="foot"><span>Подробная таблица соответствия с файлами — docs/DESCRIPTION.md</span><span class="pg">14</span></div>
+  <div class="foot"><span>Подробная таблица соответствия с файлами — docs/DESCRIPTION.md</span><span class="pg">15</span></div>
 </section>
 
 <!-- 15. ГРАНИЦЫ -->
 <section class="page">
   <div class="rail">
-    <div class="no">14</div><div class="part">Возможности и ограничения</div>
+    <div class="no">15</div><div class="part">Возможности и ограничения</div>
     <h2>Что агент умеет — и <em>где его границы.</em></h2>
     <p class="lead">Границы названы заранее: руководитель должен знать, где рекомендации нельзя доверять без дополнительной проверки.</p>
     <div class="aside">Полный список с найденными и исправленными ошибками — docs/LIMITATIONS.md.</div>
@@ -760,13 +794,13 @@ $ python3 sf.py revisit E11
       <div><h4>Другие модели</h4>Уже работает в Cursor на Grok; следующий шаг — полный прогон, например на YandexGPT.</div>
     </div>
   </div>
-  <div class="foot"><span>Стратег Фабрики продуктов · возможности и ограничения</span><span class="pg">15</span></div>
+  <div class="foot"><span>Стратег Фабрики продуктов · возможности и ограничения</span><span class="pg">16</span></div>
 </section>
 
 <!-- 16. ЗАПУСК -->
 <section class="page">
   <div class="rail">
-    <div class="no">15</div><div class="part">Как запустить и проверить</div>
+    <div class="no">16</div><div class="part">Как запустить и проверить</div>
     <h2>Пять минут <em>до первого результата.</em></h2>
     <p class="lead">Только стандартный Python: ничего не нужно устанавливать, ключи не нужны. Агента ведут обычными фразами.</p>
     <div class="aside">Папка <span class="code">.claude/</span> уже в репозитории: после скачивания навыки, хуки и субагенты работают сразу.</div>
@@ -792,7 +826,7 @@ $ python3 sf.py revisit E11
       <div><div class="k">Проверки</div>eval/ · docs/LIMITATIONS.md</div>
     </div>
   </div>
-  <div class="foot"><span>Стратег Фабрики продуктов · MGIMO×AI Challenge 2026 · кейс МегаФона</span><span class="pg">16</span></div>
+  <div class="foot"><span>Стратег Фабрики продуктов · MGIMO×AI Challenge 2026 · кейс МегаФона</span><span class="pg">17</span></div>
 </section>
 
 </body>
