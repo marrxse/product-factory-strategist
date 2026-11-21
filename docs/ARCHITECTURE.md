@@ -3,19 +3,55 @@
 ## Идея
 LLM ведёт работу сама (выбирает шаг, инструмент, субагента), но **всё, что можно проверить детерминированно, проверяет код**, а всё, что требует суждения, — изолированные субагенты. Человек решает на воротах.
 
-```
- человек ── фразы («начни», «продолжи», «стоп», «основания C4») ──┐
-                                                                    ▼
- AGENTS.md (правила) ─► оркестратор (LLM среды) ─► skills/<этап>/SKILL.md (процедура этапа)
-                              │        │
-                              │        ├─► субагенты: researcher (Haiku) · critic (Opus) · verifier (Sonnet) · respondent (Haiku)
-                              │        └─► knowledge/ (методики, поиск sf.py kb) · memory/ (наблюдения между проектами)
-                              ▼
-                       python3 sf.py <команда>  (CLI, только стандартная библиотека Python)
-                              │
-      projects/<имя>/ ── brief.md · sources/ · evidence.csv · outputs/ · state/{STATE.md, log.md, decisions.md, cost.csv}
-                              ▲
- хуки Claude Code: SessionStart → сводка · PostToolUse → validate/инъекции (код 2 = исправь) · Stop/SubagentStop → стоимость
+```mermaid
+flowchart TB
+    H([Руководитель продукта]) <-->|"фразы: начни · продолжи · стоп · основания C… · пересмотри<br/>решения на воротах 0–8"| O
+
+    subgraph RULES[Знания агента — хранятся раздельно]
+        direction LR
+        AG[AGENTS.md<br/>постоянные правила]
+        SK[skills/<br/>16 навыков-этапов]
+        KN[knowledge/<br/>24 методички + рубрика]
+        ME[(memory/<br/>наблюдения между проектами)]
+    end
+
+    O[Оркестратор<br/>LLM среды: Claude Code или Cursor] --> RULES
+
+    subgraph SUB[Субагенты — отдельный контекст]
+        direction LR
+        RS[researcher · Haiku<br/>извлечение цитат]
+        CL[classifier · Haiku<br/>качество A/B/C вслепую]
+        RP[respondent · Haiku<br/>ИИ-персоны, фокус-группа]
+        VR[verifier · Sonnet<br/>сверка с источниками]
+        BD[board · Sonnet<br/>совет из 5 ролей]
+        CR[critic · Opus<br/>сильнейшие возражения]
+    end
+    O -.->|изоляция, дешёвая модель где можно| SUB
+
+    O -->|все служебные действия| CLI[sf.py — 31 команда<br/>стандартная библиотека Python]
+    MCP[mcp/server.py<br/>18 инструментов] --> CLI
+
+    subgraph PRJ[projects/имя/]
+        direction LR
+        BR[brief.md]
+        SRC[sources/<br/>снимки страниц]
+        EV[(evidence.csv<br/>факт · источник · дата · цитата)]
+        OUT[outputs/<br/>исследование · варианты · стратегии<br/>план проверки · запрос данных · отчёт]
+        ST[state/<br/>STATE · журнал · решения · стоимость<br/>analysis/*.py — расчёты]
+    end
+    CLI --> PRJ
+
+    subgraph CHK[Проверки кодом]
+        direction LR
+        VA[validate<br/>число без источника · синтетика как спрос<br/>обещание без возможности]
+        RV[revisit<br/>что зависит от факта]
+        WT[watch<br/>на месте ли цитаты]
+        ST2[revisit --stale<br/>устаревшие данные]
+    end
+    CLI --> CHK
+    CHK -->|красное — этап не закрыть| OUT
+
+    HK[Хуки Claude Code<br/>SessionStart · PostToolUse · Stop] -->|сводка · validate · стоимость| CLI
 ```
 
 ## Порядок в знаниях (раздельное хранение)
