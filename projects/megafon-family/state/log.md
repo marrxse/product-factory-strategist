@@ -1,0 +1,53 @@
+# Журнал действий: Связь для близких и собственных устройств
+
+> Пишется только командой `python3 sf.py log ...` (и `stage`/`gate`). Формат: время | тип | ключ шага | описание.
+> Типы: START, DONE, FAIL, SKIP, REPEAT, NOTE, STAGE, GATE, CORRECTION, INJECTION, ROUTE.
+
+- 2026-11-22 01:07:41 | NOTE | project:create | Проект создан из megafon
+- 2026-11-22 01:07:41 | STAGE | stage:0:start | Постановка задачи: start
+- 2026-11-22 01:07:56 | STAGE | stage:0:done | Постановка задачи: done
+- 2026-11-22 01:08:51 | GATE | gate:0 | ok
+- 2026-11-22 01:08:51 | STAGE | stage:1:start | Сбор материалов: start
+- 2026-11-22 01:09:43 | START | collect:fetch:www-dp-ru-a-2026-07-24-v-megaseme-pojavilis-roli-b3cdec | https://www.dp.ru/a/2026/07/24/v-megaseme-pojavilis-roli
+- 2026-11-22 01:09:45 | DONE | collect:fetch:www-dp-ru-a-2026-07-24-v-megaseme-pojavilis-roli-b3cdec | сохранено web-www-dp-ru-a-2026-07-24-v-megaseme-pojavilis-roli-b3cdec-2026-11-22.md
+- 2026-11-22 01:09:45 | START | collect:fetch:www-fontanka-ru-2026-07-24-76551634-f311bf | https://www.fontanka.ru/2026/07/24/76551634/
+- 2026-11-22 01:09:46 | FAIL | collect:fetch:www-fontanka-ru-2026-07-24-76551634-f311bf | Сайт ответил ошибкой 428: https://www.fontanka.ru/2026/07/24/76551634/
+- 2026-11-22 01:09:46 | START | collect:fetch:www-iphones-ru-inotes-rossiyane-stali-chashche-delitsya-minu-9847d2 | https://www.iphones.ru/iNotes/rossiyane-stali-chashche-delitsya-minutami-i-gigabaytami-s-blizkimi
+- 2026-11-22 01:09:48 | DONE | collect:fetch:www-iphones-ru-inotes-rossiyane-stali-chashche-delitsya-minu-9847d2 | сохранено web-www-iphones-ru-inotes-rossiyane-stali-chashche-delitsya-minu-9847d2-2026-11-22.md
+- 2026-11-22 01:09:48 | START | collect:fetch:media-mts-ru-internet-186664-c79c11 | https://media.mts.ru/internet/186664
+- 2026-11-22 01:09:50 | FAIL | collect:fetch:media-mts-ru-internet-186664-c79c11 | Сайт ответил ошибкой 403: https://media.mts.ru/internet/186664
+- 2026-11-22 01:09:50 | START | collect:fetch:www-comnews-ru-content-237576-2025-02-05-2025-w06-1010-obedi-286a18 | https://www.comnews.ru/content/237576/2025-02-05/2025-w06/1010/obedinyayte-blizkikh-bilayne-i-poluchayte-50-gb-za-kazhdyy-novyy-nomer-ezhemesyachno
+- 2026-11-22 01:10:01 | FAIL | collect:fetch:www-comnews-ru-content-237576-2025-02-05-2025-w06-1010-obedi-286a18 | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://www.comnews.ru/content/237576/2025-02-05/2025-w06/1010/obedinyayte-blizkikh-bilayne-i-poluchayte-50-gb-za-kazhdyy-novyy-nomer-ezhemesyachno
+- 2026-11-22 01:10:01 | START | collect:fetch:mobile-review-com-all-news-rossijskie-semi-podelilis-polumil-a14c10 | https://mobile-review.com/all/news/rossijskie-semi-podelilis-polumilliardom-gigabajt-v-seti-bilajna/
+- 2026-11-22 01:10:11 | FAIL | collect:fetch:mobile-review-com-all-news-rossijskie-semi-podelilis-polumil-a14c10 | Сайт недоступен (<urlopen error [Errno 54] Connection reset by peer>): https://mobile-review.com/all/news/rossijskie-semi-podelilis-polumilliardom-gigabajt-v-seti-bilajna/
+- 2026-11-22 01:10:11 | START | collect:fetch:lifehacker-ru-megafon-megasemya-9e8b45 | https://lifehacker.ru/megafon-megasemya/
+- 2026-11-22 01:10:14 | DONE | collect:fetch:lifehacker-ru-megafon-megasemya-9e8b45 | сохранено web-lifehacker-ru-megafon-megasemya-9e8b45-2026-11-22.md
+- 2026-11-22 01:11:13 | STAGE | stage:1:done | Сбор материалов: done
+- 2026-11-22 01:11:14 | STAGE | stage:2:start | План исследования: start
+- 2026-11-22 01:11:15 | STAGE | stage:2:done | План исследования: done
+- 2026-11-22 01:11:28 | CORRECTION | evidence:quality:E23 | принято
+- 2026-11-22 01:11:28 | CORRECTION | evidence:quality:E24 | принято
+- 2026-11-22 01:11:28 | CORRECTION | evidence:quality:E25 | принято
+- 2026-11-22 01:11:28 | CORRECTION | evidence:quality:E26 | принято
+- 2026-11-22 01:11:29 | CORRECTION | evidence:quality:E27 | принято
+- 2026-11-22 01:11:29 | CORRECTION | evidence:quality:E28 | принято
+- 2026-11-22 01:11:29 | CORRECTION | evidence:quality:E29 | принято
+- 2026-11-22 01:12:37 | GATE | gate:2 | ok
+- 2026-11-22 01:12:37 | STAGE | stage:3:start | Исследование: start
+- 2026-11-22 01:14:29 | STAGE | stage:3:done | Исследование: done
+- 2026-11-22 01:14:29 | STAGE | stage:4:start | Варианты: start
+- 2026-11-22 01:18:42 | CORRECTION | evidence:revoke:E31 | заменено E42 (модель версии 2 по замечаниям критика и проверяющего)
+- 2026-11-22 01:18:42 | CORRECTION | evidence:revoke:E32 | заменено E42 (модель версии 2 по замечаниям критика и проверяющего)
+- 2026-11-22 01:18:43 | CORRECTION | evidence:revoke:E33 | заменено E42 (модель версии 2 по замечаниям критика и проверяющего)
+- 2026-11-22 01:18:43 | CORRECTION | evidence:revoke:E34 | заменено E43 (прогноз версии 2)
+- 2026-11-22 01:26:40 | CORRECTION | evidence:revoke:E43 | заменено E54 (прогноз версии 3)
+- 2026-11-22 01:27:44 | STAGE | stage:4:done | Варианты: done
+- 2026-11-22 01:28:39 | GATE | gate:4 | ok
+- 2026-11-22 01:28:39 | STAGE | stage:5:start | Стратегии: start
+- 2026-11-22 01:28:39 | STAGE | stage:5:done | Стратегии: done
+- 2026-11-22 01:28:40 | GATE | gate:5 | ok
+- 2026-11-22 01:28:40 | STAGE | stage:6:start | План проверки: start
+- 2026-11-22 01:28:40 | STAGE | stage:6:done | План проверки: done
+- 2026-11-22 01:28:40 | GATE | gate:6 | ok
+- 2026-11-22 01:29:36 | STAGE | stage:7:start | Поддержка решения: start
+- 2026-11-22 01:29:37 | STAGE | stage:7:done | Поддержка решения: done
