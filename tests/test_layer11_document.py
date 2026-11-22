@@ -51,3 +51,11 @@ def test_nested_list_items_render_inside_parent() -> None:
 def test_bold_spanning_a_source_tag_is_rendered() -> None:
     out = report._inline("**Главное допущение [ГИП].** Дальше", {}, [])
     assert "**" not in out and out.startswith("<b>")
+
+
+def test_author_from_config_is_printed(monkeypatch) -> None:
+    monkeypatch.setattr(report.config, "get", lambda section, key, default=None: "Тестова Анна")
+    assert "автор работы: Тестова Анна" in report._author_suffix()
+    assert "Тестова Анна" in report._css()
+    monkeypatch.setattr(report.config, "get", lambda section, key, default=None: "")
+    assert report._author_suffix() == ""

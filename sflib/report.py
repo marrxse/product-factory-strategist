@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlparse
 
-from . import cost, evidence as ev
+from . import config, cost, evidence as ev
 from . import state as stmod
 from .markup import TAG_RE, REF
 
@@ -57,6 +57,21 @@ table.mat{table-layout:fixed}table.mat th:nth-child(2){width:30mm}table.mat th:n
 table.ev{table-layout:fixed}table.ev th:nth-child(1){width:11mm}table.ev th:nth-child(3){width:42mm}
 table.ev th:nth-child(4){width:20mm}table.ev th:nth-child(5){width:25mm}table.ev td:first-child,table.ev th:first-child{min-width:0}}
 """
+
+
+def _author_suffix() -> str:
+    """« · автор работы: …» из config.toml [submission] author; пусто, если автор не задан."""
+    try:
+        author = config.get("submission", "author", "") or ""
+    except Exception:  # без config.toml отчёт всё равно собирается
+        author = ""
+    return f" · автор работы: {html.escape(author)}" if author else ""
+
+
+def _css() -> str:
+    """CSS с автором работы в нижнем колонтитуле каждой печатной страницы."""
+    suffix = _author_suffix().replace(" · автор работы: ", " · ")
+    return CSS.replace('content:"Отчёт агента «Стратег Фабрики продуктов»"', f'content:"Отчёт агента «Стратег Фабрики продуктов»{suffix}"')
 
 
 def _inline(text: str, records: dict, used: list[str]) -> str:
@@ -237,8 +252,8 @@ def build(project: Path) -> Path:
     appendix.append("</tbody></table>")
     cost_md = _md(cost.report(project), records, [])
     page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(title)}</title><style>{CSS}</style></head><body><main>
-<p class="meta">Отчёт агента «Стратег Фабрики продуктов» · проект {project.name}</p>
+<title>{html.escape(title)}</title><style>{_css()}</style></head><body><main>
+<p class="meta">Отчёт агента «Стратег Фабрики продуктов» · проект {project.name}{_author_suffix()}</p>
 <h1>{html.escape(title)}</h1>
 <p class="meta">{html.escape(stages)}</p>
 <p class="legend meta">Как читать: <sup><a>1</a></sup> — сноска на источник (<span class="screen-only">наведите — цитата</span><span class="print-only">ведёт к цитате в приложении «Источники»</span>) ·
@@ -287,8 +302,8 @@ def build_document(project: Path, name: str) -> Path:
     body = _md("\n".join(text.splitlines()[1:]), records, used)
     brief_title = re.sub(r"^#\s*Бриф:\s*", "", (project / "brief.md").read_text(encoding="utf-8").splitlines()[0])
     page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{html.escape(title)}</title><style>{CSS}</style></head><body><main>
-<p class="meta">Агент «Стратег Фабрики продуктов» · {html.escape(brief_title)}</p>
+<title>{html.escape(title)}</title><style>{_css()}</style></head><body><main>
+<p class="meta">Агент «Стратег Фабрики продуктов» · {html.escape(brief_title)}{_author_suffix()}</p>
 <h1>{html.escape(title)}</h1>
 <p class="legend meta">Как читать: <sup><a>1</a></sup> — сноска на источник (ведёт к цитате в приложении «Источники») ·
 <span class="b hyp">гипотеза</span> не подтверждено · <span class="b fc">прогноз</span> оценка будущего · C4 — номер вывода.
