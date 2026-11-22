@@ -7,7 +7,7 @@
 > - **Что он решил по брифу МегаФона:** первыми помочь владельцам нескольких номеров — напоминанием до дня списания по роутеру. Это единственный найденный рычаг прибыли: окупаемость 19–29 месяцев. Семьи — вторым шагом. Цель 285 млн в плановом году не достигается, и агент говорит это прямо.
 > - **Почему ему можно верить:** независимый критик дал 12 из 14, проверяющий подтвердил 94% утверждений, выдуманных цитат — 0. Агент сам нашёл свою ошибку и сменил рекомендацию.
 >
-> **Открыть:** [стратегия по брифу, PDF](projects/megafon-family/outputs/strategy.pdf) · [описание работы, PDF](docs/DESCRIPTION.pdf) · видео — ссылка появится здесь
+> **Открыть:** [стратегия по брифу, PDF](projects/megafon-family/outputs/strategy.pdf) · [описание работы, PDF](docs/DESCRIPTION.pdf) · [видео, 9:47 (Яндекс Диск)](https://disk.yandex.ru/d/UKPb2TWtNKjlmQ)
 
 <p align="center">
   <a href="https://github.com/marrxse/product-factory-strategist/actions/workflows/tests.yml"><img src="https://github.com/marrxse/product-factory-strategist/actions/workflows/tests.yml/badge.svg" alt="тесты"></a>
