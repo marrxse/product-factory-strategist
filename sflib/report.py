@@ -40,6 +40,7 @@ th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-alig
 .concl{scroll-margin-top:12px}.rev{text-decoration:line-through;color:var(--muted)}nav a{color:var(--accent);margin-right:12px;font-size:14px}
 blockquote{margin:8px 0;padding:4px 12px;border-left:3px solid var(--line);color:var(--muted)}code{font-size:13px}
 .legend span{margin-right:10px}.print-only{display:none}
+figure{margin:18px 0}figure img{max-width:100%;border:1px solid var(--line);border-radius:8px;background:#fff}figcaption{color:var(--muted);font-size:.9em;margin-top:6px}
 @page{size:A4;margin:16mm 15mm 18mm;@bottom-right{content:counter(page) " / " counter(pages);font:9px -apple-system,Segoe UI,Roboto,sans-serif;color:#6b6b70}
 @bottom-left{content:"Отчёт агента «Стратег Фабрики продуктов»";font:9px -apple-system,Segoe UI,Roboto,sans-serif;color:#6b6b70}}
 @media print{:root,:root[data-theme="dark"]{--bg:#fff;--fg:#1d1d1f;--muted:#6b6b70;--line:#d9d7d0;--card:#fafaf8;--accent:#2f5d8a;
@@ -66,13 +67,13 @@ def _inline(text: str, records: dict, used: list[str]) -> str:
         out.append(_tag_html(match, records, used))
         pos = match.end()
     out.append(_plain(text[pos:]))
-    return "".join(out)
+    joined = "".join(out)  # жирный — по всей строке: он может охватывать метку источника
+    joined = re.sub(r"\*\*([CС]\d+)\.\*\*", lambda m: f'<b class="concl" id="{m.group(1)}">{m.group(1)}.</b>', joined)
+    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", joined)
 
 
 def _plain(text: str) -> str:
     s = html.escape(text)
-    s = re.sub(r"\*\*([CС]\d+)\.\*\*", lambda m: f'<b class="concl" id="{m.group(1)}">{m.group(1)}.</b>', s)
-    s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
     s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
     return s
 
@@ -115,8 +116,12 @@ def _md(text: str, records: dict, used: list[str]) -> str:
             out.append("<pre><code>" + html.escape("\n".join(lines[i + 1:j])) + "</code></pre>")
             i = j + 1
             continue
+        image = re.match(r"^!\[(.*?)\]\((\S+?)\)\s*$", line)
         head = re.match(r"^(#{1,4})\s+(.*)", line)
-        if head:
+        if image:
+            alt = html.escape(image.group(1))
+            out.append(f'<figure><img src="{html.escape(image.group(2))}" alt="{alt}"><figcaption>{alt}</figcaption></figure>')
+        elif head:
             level = min(len(head.group(1)) + 1, 4)
             out.append(f"<h{level}>{_inline(head.group(2), records, used)}</h{level}>")
         elif line.startswith("|"):
@@ -132,11 +137,20 @@ def _md(text: str, records: dict, used: list[str]) -> str:
             continue
         elif re.match(r"^\s*([-*]|\d+\.)\s+", line):
             tag = "ol" if re.match(r"^\s*\d+\.", line) else "ul"
-            items = []
+            items: list[list] = []  # [текст, тег вложенного списка, вложенные пункты]
             while i < len(lines) and re.match(r"^\s*([-*]|\d+\.)\s+", lines[i]):
-                items.append(re.sub(r"^\s*([-*]|\d+\.)\s+", "", lines[i]))
+                text_item = re.sub(r"^\s*([-*]|\d+\.)\s+", "", lines[i])
+                if lines[i].startswith((" ", "\t")) and items:
+                    items[-1][1] = "ol" if re.match(r"^\s*\d+\.", lines[i]) else "ul"
+                    items[-1][2].append(text_item)
+                else:
+                    items.append([text_item, "ul", []])
                 i += 1
-            out.append(f"<{tag}>" + "".join(f"<li>{_inline(x, records, used)}</li>" for x in items) + f"</{tag}>")
+            parts_li = []
+            for text_item, sub_tag, children in items:
+                sub = (f"<{sub_tag}>" + "".join(f"<li>{_inline(c, records, used)}</li>" for c in children) + f"</{sub_tag}>") if children else ""
+                parts_li.append(f"<li>{_inline(text_item, records, used)}{sub}</li>")
+            out.append(f"<{tag}>" + "".join(parts_li) + f"</{tag}>")
             continue
         elif line.startswith(">"):
             out.append(f"<blockquote>{_inline(line.lstrip('> '), records, used)}</blockquote>")
@@ -237,6 +251,52 @@ def build(project: Path) -> Path:
 <h2 id="cost">Затраты и время</h2>{cost_md}
 </main></body></html>"""
     target = out_dir / "report.html"
+    target.write_text(page, encoding="utf-8")
+    return target
+
+
+def _sources_table(used: list[str], records: dict) -> str:
+    rows = ["<h2 id='evidence'>Источники</h2><table class='ev'><thead><tr><th>№</th><th>Цитата или расчёт</th><th>Источник</th>"
+            "<th>Качество</th><th>Дата публ.</th></tr></thead><tbody>"]
+    for n, ref in enumerate(used, start=1):
+        rec = records.get(ref)
+        if rec is None:
+            continue
+        src = (f'<a href="{html.escape(rec.source)}">{html.escape(rec.source[:70])}</a>' if rec.source.startswith("http")
+               else html.escape(rec.source))
+        kind = "<br>расчёт" if rec.kind == "calc" else ("<br>синтетика" if rec.kind == "synthetic" else "")
+        rows.append(f'<tr id="ev-{ref}"><td>{n}<br><span class="meta">{ref}</span></td><td>«{html.escape(rec.quote)}»'
+                    f'<br><span class="meta">{html.escape(rec.locator)}</span></td><td>{src}</td>'
+                    f'<td>{rec.quality}{kind}</td><td>{rec.published or "—"}</td></tr>')
+    rows.append("</tbody></table>")
+    return "".join(rows)
+
+
+def build_document(project: Path, name: str) -> Path:
+    """Один документ из outputs/ отдельной страницей: заголовок, легенда, текст со сносками, приложение «Источники».
+    Нужен, когда бриф просит сдать один документ (например, стратегию из пяти частей), а полный отчёт — приложение."""
+    from .paths import SfError
+    source = project / "outputs" / name
+    if not source.exists():
+        raise SfError(f"Нет файла outputs/{name}")
+    records = ev.by_id(ev.load(project))
+    used: list[str] = []
+    text = source.read_text(encoding="utf-8")
+    first = text.splitlines()[0] if text else name
+    title = re.sub(r"^#\s*", "", first)
+    body = _md("\n".join(text.splitlines()[1:]), records, used)
+    brief_title = re.sub(r"^#\s*Бриф:\s*", "", (project / "brief.md").read_text(encoding="utf-8").splitlines()[0])
+    page = f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{html.escape(title)}</title><style>{CSS}</style></head><body><main>
+<p class="meta">Агент «Стратег Фабрики продуктов» · {html.escape(brief_title)}</p>
+<h1>{html.escape(title)}</h1>
+<p class="legend meta">Как читать: <sup><a>1</a></sup> — сноска на источник (ведёт к цитате в приложении «Источники») ·
+<span class="b hyp">гипотеза</span> не подтверждено · <span class="b fc">прогноз</span> оценка будущего · C4 — номер вывода.
+Полные доказательства — в отчёте report.pdf.</p>
+{body}
+{_sources_table(used, records)}
+</main></body></html>"""
+    target = source.with_suffix(".html")
     target.write_text(page, encoding="utf-8")
     return target
 

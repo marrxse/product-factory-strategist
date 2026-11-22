@@ -257,7 +257,7 @@ def cmd_memory(args: argparse.Namespace) -> int:
 # ---------- отчёт для руководителя ----------
 
 def cmd_report(args: argparse.Namespace) -> int:
-    target = report.build(_project(args))
+    target = report.build_document(_project(args), args.doc) if args.doc else report.build(_project(args))
     print(f"Отчёт для руководителя: {target.relative_to(paths.repo_root()).as_posix()} (откройте в браузере)")
     if args.pdf:
         pdf = report.to_pdf(target)
@@ -352,6 +352,7 @@ def register(sub: argparse._SubParsersAction) -> None:
 
     p = sub.add_parser("report", help="читаемый HTML-отчёт для руководителя (сноски вместо меток); --pdf — ещё и PDF для печати и рассылки")
     p.add_argument("--pdf", action="store_true", help="сохранить также outputs/report.pdf")
+    p.add_argument("--doc", help="собрать один документ из outputs/ отдельно, например strategy.md (бриф просит сдать один документ)")
     p.set_defaults(func=cmd_report)
 
     p = sub.add_parser("export", help="упаковать проект для переноса в другую среду")
