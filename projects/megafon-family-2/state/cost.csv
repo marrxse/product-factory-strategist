@@ -1,0 +1,11 @@
+ts,stage,step,role,model,tokens_in,tokens_out,cache_read,cache_write,usd,seconds,method,note
+2026-11-22 17:17:47,0,transcript,orchestrator,claude-opus-5-5,8,2413,391960,4428,0.162108,0,факт,4 ответов модели; API-эквивалент
+2026-11-22 17:20:14,1,transcript,orchestrator,claude-opus-5-5,28,8313,1451026,36125,0.745577,0,факт,12 ответов модели; API-эквивалент
+2026-11-22 17:22:39,1,transcript,subagent,claude-haiku-5-5,30,30933,891854,95506,0.036326,0,факт,15 ответов модели; API-эквивалент
+2026-11-22 17:23:03,1,transcript,subagent,claude-haiku-5-5,2,185,0,18826,0.002446,0,факт,1 ответов модели; API-эквивалент
+2026-11-22 17:23:03,1,transcript,orchestrator,claude-opus-5-5,14,1622,844144,6728,0.255149,0,факт,6 ответов модели; API-эквивалент
+2026-11-22 17:23:19,1,transcript,subagent,claude-haiku-5-5,2,4322,18826,6461,0.003157,0,факт,1 ответов модели; API-эквивалент
+2026-11-22 17:24:04,2,transcript,orchestrator,claude-opus-5-5,14,4171,880064,6717,0.313225,0,факт,6 ответов модели; API-эквивалент
+2026-11-22 17:26:06,2,transcript,orchestrator,claude-opus-5-5,14,6601,927991,9278,0.391898,0,факт,6 ответов модели; API-эквивалент
+2026-11-22 17:26:55,2,transcript,orchestrator,claude-opus-5-5,6,368,319520,1233,0.081152,0,факт,2 ответов модели; API-эквивалент
+2026-11-22 17:27:27,2,transcript,orchestrator,claude-opus-5-5,8,1680,338722,48303,0.4878,0,факт,4 ответов модели; API-эквивалент

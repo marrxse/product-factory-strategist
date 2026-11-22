@@ -242,3 +242,13 @@
 - 2026-11-21 17:15:29 | NOTE | watch:2026-11-21 | сторож оснований: проверено 3, изменилось 0
 - 2026-11-21 17:19:04 | NOTE | watch:2026-11-21 | сторож оснований: проверено 51, изменилось 0
 - 2026-11-21 20:58:27 | NOTE | watch:2026-11-21 | сторож оснований: проверено 3, изменилось 0
+- 2026-11-22 17:35:49 | SKIP | collect:fetch:www-sostav-ru-publication-mam-eto-ya-megafon-zapustil-ii-pro-f48bef | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:49 | SKIP | collect:fetch:news-rambler-ru-tech-56562600-mam-eto-ya-megafon-zapustil-ii-c1cbdd | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:50 | SKIP | collect:fetch:eanews-ru-rossiya-20261020180432-kak-zaschitit-telefon-ot-sp-236aeb | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:50 | SKIP | collect:fetch:www-iguides-ru-main-other-golosovoy_assistent_megafona_teper-93ffd2 | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:50 | SKIP | collect:fetch:techora-ru-news-spros-na-ii-zashchitu-ot-moshennikov-2026-09-3dd461 | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:50 | SKIP | collect:fetch:www-kaspersky-ru-who-calls-2159b0 | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:50 | SKIP | collect:fetch:yandex-ru-support-id-ru-opredelitel-046608 | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:51 | SKIP | collect:fetch:www-mk-ru-economics-2025-08-14-banki-i-operatory-svyazi-posp-633fd1 | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:35:51 | SKIP | collect:fetch:mk-2025-08-14 | сайт не отдал страницу; проект завершён без этого источника
+- 2026-11-22 17:37:20 | NOTE | watch:2026-11-22 | сторож оснований: проверено 3, изменилось 0

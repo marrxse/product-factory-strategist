@@ -1,0 +1,74 @@
+# Журнал действий: Связь для близких и собственных устройств
+
+> Пишется только командой `python3 sf.py log ...` (и `stage`/`gate`). Формат: время | тип | ключ шага | описание.
+> Типы: START, DONE, FAIL, SKIP, REPEAT, NOTE, STAGE, GATE, CORRECTION, INJECTION, ROUTE.
+
+- 2026-11-22 17:17:22 | NOTE | project:create | Проект создан из megafon
+- 2026-11-22 17:17:22 | STAGE | stage:0:start | Постановка задачи: start
+- 2026-11-22 17:17:37 | STAGE | stage:0:done | Постановка задачи: done
+- 2026-11-22 17:18:18 | GATE | gate:0 | ok
+- 2026-11-22 17:18:18 | STAGE | stage:1:start | Сбор материалов: start
+- 2026-11-22 17:18:50 | START | collect:brief:megafon-brief | Извлекаю показатели и условия брифа в реестр
+- 2026-11-22 17:19:27 | START | collect:fetch:www-dp-ru-a-2026-07-24-v-megaseme-pojavilis-roli-b3cdec | https://www.dp.ru/a/2026/07/24/v-megaseme-pojavilis-roli
+- 2026-11-22 17:19:29 | DONE | collect:fetch:www-dp-ru-a-2026-07-24-v-megaseme-pojavilis-roli-b3cdec | сохранено web-www-dp-ru-a-2026-07-24-v-megaseme-pojavilis-roli-b3cdec-2026-11-22.md
+- 2026-11-22 17:19:29 | START | collect:fetch:lifehacker-ru-megafon-megasemya-9e8b45 | https://lifehacker.ru/megafon-megasemya/
+- 2026-11-22 17:19:32 | DONE | collect:fetch:lifehacker-ru-megafon-megasemya-9e8b45 | сохранено web-lifehacker-ru-megafon-megasemya-9e8b45-2026-11-22.md
+- 2026-11-22 17:19:32 | START | collect:fetch:www-iphones-ru-inotes-rossiyane-stali-chashche-delitsya-minu-9847d2 | https://www.iphones.ru/iNotes/rossiyane-stali-chashche-delitsya-minutami-i-gigabaytami-s-blizkimi
+- 2026-11-22 17:19:34 | DONE | collect:fetch:www-iphones-ru-inotes-rossiyane-stali-chashche-delitsya-minu-9847d2 | сохранено web-www-iphones-ru-inotes-rossiyane-stali-chashche-delitsya-minu-9847d2-2026-11-22.md
+- 2026-11-22 17:19:34 | START | collect:fetch:www-iphones-ru-inotes-megafon-stiraet-granicy-v-megasemyu-mo-043bd9 | https://www.iphones.ru/iNotes/megafon-stiraet-granicy-v-megasemyu-mozhno-dobavit-blizkih-so-vsey-strany
+- 2026-11-22 17:19:35 | DONE | collect:fetch:www-iphones-ru-inotes-megafon-stiraet-granicy-v-megasemyu-mo-043bd9 | сохранено web-www-iphones-ru-inotes-megafon-stiraet-granicy-v-megasemyu-mo-043bd9-2026-11-22.md
+- 2026-11-22 17:19:36 | START | collect:fetch:www-tbank-ru-bank-help-payments-make-payments-setup-auto-bae09a | https://www.tbank.ru/bank/help/payments/make-payments/setup/auto/
+- 2026-11-22 17:19:36 | FAIL | collect:fetch:www-tbank-ru-bank-help-payments-make-payments-setup-auto-bae09a | Сайт недоступен (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)>): https://www.tbank.ru/bank/help/payments/make-payments/setup/auto/
+- 2026-11-22 17:19:37 | START | collect:fetch:www-vtb-ru-personal-platezhi-avtoplatezhi-sotovaja-svjaz-847cca | https://www.vtb.ru/personal/platezhi/avtoplatezhi-sotovaja-svjaz
+- 2026-11-22 17:19:38 | FAIL | collect:fetch:www-vtb-ru-personal-platezhi-avtoplatezhi-sotovaja-svjaz-847cca | Сайт недоступен (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>): https://www.vtb.ru/personal/platezhi/avtoplatezhi-sotovaja-svjaz
+- 2026-11-22 17:19:38 | START | collect:fetch:mobile-review-com-all-news-obedinyajte-blizkih-v-bilajne-i-p-d5ef82 | https://mobile-review.com/all/news/obedinyajte-blizkih-v-bilajne-i-poluchajte-50-gb-za-kazhdyj-novyj-nomer-ezhemesyachno/
+- 2026-11-22 17:19:40 | DONE | collect:fetch:mobile-review-com-all-news-obedinyajte-blizkih-v-bilajne-i-p-d5ef82 | сохранено web-mobile-review-com-all-news-obedinyajte-blizkih-v-bilajne-i-p-d5ef82-2026-11-22.md
+- 2026-11-22 17:19:40 | START | collect:fetch:vm-ru-news-1049086-mts-obuyasnili-izmenivshiesya-usloviya-ra-371aa2 | https://vm.ru/news/1049086-mts-obuyasnili-izmenivshiesya-usloviya-razdachi-interneta
+- 2026-11-22 17:19:41 | DONE | collect:fetch:vm-ru-news-1049086-mts-obuyasnili-izmenivshiesya-usloviya-ra-371aa2 | сохранено web-vm-ru-news-1049086-mts-obuyasnili-izmenivshiesya-usloviya-ra-371aa2-2026-11-22.md
+- 2026-11-22 17:19:42 | START | collect:fetch:media-mts-ru-internet-175949-14b3a5 | https://media.mts.ru/internet/175949
+- 2026-11-22 17:19:43 | FAIL | collect:fetch:media-mts-ru-internet-175949-14b3a5 | Сайт ответил ошибкой 403: https://media.mts.ru/internet/175949
+- 2026-11-22 17:19:44 | START | collect:fetch:www-iguides-ru-main-reviews-megasemya_ot_megafon-7ec33c | https://www.iguides.ru/main/reviews/megasemya_ot_megafon/
+- 2026-11-22 17:19:45 | DONE | collect:fetch:www-iguides-ru-main-reviews-megasemya_ot_megafon-7ec33c | сохранено web-www-iguides-ru-main-reviews-megasemya_ot_megafon-7ec33c-2026-11-22.md
+- 2026-11-22 17:19:53 | START | collect:fetch:www-iguides-ru-main-os-kak_nastroit_avtomaticheskuyu_oplatu_-fe2afd | https://www.iguides.ru/main/os/kak_nastroit_avtomaticheskuyu_oplatu_mobilnoy_svyazi/
+- 2026-11-22 17:19:55 | DONE | collect:fetch:www-iguides-ru-main-os-kak_nastroit_avtomaticheskuyu_oplatu_-fe2afd | сохранено web-www-iguides-ru-main-os-kak_nastroit_avtomaticheskuyu_oplatu_-fe2afd-2026-11-22.md
+- 2026-11-22 17:19:56 | START | collect:fetch:www-iphones-ru-inotes-394030-3fa294 | https://www.iphones.ru/iNotes/394030
+- 2026-11-22 17:19:56 | DONE | collect:fetch:www-iphones-ru-inotes-394030-3fa294 | сохранено web-www-iphones-ru-inotes-394030-3fa294-2026-11-22.md
+- 2026-11-22 17:19:57 | START | collect:fetch:mobile-review-com-articles-2016-tele2-autoplatezh-shtml-2cf97e | https://mobile-review.com/articles/2016/tele2-autoplatezh.shtml
+- 2026-11-22 17:19:58 | DONE | collect:fetch:mobile-review-com-articles-2016-tele2-autoplatezh-shtml-2cf97e | сохранено web-mobile-review-com-articles-2016-tele2-autoplatezh-shtml-2cf97e-2026-11-22.md
+- 2026-11-22 17:19:58 | FAIL | collect:fetch:tbank-autopay | Сертификат сайта не прошёл проверку: tbank.ru
+- 2026-11-22 17:19:58 | FAIL | collect:fetch:vtb-autopay | Сертификат сайта не прошёл проверку: vtb.ru
+- 2026-11-22 17:19:59 | FAIL | collect:fetch:mts-175949 | Сайт ответил 403: media.mts.ru
+- 2026-11-22 17:19:59 | DONE | collect:brief:megafon-brief | 28 записей из брифа, E1–E28
+- 2026-11-22 17:20:03 | START | collect:researcher:web-batch-1 | Извлечение фактов из 10 веб-снимков субагентом researcher
+- 2026-11-22 17:22:46 | DONE | collect:researcher:web-batch-1 | E29–E47, 19 записей
+- 2026-11-22 17:22:54 | CORRECTION | evidence:quality:E46 | качество A → B: рекламный материал оператора, акция истекла 30.03.2025
+- 2026-11-22 17:22:54 | START | collect:classifier:quality | Независимая оценка качества 47 записей
+- 2026-11-22 17:23:36 | CORRECTION | evidence:quality:E29 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:36 | CORRECTION | evidence:quality:E30 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:36 | CORRECTION | evidence:quality:E31 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:37 | CORRECTION | evidence:quality:E33 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:37 | CORRECTION | evidence:quality:E34 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:37 | CORRECTION | evidence:quality:E35 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:37 | CORRECTION | evidence:quality:E45 | качество A → B: сверка с классификатором: описание продукта оператора, но в перепечатке СМИ, не с сайта оператора
+- 2026-11-22 17:23:38 | CORRECTION | evidence:quality:E37 | качество B → C: сверка с классификатором: маркетинговые цифры пресс-релиза без методики
+- 2026-11-22 17:23:38 | CORRECTION | evidence:quality:E38 | качество B → C: сверка с классификатором: маркетинговые цифры пресс-релиза без методики
+- 2026-11-22 17:23:38 | CORRECTION | evidence:quality:E39 | качество B → C: сверка с классификатором: маркетинговые цифры пресс-релиза без методики
+- 2026-11-22 17:23:38 | CORRECTION | evidence:quality:E40 | качество A → C: сверка с классификатором: маркетинговые цифры пресс-релиза без методики
+- 2026-11-22 17:23:39 | CORRECTION | evidence:quality:E41 | качество A → C: сверка с классификатором: условия банка на 2014 год, устарели
+- 2026-11-22 17:23:39 | CORRECTION | evidence:quality:E42 | качество A → C: сверка с классификатором: условия банка на 2014 год, устарели
+- 2026-11-22 17:23:39 | CORRECTION | evidence:quality:E43 | качество A → C: сверка с классификатором: условия банка на 2014 год, устарели
+- 2026-11-22 17:23:39 | CORRECTION | evidence:quality:E32 | качество B → C: сверка с классификатором: пересказ без первоисточника или устаревший материал
+- 2026-11-22 17:23:40 | CORRECTION | evidence:quality:E44 | качество B → C: сверка с классификатором: пересказ без первоисточника или устаревший материал
+- 2026-11-22 17:23:40 | CORRECTION | evidence:quality:E46 | качество B → C: сверка с классификатором: пересказ без первоисточника или устаревший материал
+- 2026-11-22 17:23:40 | CORRECTION | evidence:quality:E47 | качество B → C: сверка с классификатором: пересказ без первоисточника или устаревший материал
+- 2026-11-22 17:23:40 | DONE | collect:classifier:quality | совпало 28/47; 19 расхождений разобраны оркестратором: 7 → B, 12 → C, E36 оставлен C (единичный отзыв)
+- 2026-11-22 17:23:46 | STAGE | stage:1:done | Сбор материалов: done
+- 2026-11-22 17:24:56 | STAGE | stage:2:start | План исследования: start
+- 2026-11-22 17:25:54 | STAGE | stage:2:done | План исследования: done
+- 2026-11-22 17:26:53 | NOTE | session:stop | Остановлено человеком на воротах 2; план не подтверждён, исследование не начато
+- 2026-11-22 17:27:15 | SKIP | collect:fetch:www-tbank-ru-bank-help-payments-make-payments-setup-auto-bae09a | сайт не отдаёт страницу автоматически; пробел записан в открытых вопросах, закрывается в В4 кабинетно
+- 2026-11-22 17:27:16 | SKIP | collect:fetch:www-vtb-ru-personal-platezhi-avtoplatezhi-sotovaja-svjaz-847cca | сайт не отдаёт страницу автоматически; пробел записан в открытых вопросах, закрывается в В4 кабинетно
+- 2026-11-22 17:27:16 | SKIP | collect:fetch:media-mts-ru-internet-175949-14b3a5 | сайт не отдаёт страницу автоматически; пробел записан в открытых вопросах, закрывается в В4 кабинетно
+- 2026-11-22 17:27:16 | SKIP | collect:fetch:tbank-autopay | сайт не отдаёт страницу автоматически; пробел записан в открытых вопросах, закрывается в В4 кабинетно
+- 2026-11-22 17:27:16 | SKIP | collect:fetch:vtb-autopay | сайт не отдаёт страницу автоматически; пробел записан в открытых вопросах, закрывается в В4 кабинетно
+- 2026-11-22 17:27:16 | SKIP | collect:fetch:mts-175949 | сайт не отдаёт страницу автоматически; пробел записан в открытых вопросах, закрывается в В4 кабинетно
