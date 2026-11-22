@@ -1,4 +1,4 @@
-"""Расчёты по брифу МегаФона «Связь для близких и собственных устройств» (воспроизводимо). Версия 2.
+"""Расчёты по брифу МегаФона «Связь для близких и собственных устройств» (воспроизводимо). Версия 3: раскатка с октября, чувствительность.
 
 Версия 2 — по замечаниям критика и проверяющего:
 - активность B считается только по группам, которые без сигнала были бы неактивны;
@@ -22,7 +22,7 @@ OWNERS = {"plan": 1000, "est": 800, "bau": 1000, "target": 2000}   # (E12)
 ACTIV14 = {"plan": 0.50, "est": 0.42, "bau": 0.45, "target": 0.60}  # (E13)
 HH_ACCESSIBLE, OWNERS_ACCESSIBLE = 100_000, 40_000                  # (E8)
 RATE = 500                                                          # руб. за доп. оплаченный месяц номера (E16)
-ROLLOUT = 5                                                         # месяцев работы в плановом году (с августа)
+ROLLOUT = 3                                                         # месяцев работы в плановом году: раскатка не раньше октября (после итога пилота в III квартале)
 
 # --- Допущения [ГИП]: (неблагоприятное, базовое, благоприятное) ---
 PARTICIPANTS = (1.5, 2.0, 2.5)          # участников на группу
@@ -64,6 +64,12 @@ def gap_decomposition() -> None:
           f" охват {CONN['bau'] / HH_ACCESSIBLE:.0%} → {CONN['target'] / HH_ACCESSIBLE:.0%}")
 
 
+def targets() -> None:
+    print(f"   нужная доля активных при {CONN['target']} группах: {ACTIVE['target'] / CONN['target']:.1%};"
+          f" без изменений {ACTIVE['bau'] / CONN['bau']:.1%}; владельцы {OWNERS['bau'] / OWNERS_ACCESSIBLE:.1%}"
+          f" → {OWNERS['target'] / OWNERS_ACCESSIBLE:.1%} доступной базы")
+
+
 def accumulate(prevented_per_month: float, churn: float, months: int) -> float:
     total, kept = 0.0, 0.0
     for _ in range(months):
@@ -101,7 +107,9 @@ def compare() -> None:
     b12, e12 = option_b(1, 12), option_e(1, 12)
     print(f"   первые 12 месяцев работы (базовый): B {b12['money']:+.2f} млн, E {e12['money']:+.2f} млн;"
           f" нужно {fmt(need)} мес. = 6 млн руб.")
-    print(f"   потребность другого пути (F): ≈{fmt(need / 3)} новых номеров с августа, если каждый даёт {RATE} руб./мес. [ГИП]")
+    avg = sum(range(1, ROLLOUT + 1)) / ROLLOUT
+    print(f"   потребность другого пути (F): ≈{fmt(need / avg)} новых номеров с октября (в среднем {avg:.0f} оплаченных месяца в году),"
+          f" если каждый даёт {RATE} руб./мес., без стоимости бонуса [ГИП]")
 
 
 def per_arm(p1: float, p2: float) -> int:
@@ -126,7 +134,31 @@ def pilot() -> None:
     print(f"   владельцы (E): пул {fmt(OWNERS['est'])} подключённых, согласие другого человека не нужно; совместимых групп {fmt(sms_pool)}")
 
 
+def sensitivity() -> None:
+    """Какое допущение сильнее всего меняет пользу B (ограничений меньше в месяц) и деньги B за 12 месяцев."""
+    params = {"PARTICIPANTS": "участников на группу", "LOW_EVENT": "частота низкого остатка",
+              "COMPATIBLE": "совместимые тарифы", "PERMISSION": "разрешение участника",
+              "EFFECT": "сила эффекта сигнала", "CHURN_AFTER_RESTRICT": "уход после ограничения",
+              "ADDON_BUY": "покупка допакета после ограничения"}
+    g = globals()
+    rows = []
+    for name, label in params.items():
+        orig = g[name]
+        res = []
+        for idx in (0, 2):
+            g[name] = tuple(orig[idx] for _ in range(3))
+            b = option_b(1, 12)
+            res.append((b["prevented"], b["money"]))
+        g[name] = orig
+        rows.append((abs(res[1][0] - res[0][0]), label, res[0], res[1]))
+    print("Чувствительность B (одно допущение от неблагоприятного к благоприятному, остальные базовые):")
+    for swing, label, lo, hi in sorted(rows, reverse=True):
+        print(f"   {label}: ограничений меньше {lo[0]:.0f} … {hi[0]:.0f} в мес.; деньги за 12 мес. {lo[1]:+.2f} … {hi[1]:+.2f} млн")
+
+
 if __name__ == "__main__":
     gap_decomposition()
+    targets()
     compare()
     pilot()
+    sensitivity()
