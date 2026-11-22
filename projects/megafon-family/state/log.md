@@ -62,3 +62,4 @@
 - 2026-11-22 01:58:39 | CORRECTION | evidence:revoke:E61 | заменено E65 (модель владельцев версии 2)
 - 2026-11-22 01:58:39 | CORRECTION | evidence:revoke:E63 | заменено E65 (модель владельцев версии 2)
 - 2026-11-22 01:58:53 | CORRECTION | evidence:revoke:E62 | заменено E66 (прогноз версии 7)
+- 2026-11-22 08:54:59 | CORRECTION | evidence:revoke:E66 | заменено E68 (прогноз версии 8)

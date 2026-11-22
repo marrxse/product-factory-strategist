@@ -72,3 +72,19 @@ if __name__ == "__main__":
         cum += (prevented * LOST_MONTH[1] + kept) * RATE - reach * 2 * 1.0
         if month % 3 == 0:
             print(f"   E, месяц {month:2d} после раскатки: накоплено {cum / 1e6:+.2f} млн руб. против вложений {invest} млн")
+    # второй год из того же цикла и окупаемость при уходе 5%
+    for churn in (0.10, 0.05):
+        reach = ACCESSIBLE * IDENTIFIED[1]
+        prevented = reach * STOP_RATE[1] * PREVENTED[1]
+        kept, cum, y1, y2, pay = 0.0, 0.0, 0.0, 0.0, None
+        for month in range(1, 37):
+            kept = kept * 0.98 + prevented * churn
+            net = (prevented * LOST_MONTH[1] + kept) * RATE - reach * 2 * 1.0
+            cum += net
+            if month <= 12:
+                y1 += net
+            elif month <= 24:
+                y2 += net
+            if pay is None and cum >= invest * 1e6:
+                pay = month
+        print(f"уход после остановки {churn:.0%}: чистыми год 1 {y1 / 1e6:+.2f} млн, год 2 {y2 / 1e6:+.2f} млн; окупаемость {pay} мес.")
